@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.xinzhizhu.dao.CommentDao">
+
+	<select id="get" resultType="com.neteye.xinzhizhu.domain.CommentDO">
+		select `comment_id`,`user_id`,`order_id`,`comment_type`,`object_id`,`comment`,`creat_time`,`status` from usr_comment where comment_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.xinzhizhu.domain.CommentDO">
+		select `comment_id`,`user_id`,`order_id`,`comment_type`,`object_id`,`comment`,`creat_time`,`status` from usr_comment
+        <where>  
+		  		  <if test="commentId != null and commentId != ''"> and comment_id = #{commentId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="orderId != null and orderId != ''"> and order_id = #{orderId} </if>
+		  		  <if test="commentType != null and commentType != ''"> and comment_type = #{commentType} </if>
+		  		  <if test="objectId != null and objectId != ''"> and object_id = #{objectId} </if>
+		  		  <if test="comment != null and comment != ''"> and comment = #{comment} </if>
+		  		  <if test="creatTime != null and creatTime != ''"> and creat_time = #{creatTime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by comment_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from usr_comment
+		 <where>  
+		  		  <if test="commentId != null and commentId != ''"> and comment_id = #{commentId} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="orderId != null and orderId != ''"> and order_id = #{orderId} </if>
+		  		  <if test="commentType != null and commentType != ''"> and comment_type = #{commentType} </if>
+		  		  <if test="objectId != null and objectId != ''"> and object_id = #{objectId} </if>
+		  		  <if test="comment != null and comment != ''"> and comment = #{comment} </if>
+		  		  <if test="creatTime != null and creatTime != ''"> and creat_time = #{creatTime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.CommentDO">
+		insert into usr_comment
+		(
+			`comment_id`, 
+			`user_id`, 
+			`order_id`, 
+			`comment_type`, 
+			`object_id`, 
+			`comment`, 
+			`creat_time`, 
+			`status`
+		)
+		values
+		(
+			#{commentId}, 
+			#{userId}, 
+			#{orderId}, 
+			#{commentType}, 
+			#{objectId}, 
+			#{comment}, 
+			#{creatTime}, 
+			#{status}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.xinzhizhu.domain.CommentDO">
+		update usr_comment 
+		<set>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="orderId != null">`order_id` = #{orderId}, </if>
+			<if test="commentType != null">`comment_type` = #{commentType}, </if>
+			<if test="objectId != null">`object_id` = #{objectId}, </if>
+			<if test="comment != null">`comment` = #{comment}, </if>
+			<if test="creatTime != null">`creat_time` = #{creatTime}, </if>
+			<if test="status != null">`status` = #{status}</if>
+		</set>
+		where comment_id = #{commentId}
+	</update>
+	
+	<delete id="remove">
+		delete from usr_comment where comment_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from usr_comment where comment_id in 
+		<foreach item="commentId" collection="array" open="(" separator="," close=")">
+			#{commentId}
+		</foreach>
+	</delete>
+
+</mapper>

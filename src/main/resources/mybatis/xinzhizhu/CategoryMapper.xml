@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.xinzhizhu.dao.CategoryDao">
+
+	<select id="get" resultType="com.neteye.xinzhizhu.domain.CategoryDO">
+		select `category_id`,`category_name`,`category_type`,`content`,`image_url`,`createtime`,`status` from sys_category where category_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.xinzhizhu.domain.CategoryDO">
+		select `category_id`,`category_name`,`category_type`,`content`,`image_url`,`createtime`,`status` from sys_category
+        <where>  
+		  		  <if test="categoryId != null and categoryId != ''"> and category_id = #{categoryId} </if>
+		  		  <if test="categoryName != null and categoryName != ''"> and category_name = #{categoryName} </if>
+		  		  <if test="categoryType != null and categoryType != ''"> and category_type = #{categoryType} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="imageUrl != null and imageUrl != ''"> and image_url = #{imageUrl} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createtime = #{createtime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by category_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_category
+		 <where>  
+		  		  <if test="categoryId != null and categoryId != ''"> and category_id = #{categoryId} </if>
+		  		  <if test="categoryName != null and categoryName != ''"> and category_name = #{categoryName} </if>
+		  		  <if test="categoryType != null and categoryType != ''"> and category_type = #{categoryType} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="imageUrl != null and imageUrl != ''"> and image_url = #{imageUrl} </if>
+		  		  <if test="createtime != null and createtime != ''"> and createtime = #{createtime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.CategoryDO" useGeneratedKeys="true" keyProperty="categoryId">
+		insert into sys_category
+		(
+			`category_name`, 
+			`category_type`, 
+			`content`, 
+			`image_url`, 
+			`createtime`, 
+			`status`
+		)
+		values
+		(
+			#{categoryName}, 
+			#{categoryType}, 
+			#{content}, 
+			#{imageUrl}, 
+			#{createtime}, 
+			#{status}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.xinzhizhu.domain.CategoryDO">
+		update sys_category 
+		<set>
+			<if test="categoryName != null">`category_name` = #{categoryName}, </if>
+			<if test="categoryType != null">`category_type` = #{categoryType}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="imageUrl != null">`image_url` = #{imageUrl}, </if>
+			<if test="createtime != null">`createtime` = #{createtime}, </if>
+			<if test="status != null">`status` = #{status}</if>
+		</set>
+		where category_id = #{categoryId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_category where category_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_category where category_id in 
+		<foreach item="categoryId" collection="array" open="(" separator="," close=")">
+			#{categoryId}
+		</foreach>
+	</delete>
+
+</mapper>

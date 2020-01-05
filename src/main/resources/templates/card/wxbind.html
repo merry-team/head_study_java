@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-type" name="viewport"
+	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>分享通信-赚卡</title>
+<link rel="shortcut icon" href="favicon.ico">
+<style>
+body, form, ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, table,
+	fieldset, th {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	color: #555;
+	line-height: 28px;
+	font-family: "微软雅黑";
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+em, i {
+	font-style: normal;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	font-family: "微软雅黑";
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+body, h1, h2, h3, h4, h5, h6, div, hr, p, blockquote, dl, dt, dd, ul, ol,
+	li, pre, form, fieldset, legend, button, input, textarea, t
+h, td {
+	margin: 0;
+	padding: 0
+}
+
+a {
+	text-decoration: none;
+	color: #555;
+	font-family: "微软雅黑";
+}
+
+body {
+	margin: 0 auto;
+	max-width: 1000px;
+	min-width: 320px;
+	position: relative;
+}
+
+.earningcard {
+	position: absolute;
+	bottom: 59%;
+	left: 2%;
+	text-align: center;
+	margin: 0 auto;
+	z-index: 9999;
+	width: 96%;
+	height: 5%;
+}
+
+.earningcard-nr {
+	text-align: center;
+}
+
+.lnputbox_frame {
+	margin: 0px 0px 0px 10px;
+	width: 93%;
+	color: #7D7D7D;
+	height: 45px;
+	border-radius: 4px;
+	line-height: 30px;
+	border: 0px solid #CFCFCF;
+	padding: 0px 5px;
+	font-size: 14px;
+}
+
+.earningcard-nr p {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<img src="/img/zkimg2.jpg" width="100%" />
+	<div th:switch="${code}">
+		<div th:case="0" class="earningcard">
+			<img src="/img/al16.png" width="40%" />
+			<div style="color: #FFF; font-weight: bold; padding-top: 20px; font-size: 14px;">微信绑定成功，赶紧去提现吧！</div>
+		</div>
+		<div th:case="-2" class="earningcard">
+			<img src="/img/al17.png" width="40%"/>
+			<div style="color: #FFF; font-weight: bold; padding-top: 20px; font-size: 14px;">微信绑定失败,请在微信中访问！</div>
+			<div class="earningcard-nr"></div>
+		</div>
+		<div th:case="-1" class="earningcard">
+			<a th:href="@{'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+${appid}+'&redirect_uri=http://card.10039.cc/wx/saveopenid&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'}"><img src="/img/al15.png" width="90%" /></a>
+			<div class="earningcard-nr"></div>
+		</div>
+	</div>
+</body>
+</html>

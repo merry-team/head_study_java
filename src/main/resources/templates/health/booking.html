@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>小e健康管理平台</title>
+    <meta name="keywords" content="小e健康管理平台管理系统">
+    <meta name="description" content="小e健康管理平台系统">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
+    <link href="/css/layui.css" rel="stylesheet">
+    <link href="/css/modules/laydate/default/laydate.css" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <script>
+        if (window.top !== window.self) {
+            window.top.location = window.location;
+        }
+    </script>
+
+</head>
+
+<body class="signinh5">
+<div class="signinpanel">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="signin-info">
+                <div class="m-b"></div>
+                <h3>
+                    欢迎 <strong>[[${users.name}]]</strong> 用户
+                </h3>
+                <br>
+                 <h3>
+                    您的体检套餐是
+                </h3>
+            </div>
+        </div>
+        <div class="col-sm-5">
+        					<div class="ibox-content">
+            <form id="signupForm">
+                <h3 class="text-center">预约体检</h3>
+                <p class="m-t-md">请选择您所在的省</p>
+                <select class="form-control" name="provinceId" id="provinceId">                                                             
+						<option>--请选择省--</option>
+				</select>
+				<p class="m-t-md">请选择您所在的市</p>
+				<select class="form-control" name="cityId" id="cityId">                                                             
+					<option>--请选择地市--</option>
+				</select>
+				<p class="m-t-md">请选择预约日期</p>
+				<input type="text" class="layui-input" id="bookingDate" placeholder="yyyy-MM-dd" name="bookingDate" style="height:30px;width:180px;">
+                <p class="m-t-md">请选择体检机构</p>
+				<select class="form-control" name="companyId" id="companyId">                                                             
+					<option>--请选择体检机构--</option>
+				</select>
+                <p class="m-t-md">请选择分公司</p>
+				<select class="form-control" name="bookingDepart" id="bookingDepart">                                                             
+					<option>--请选择分公司--</option>
+				</select>			
+                <a id="login" class="btn btn-login btn-block">预约</a>
+
+                <!--按钮模块-->
+                <div class="outside-login">
+                    <div class="outside-login-tit">
+                        <span>温馨提示</span>
+                    </div>
+                    <div class="outside-login-cot">
+                       <span>客服热线：400-1400-400</span>
+                       <br>
+                       <span>客服服务时间 工作日 8:00 - 18:00</span>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="signup-footer">
+        <div class="pull-left">&copy; 2019 All Rights Reserved. 小e健康管理平台
+        </div>
+    </div>
+</div>
+<script th:inline="javascript"> var ctx = [[@{/}]] ; </script>
+<!-- 全局js -->
+<script src="/js/jquery.min.js?v=2.1.4" th:src="@{/js/jquery.min.js?v=2.1.4}"></script>
+<script src="/js/bootstrap.min.js?v=3.3.6" th:src="@{/js/bootstrap.min.js?v=3.3.6}"></script>
+
+<!-- 自定义js -->
+<script src="/js/content.js?v=1.0.0" th:src="@{/js/content.js?v=1.0.0}"></script>
+<script type="text/javascript" src="/js/lay/modules/laydate.js"></script>
+<!-- jQuery Validation plugin javascript-->
+<script src="/js/ajax-util.js"></script>
+<script src="/js/plugins/validate/jquery.validate.min.js" th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+<script src="/js/plugins/validate/messages_zh.min.js" th:src="@{/js/plugins/validate/messages_zh.min.js}"></script>
+<script src="/js/plugins/layer/layer.min.js" th:src="@{/js/plugins/layer/layer.min.js}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#login").on('click',function(){$("#signupForm").submit();});
+        $("#reg").on('click',function(){layer.msg("暂时未开放注册入口"); return false;});
+        validateRule();
+        setProvince();
+        setCompany();
+        
+    });
+
+    $.validator.setDefaults({
+        submitHandler: function () {
+            login();
+        }
+    });
+
+    function login() {
+        $.ajax({
+            type: "POST",
+            url: ctx+"healthlogin/savebooking",
+            data: $('#signupForm').serialize(),
+            success: function (r) {
+                 if (r.code == 0) {
+                    var index = layer.load(1, {
+                        shade: [0.1,'#fff'] //0.1透明度的白色背景
+                    });
+                    layer.msg("预约成功"); 
+                    parent.location.href = '/healthlogin/';
+                } else {
+                	layer.msg(r.message); 
+                }
+            },
+        });
+    }
+
+    function validateRule() {
+        var icon = "<i class='fa fa-times-circle'></i> ";
+        $("#signupForm").validate({
+            rules: {
+            	bookingDepart: {
+                    required: true
+                },
+                bookingDate: {
+                    required: true
+                }
+            },
+            messages: {
+            	bookingDepart: {
+                    required: icon + "请选择预约的体检分公司",
+                },
+                bookingDate: {
+                    required: icon + "请选择预约日期",
+                }
+            }
+        })
+    }
+    
+
+    function setProvince() {
+    	$("#provinceId option").remove();
+    	var html = "<option value=''>--请选择省--</option>";
+    	$("#provinceId option").append(html);
+    	 
+    	$.ajax({
+    		cache : true,
+    		type : "POST",
+    		url : "/api/region/provinceList",
+    		async : true,
+    		error : function(request) {
+    			parent.layer.alert("Connection error");
+    		},
+    		success : function(data) {
+    			if (data.errno == 0) {
+    			    $.each(data.data,function(idx,item){	
+    			            html +="<option value="+item.id+" >"+ item.name +"</option> ";
+    			    });
+    			    $("#provinceId ").append(html);
+    			} else {
+    				$("#provinceId ").append(html);
+    			}
+
+    		}
+    	});
+    }
+    
+    $("#provinceId").change(function(){
+        if ($(this).val() == "") return;
+        $("#cityId option").remove();
+        //var code = $(this).find("option:selected").val();
+        var code = $(this).find("option:selected").text();
+        console.info($(this).find("option:selected").text())
+        var html = "<option value=''>--请选择市---</option>";
+        $("#cityId option").append(html);
+        
+    	$.ajax({
+    		cache : true,
+    		type : "POST",
+    		url : "/api/region/cityList",
+    		async : true,
+    		data : "proviceName="+code,
+    		error : function(request) {
+    			parent.layer.alert("Connection error");
+    		},
+    		success : function(data) {
+    			if (data.errno == 0) {
+    			    $.each(data.data,function(idx,item){	
+    			            html +="<option value="+item.id+" >"+ item.name +"</option> ";
+    			    });
+    			    $("#cityId ").append(html);
+    			} else {
+    				$("#cityId ").append(html);
+    			}
+
+    		}
+    	});  
+    	setDepart();
+    });
+    
+    var bookingdate = GetDateStr(5);
+    
+    laydate.render({
+    	  elem: '#bookingDate', //指定元素
+    	  type: 'date',
+    	  min: 5,
+    	  max: 35,
+    	  value: bookingdate
+    	});
+    
+    function setCompany() {
+    	$("#companyId option").remove();
+    	var html = "<option value=''>--请选择体检机构--</option>";
+    	$("#companyId option").append(html);
+    	 
+    	$.ajax({
+    		cache : true,
+    		type : "POST",
+    		url : "/api/health/listcompany",
+    		async : true,
+    		error : function(request) {
+    			parent.layer.alert("Connection error");
+    		},
+    		success : function(data) {
+    			if (data.errno == 0) {
+    			    $.each(data.data,function(idx,item){	
+    			            html +="<option value="+item.companyId+" >"+ item.companyName +"</option> ";
+    			    });
+    			    $("#companyId").append(html);
+    			} else {
+    				$("#companyId").append(html);
+    			}
+
+    		}
+    	});
+    }
+    
+    function setDepart() {
+        $("#bookingDepart option").remove();
+        var code = $("#companyId").find("option:selected").val();
+        var provinceId = $("#provinceId").find("option:selected").val();
+        var cityId = $("#cityId").find("option:selected").val();
+        var bookingDate = $("#bookingDate").val();
+        var html = "<option value=''>--请选择分公司---</option>";
+        $("#bookingDepart option").append(html);
+        if(code=="" ||provinceId==""||cityId==""||bookingDate=="" ) return ;
+    	$.ajax({
+    		cache : true,
+    		type : "POST",
+    		url : "/api/health/listdepart",
+    		async : true,
+    		data : "companyId="+code+"&provinceId="+provinceId+"&cityId="+cityId+"&bookingDate="+bookingDate,
+    		error : function(request) {
+    			parent.layer.alert("Connection error");
+    		},
+    		success : function(data) {
+    			if (data.errno == 0) {
+    			    $.each(data.data,function(idx,item){	
+    			            html +="<option value="+item.departmentId+" >"+ item.departmentName +"</option> ";
+    			    });
+    			    $("#bookingDepart").append(html);
+    			} else {
+    				$("#bookingDepart").append(html);
+    			}
+
+    		}
+    	});
+    }
+    
+    $("#companyId").change(function(){
+    		setDepart();
+    });
+    $("#cityId").change(function(){
+    		setDepart();
+    });
+    $("#bookingDate").change(function(){
+    		setDepart();
+    });
+    
+   　      function GetDateStr(AddDayCount) {   
+	　　　　var dd = new Date();  
+	　　　　dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期  
+	　　　　var y = dd.getFullYear();   
+	　　　　var m = (dd.getMonth()+1)<10?"0"+(dd.getMonth()+1):(dd.getMonth()+1);//获取当前月份的日期，不足10补0  
+	　　　　var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0  
+	　　　　return y+"-"+m+"-"+d;   
+
+	　　}  
+</script>
+</body>
+</html>

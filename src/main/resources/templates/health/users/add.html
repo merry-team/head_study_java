@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content ">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">证件号码：</label>
+								<div class="col-sm-8">
+									<input id="idcard" name="idcard" class="form-control" type="text" placeholder="请输入身份证号码" >
+								</div>
+							</div>
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">证件用户姓名：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" class="form-control" type="text" placeholder="请输入姓名" >
+								</div>
+							</div>
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">手机：</label>
+								<div class="col-sm-8">
+									<input id="mobile" name="mobile" class="form-control" type="text" placeholder="请输入手机号码" >
+								</div>
+							</div>
+						<div class="form-group">	
+								<label class="col-sm-3 control-label">性别：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择性别" class="form-control chosen-select" id="gender" name="gender"
+										tabindex="2" style="width: 100%">
+										<option value="">选择性别</option>
+										<option value="0">女</option>
+										<option value="1">男</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">是否结婚：</label>
+								<div class="col-sm-8">
+										<select data-placeholder="选择婚否" class="form-control chosen-select" id="marry" name="marry"
+										tabindex="2" style="width: 100%">
+										<option value="">选择婚否</option>
+										<option value="0">未婚</option>
+										<option value="1">已婚</option>
+									</select>
+								</div>
+							</div>
+     						<div class="form-group">	
+								<label class="col-sm-3 control-label">付费类型:：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择付费类型" class="form-control chosen-select" id="type" name="type"
+										tabindex="2" style="width: 100%">
+										<option value="">选择付费类型</option>
+										<option value="1" selected=selected>企业付费</option>
+										<!--option value="2">自费</option!-->
+									</select>
+								</div>
+							</div>
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">公司名称：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择员工企业" class="form-control chosen-select" id="companyId" name="companyId"
+										tabindex="2" style="width: 100%">
+										<option value="">选择公司名称</option>
+										<option  th:each="entries,stat:${companyList}" th:value="${entries['companyId']}" th:text="${entries['companyName']}"></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">	
+								<label class="col-sm-3 control-label">企业付费产品：</label>
+								<div class="col-sm-8">
+									<select data-placeholder="选择产品" class="form-control chosen-select" id="goodId" name="goodId"
+										tabindex="2" style="width: 100%">
+										<option value="">选择产品名称</option>
+										<option  th:each="entries,stat:${goodList}" th:value="${entries['id']}" th:text="${entries['goodName']}"></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script type="text/javascript" src="/js/appjs/health/users/add.js">
+	</script>
+</body>
+</html>

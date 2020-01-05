@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.health.dao.CompanyDao">
+
+	<select id="get" resultType="com.neteye.health.domain.CompanyDO">
+		select `company_id`,`company_name`,`type`,`status`,`create_user`,`modified_user`,`create_time`,`modified_time` from sys_company where company_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.health.domain.CompanyDO">
+		select `company_id`,`company_name`,`type`,`status`,`create_user`,`modified_user`,`create_time`,`modified_time` from sys_company
+        <where>  
+		  		  <if test="companyId != null and companyId != ''"> and company_id = #{companyId} </if>
+		  		  <if test="companyName != null and companyName != ''"> and company_name = #{companyName} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by company_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_company
+		 <where>  
+		  		  <if test="companyId != null and companyId != ''"> and company_id = #{companyId} </if>
+		  		  <if test="companyName != null and companyName != ''"> and company_name = #{companyName} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.health.domain.CompanyDO">
+		insert into sys_company
+		(
+			`company_id`, 
+			`company_name`, 
+			`type`, 
+			`status`, 
+			`create_user`, 
+			`modified_user`, 
+			`create_time`, 
+			`modified_time`
+		)
+		values
+		(
+			#{companyId}, 
+			#{companyName}, 
+			#{type}, 
+			#{status}, 
+			#{createUser}, 
+			#{modifiedUser}, 
+			#{createTime}, 
+			#{modifiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.health.domain.CompanyDO">
+		update sys_company 
+		<set>
+			<if test="companyName != null">`company_name` = #{companyName}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="createUser != null">`create_user` = #{createUser}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where company_id = #{companyId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_company where company_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_company where company_id in 
+		<foreach item="companyId" collection="array" open="(" separator="," close=")">
+			#{companyId}
+		</foreach>
+	</delete>
+
+</mapper>

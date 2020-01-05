@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.health.dao.GoodDao">
+
+	<select id="get" resultType="com.neteye.health.domain.GoodDO">
+		select `id`,`good_name`,`goods_brief`,`goods_desc`,`type`,`sort_order`,`is_on_sale`,`add_time`,`counter_price`,`retail_price`,`primary_pic_url`,`list_pic_url` from cs_good where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.health.domain.GoodDO">
+		select `id`,`good_name`,`goods_brief`,`goods_desc`,`type`,`sort_order`,`is_on_sale`,`add_time`,`counter_price`,`retail_price`,`primary_pic_url`,`list_pic_url` from cs_good
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="goodName != null and goodName != ''"> and good_name = #{goodName} </if>
+		  		  <if test="goodsBrief != null and goodsBrief != ''"> and goods_brief = #{goodsBrief} </if>
+		  		  <if test="goodsDesc != null and goodsDesc != ''"> and goods_desc = #{goodsDesc} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="sortOrder != null and sortOrder != ''"> and sort_order = #{sortOrder} </if>
+		  		  <if test="isOnSale != null and isOnSale != ''"> and is_on_sale = #{isOnSale} </if>
+		  		  <if test="addTime != null and addTime != ''"> and add_time = #{addTime} </if>
+		  		  <if test="counterPrice != null and counterPrice != ''"> and counter_price = #{counterPrice} </if>
+		  		  <if test="retailPrice != null and retailPrice != ''"> and retail_price = #{retailPrice} </if>
+		  		  <if test="primaryPicUrl != null and primaryPicUrl != ''"> and primary_pic_url = #{primaryPicUrl} </if>
+		  		  <if test="listPicUrl != null and listPicUrl != ''"> and list_pic_url = #{listPicUrl} </if>		  		  
+		  		  <if test="gender != null and gender == 1 "> and type in (0,1) </if>
+		  		  <if test="gender != null and gender == 0 and marry != null and marry  == 0 "> and type in (0,3) </if>
+		  		  <if test="gender != null and gender == 0 and marry != null and marry  == 1 "> and type in (0,2) </if>
+		  		  <if test="userId != null  and userId != '' "> and not exists (select 1 from cs_orders where cs_orders.good_id = cs_good.id and cs_orders.pay_status=2 and cs_orders.user_id = #{userId} ) </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from cs_good
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="goodName != null and goodName != ''"> and good_name = #{goodName} </if>
+		  		  <if test="goodsBrief != null and goodsBrief != ''"> and goods_brief = #{goodsBrief} </if>
+		  		  <if test="goodsDesc != null and goodsDesc != ''"> and goods_desc = #{goodsDesc} </if>
+		  		  <if test="type != null and type != ''"> and type = #{type} </if>
+		  		  <if test="sortOrder != null and sortOrder != ''"> and sort_order = #{sortOrder} </if>
+		  		  <if test="isOnSale != null and isOnSale != ''"> and is_on_sale = #{isOnSale} </if>
+		  		  <if test="addTime != null and addTime != ''"> and add_time = #{addTime} </if>
+		  		  <if test="counterPrice != null and counterPrice != ''"> and counter_price = #{counterPrice} </if>
+		  		  <if test="retailPrice != null and retailPrice != ''"> and retail_price = #{retailPrice} </if>
+		  		  <if test="primaryPicUrl != null and primaryPicUrl != ''"> and primary_pic_url = #{primaryPicUrl} </if>
+		  		  <if test="listPicUrl != null and listPicUrl != ''"> and list_pic_url = #{listPicUrl} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.health.domain.GoodDO" useGeneratedKeys="true" keyProperty="id">
+		insert into cs_good
+		(
+			`good_name`, 
+			`goods_brief`, 
+			`goods_desc`, 
+			`type`, 
+			`sort_order`, 
+			`is_on_sale`, 
+			`add_time`, 
+			`counter_price`, 
+			`retail_price`, 
+			`primary_pic_url`, 
+			`list_pic_url`
+		)
+		values
+		(
+			#{goodName}, 
+			#{goodsBrief}, 
+			#{goodsDesc}, 
+			#{type}, 
+			#{sortOrder}, 
+			#{isOnSale}, 
+			#{addTime}, 
+			#{counterPrice}, 
+			#{retailPrice}, 
+			#{primaryPicUrl}, 
+			#{listPicUrl}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.health.domain.GoodDO">
+		update cs_good 
+		<set>
+			<if test="goodName != null">`good_name` = #{goodName}, </if>
+			<if test="goodsBrief != null">`goods_brief` = #{goodsBrief}, </if>
+			<if test="goodsDesc != null">`goods_desc` = #{goodsDesc}, </if>
+			<if test="type != null">`type` = #{type}, </if>
+			<if test="sortOrder != null">`sort_order` = #{sortOrder}, </if>
+			<if test="isOnSale != null">`is_on_sale` = #{isOnSale}, </if>
+			<if test="addTime != null">`add_time` = #{addTime}, </if>
+			<if test="counterPrice != null">`counter_price` = #{counterPrice}, </if>
+			<if test="retailPrice != null">`retail_price` = #{retailPrice}, </if>
+			<if test="primaryPicUrl != null">`primary_pic_url` = #{primaryPicUrl}, </if>
+			<if test="listPicUrl != null">`list_pic_url` = #{listPicUrl}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from cs_good where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from cs_good where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

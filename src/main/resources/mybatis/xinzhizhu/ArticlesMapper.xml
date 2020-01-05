@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.xinzhizhu.dao.ArticlesDao">
+
+	<select id="get" resultType="com.neteye.xinzhizhu.domain.ArticlesDO">
+		select `article_id`,`article_title`,`category_id`,`content`,`image_url`,`author`,`read_count`,`collect_count`,`comment_count`,`creat_time`,`status` from sys_articles where article_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.xinzhizhu.domain.ArticlesDO">
+		select a.article_id,a.article_title,a.category_id ,b.category_name ,a.content,a.`image_url`,a.author,a.read_count,a.collect_count,a.comment_count,a.creat_time,a.status from sys_articles a,sys_category b
+        <where>  
+        	a.category_id = b.category_id and b.category_type = 3 and a.status=1
+		  		  <if test="articleId != null and articleId != ''"> and a.article_id = #{articleId} </if>
+		  		  <if test="articleTitle != null and articleTitle != ''"> and a.article_title = #{articleTitle} </if>
+		  		  <if test="categoryId != null and categoryId != ''"> and a.category_id = #{categoryId} </if>
+		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
+		  		  <if test="author != null and author != ''"> and a.author = #{author} </if>
+		  		  <if test="readCount != null and readCount != ''"> and a.read_count = #{readCount} </if>
+		  		  <if test="collectCount != null and collectCount != ''"> and a.collect_count = #{collectCount} </if>
+		  		  <if test="commentCount != null and commentCount != ''"> and a.comment_count = #{commentCount} </if>
+		  		  <if test="creatTime != null and creatTime != ''"> and a.creat_time = #{creatTime} </if>
+		  		  <if test="status != null and status != ''"> and a.status = #{status} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by a.article_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_articles
+		 <where>  
+		  		  <if test="articleId != null and articleId != ''"> and article_id = #{articleId} </if>
+		  		  <if test="articleTitle != null and articleTitle != ''"> and article_title = #{articleTitle} </if>
+		  		  <if test="categoryId != null and categoryId != ''"> and category_id = #{categoryId} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="author != null and author != ''"> and author = #{author} </if>
+		  		  <if test="readCount != null and readCount != ''"> and read_count = #{readCount} </if>
+		  		  <if test="collectCount != null and collectCount != ''"> and collect_count = #{collectCount} </if>
+		  		  <if test="commentCount != null and commentCount != ''"> and comment_count = #{commentCount} </if>
+		  		  <if test="creatTime != null and creatTime != ''"> and creat_time = #{creatTime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.ArticlesDO" useGeneratedKeys="true" keyProperty="articleId">
+		insert into sys_articles
+		(
+			`article_title`, 
+			`category_id`, 
+			`content`,
+			`image_url`, 
+			`author`, 
+			`read_count`, 
+			`collect_count`, 
+			`comment_count`, 
+			`creat_time`, 
+			`status`
+		)
+		values
+		(
+			#{articleTitle}, 
+			#{categoryId}, 
+			#{content}, 
+			#{imageUrl},
+			#{author}, 
+			#{readCount}, 
+			#{collectCount}, 
+			#{commentCount}, 
+			#{creatTime}, 
+			#{status}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.xinzhizhu.domain.ArticlesDO">
+		update sys_articles 
+		<set>
+			<if test="articleTitle != null">`article_title` = #{articleTitle}, </if>
+			<if test="categoryId != null">`category_id` = #{categoryId}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="imageUrl != null">`image_url` = #{imageUrl}, </if>
+			<if test="author != null">`author` = #{author}, </if>
+			<if test="readCount != null">`read_count` = #{readCount}, </if>
+			<if test="collectCount != null">`collect_count` = #{collectCount}, </if>
+			<if test="commentCount != null">`comment_count` = #{commentCount}, </if>
+			<if test="creatTime != null">`creat_time` = #{creatTime}, </if>
+			<if test="status != null">`status` = #{status}</if>
+		</set>
+		where article_id = #{articleId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_articles where article_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_articles where article_id in 
+		<foreach item="articleId" collection="array" open="(" separator="," close=")">
+			#{articleId}
+		</foreach>
+	</delete>
+
+	<update id="updateplus" parameterType="com.neteye.xinzhizhu.domain.ArticlesDO">
+		update sys_articles 
+		<set>
+			<if test="readCount != null">`read_count` = `read_count`+ #{readCount}, </if>
+			<if test="collectCount != null">`collect_count` = `collect_count` + #{collectCount}, </if>
+			<if test="commentCount != null">`comment_count` = `comment_count` +  #{commentCount}, </if>
+		</set>
+		where article_id = #{articleId}
+	</update>
+</mapper>

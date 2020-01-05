@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.health.dao.OrdersDao">
+
+	<select id="get" resultType="com.neteye.health.domain.OrdersDO">
+		select a.`id`,a.`order_sn`,a.`user_id`,a.`order_status`,a.`pay_type`,a.`pay_status`,a.`mobile`,a.`postscript`,a.`pay_id`,a.`good_id`,a.`good_name`,a.`order_price`,a.`goods_price`,a.`add_time`,a.`confirm_time`,a.`pay_time`,a.`order_type`,a.`booking_date`,a.`booking_depart`,a.`booking_status`,b.`idcard`,b.`name`,(select c.`department_name` from sys_department c where a.booking_depart = c.department_id) department_name  from cs_orders a,cs_users b  where a.user_id = b.id and a.id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.health.domain.OrdersDO">
+		select a.`id`,a.`order_sn`,a.`user_id`,a.`order_status`,a.`pay_type`,a.`pay_status`,a.`mobile`,a.`postscript`,a.`pay_id`,a.`good_id`,a.`good_name`,a.`order_price`,a.`goods_price`,a.`add_time`,a.`confirm_time`,a.`pay_time`,a.`order_type`,a.`booking_date`,a.`booking_depart`,a.`booking_status`,b.`idcard`,b.`name`,(select c.`department_name` from sys_department c where a.booking_depart = c.department_id) department_name  from cs_orders a,cs_users b 
+        <where>  
+        			a.user_id = b.id 
+		  		  <if test="id != null and id != ''"> and a.id = #{id} </if>
+		  		  <if test="orderSn != null and orderSn != ''"> and a.order_sn = #{orderSn} </if>
+		  		  <if test="userId != null and userId != ''"> and a.user_id = #{userId} </if>
+		  		  <if test="orderStatus != null"> and a.order_status = #{orderStatus} </if>
+		  		  <if test="payType != null and payType != ''"> and a.pay_type = #{payType} </if>
+		  		  <if test="payStatus != null and payStatus != '' "> and a.pay_status = #{payStatus} </if>
+		  		  <if test="mobile != null and mobile != ''"> and a.mobile = #{mobile} </if>
+		  		  <if test="postscript != null and postscript != ''"> and a.postscript = #{postscript} </if>
+		  		  <if test="payId != null and payId != ''"> and a.pay_id = #{payId} </if>
+		  		  <if test="goodId != null and goodId != ''"> and a.good_id = #{goodId} </if>
+		  		  <if test="goodName != null and goodName != ''"> and a.good_name = #{goodName} </if>
+		  		  <if test="orderPrice != null and orderPrice != ''"> and a.order_price = #{orderPrice} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and a.goods_price = #{goodsPrice} </if>
+		  		  <if test="addTime != null and addTime != ''"> and a.add_time = #{addTime} </if>
+		  		  <if test="confirmTime != null and confirmTime != ''"> and a.confirm_time = #{confirmTime} </if>
+		  		  <if test="payTime != null and payTime != ''"> and a.pay_time = #{payTime} </if>
+		  		  <if test="orderType != null and orderType != ''"> and a.order_type = #{orderType} </if>
+		  		  <if test="bookingDate != null and bookingDate != ''"> and a.booking_date = #{bookingDate} </if>
+		  		  <if test="bookingDepart != null and bookingDepart != ''"> and a.booking_depart = #{bookingDepart} </if>
+		  		  <if test="bookingStatus != null and bookingStatus != ''"> and a.booking_status = #{bookingStatus} </if>
+		  		  <choose>
+            		<when test="confirmStatus != null and confirmStatus == 1">
+                		 and confirm_time is not null 
+            		</when>
+            	    <when test="confirmStatus != null and confirmStatus == ''">
+   
+            		</when>
+					<otherwise>
+                		and confirm_time is null 
+					</otherwise>
+        		</choose>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from cs_orders
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="orderSn != null and orderSn != ''"> and order_sn = #{orderSn} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="orderStatus != null and orderStatus  != ''"> and order_status = #{orderStatus} </if>
+		  		  <if test="payType != null and payType != ''"> and pay_type = #{payType} </if>
+		  		  <if test="payStatus != null and payStatus != ''"> and pay_status = #{payStatus} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		  <if test="postscript != null and postscript != ''"> and postscript = #{postscript} </if>
+		  		  <if test="payId != null and payId != ''"> and pay_id = #{payId} </if>
+		  		  <if test="goodId != null and goodId != ''"> and good_id = #{goodId} </if>
+		  		  <if test="goodName != null and goodName != ''"> and good_name = #{goodName} </if>
+		  		  <if test="orderPrice != null and orderPrice != ''"> and order_price = #{orderPrice} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and goods_price = #{goodsPrice} </if>
+		  		  <if test="addTime != null and addTime != ''"> and add_time = #{addTime} </if>
+		  		  <if test="confirmTime != null and confirmTime != ''"> and confirm_time = #{confirmTime} </if>
+		  		  <if test="payTime != null and payTime != ''"> and pay_time = #{payTime} </if>
+		  		  <if test="orderType != null and orderType != ''"> and order_type = #{orderType} </if>
+		  		  <if test="bookingDate != null and bookingDate != ''"> and booking_date = #{bookingDate} </if>
+		  		  <if test="bookingDepart != null and bookingDepart != ''"> and booking_depart = #{bookingDepart} </if>
+		  		  <if test="bookingStatus != null and bookingStatus != ''"> and booking_status = #{bookingStatus} </if>		  
+		  		  
+		  		  <choose>
+            		<when test="confirmStatus != null and confirmStatus == 1">
+                		 and confirm_time is not null 
+            		</when>
+            	    <when test="confirmStatus != null and confirmStatus == ''">
+   
+            		</when>
+					<otherwise>
+                		and confirm_time is null 
+					</otherwise>
+        		</choose>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.health.domain.OrdersDO" useGeneratedKeys="true" keyProperty="id">
+		insert into cs_orders
+		(
+			`order_sn`, 
+			`user_id`, 
+			`order_status`, 
+			`pay_type`, 
+			`pay_status`, 
+			`mobile`, 
+			`postscript`, 
+			`pay_id`, 
+			`good_id`, 
+			`good_name`, 
+			`order_price`, 
+			`goods_price`, 
+			`add_time`, 
+			`confirm_time`, 
+			`pay_time`, 
+			`order_type`, 
+			`booking_date`, 
+			`booking_depart`,
+			`booking_status`
+		)
+		values
+		(
+			#{orderSn}, 
+			#{userId}, 
+			#{orderStatus}, 
+			#{payType}, 
+			#{payStatus}, 
+			#{mobile}, 
+			#{postscript}, 
+			#{payId}, 
+			#{goodId}, 
+			#{goodName}, 
+			#{orderPrice}, 
+			#{goodsPrice}, 
+			#{addTime}, 
+			#{confirmTime}, 
+			#{payTime}, 
+			#{orderType}, 
+			#{bookingDate}, 
+			#{bookingDepart}, 
+			#{bookingStatus}
+			
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.health.domain.OrdersDO">
+		update cs_orders 
+		<set>
+			<if test="orderSn != null">`order_sn` = #{orderSn}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="orderStatus != null">`order_status` = #{orderStatus}, </if>
+			<if test="payType != null">`pay_type` = #{payType}, </if>
+			<if test="payStatus != null">`pay_status` = #{payStatus}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}, </if>
+			<if test="postscript != null">`postscript` = #{postscript}, </if>
+			<if test="payId != null">`pay_id` = #{payId}, </if>
+			<if test="goodId != null">`good_id` = #{goodId}, </if>
+			<if test="goodName != null">`good_name` = #{goodName}, </if>
+			<if test="orderPrice != null">`order_price` = #{orderPrice}, </if>
+			<if test="goodsPrice != null">`goods_price` = #{goodsPrice}, </if>
+			<if test="addTime != null">`add_time` = #{addTime}, </if>
+			<if test="confirmTime != null">`confirm_time` = #{confirmTime}, </if>
+			<if test="payTime != null">`pay_time` = #{payTime}, </if>
+			<if test="orderType != null">`order_type` = #{orderType}, </if>
+			<if test="bookingDate != null">`booking_date` = #{bookingDate}, </if>
+			<if test="bookingDepart != null">`booking_depart` = #{bookingDepart},</if>
+			<if test="bookingDepart != null">`booking_status` = #{bookingStatus}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from cs_orders where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from cs_orders where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+	<update id="booking">
+		update cs_orders  set confirm_time =  now()  where id = #{value}
+	</update>
+	
+	<update id="batchBooking">
+		update cs_orders  set confirm_time =  now() where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</update>
+</mapper>

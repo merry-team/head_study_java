@@ -1,0 +1,87 @@
+sharingcard:
+  uploadPath: c:/var/uploaded_files/
+  starttime: 12
+  endtime: 20
+logging:
+  level:
+    root: info
+    com.sharingcard: debug
+billing:
+   cdrpath: /var/smscdr
+   cdrbackpath: /var/smscdrbak
+   filepre: SORTING_FX_BILL
+airrecharge:
+   url: http://192.168.130.27:7020/sarp/recharge
+   channelcode: sarptest
+   secretkey: sarptest
+sms:
+   url: http://sms.test.soshare.com
+   businessid: fxjc001
+   secretkey: b9b4ddbcb5664079962672318da6e4ad
+microservice:
+   url: http://192.168.130.21:7010/ServicePlatform/micro/invokeService
+   #privatekey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAI9e/KpckfW3pM2Gn8IPbHshWoPWH0SBYYP5KAkYL7izULwkW8UzpsVBL46fcibOCusvrvoQcfrsgN1JZu2GtOmuCJDpzwW9nJG1an9EpcGYfM0ycHDYKQ7a8PFSgHK9CgNvx3iiR/9osuT7JIPBkbbiV0cjZ90hm4cW35IiddHbAgMBAAECgYBV8hQ3ME0TZuZ1iomEtOhMG999/sM5tvG1Qox8fzJEX8I7NvSIkAEeaIhQ0EaG+qdS+3/CSk95o4NQpGr+Yu1Z7kecnm7m2WF/7+gJ4rqwvQF8v+qQmyER2655RJMfsjCmg7xkiV0lVtDo8GHGsrN5R4vLLdCLTVmwFosYQ1fEIQJBAMnTUMbtrxFMkg3MlQ0a/9nyJiEaajUc/SuxbTX/LE381uPDoRX/IdUvEoU2rlyCoPgyiPUwTx/EofDiXj7sXbECQQC12uee3bu5RVYOZxvic0uuHpPL/TbCuxR2ScyDEQ8Jt2+51lGBfvbsnyVbcwKYHKH/qngYanBGUVZVGYKWiQ9LAkEAkDTwM6NjAp5OgZObMIkJJMYTnnWMS7UR5GVbHkjcdEDjnkyKzffFSdjfh9WhUjJ4J7+cAm1pK87I0yA7rQQgkQJAXFVAAuZ8GO5+aiOqAckeZNK7off35NlN411HDEkOBJXxkT6i9Yf8YVnQguUbLRZknkX0Yhkw1lMX7W9dYYdHjwJBAI0cQLQrCqG7pOWfd3RhSf9Nbgq9lw7Cm7ONc4i+QvCm0br5hU/Ow4fPQOs+gQ4C3aK+bz0jel4V066xEqTy/1I=
+   #publickey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCPXvyqXJH1t6TNhp/CD2x7IVqD1h9EgWGD+SgJGC+4s1C8JFvFM6bFQS+On3ImzgrrL676EHH67IDdSWbthrTprgiQ6c8FvZyRtWp/RKXBmHzNMnBw2CkO2vDxUoByvQoDb8d4okf/aLLk+ySDwZG24ldHI2fdIZuHFt+SInXR2wIDAQAB
+   #url: http://192.168.17.165:8080/micro/invokeService
+   privatekey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJUc1lIfSPAGvnGSh8jUQp4RyYSQETL4Wh0KE6yKbFf84a5PPD84MQeztw2GrAzRBENhvLuQ2iCSnam7pGQi0HjUJdkhlGRpit1RKlHKnID2bAv8Ki7qX5ybDBEe5pNyn4FHP/gbJjxRfYqBZul4Le2jW5jR0rUwfhs0900wC17tAgMBAAECgYEAielf+BhjV0yFe3lxCLf43UXKQkcVATVd8xnM1Ho6dq629IboS/hmsJ7xIRt7qWbwMHoHGtuAQzwXglLAWrUwZgcwx8WNtwa2Y2s/JE+Kziu22HKHUfFTUJHq7zVwdvTT0XAe2gtFMnk9Z4c0OANYddHpS2+FLxYGxKMCwU4F68ECQQDF1H/SwQUTIHizJGMYZUcdSW9u6yoeo4mKw3+Z22yvkdgEMrNRcvX8x57ZjzBb4WvofLBoWJQXYY3ESN59+E9pAkEAwPUsG2/ba63MdwWA5GCKeuOQMCmR8NHVh/60PB926uCP5Wqy9/m/jOiH9FJouSoDXw6Gl/MCndi88B9KPnTm5QJABtlll4lhQJlGNIWU/Lo87RGmzwNLUQY+c9Ry7YPATo/RF8wdkztUsuzCXivr87JpRwJSJTqz3d9dxibztQ7MyQJACCuZdYPz/4g5ayTBg2oPEwsFtPRdqJvJ9ds0GIOgjmt5zFYLQ/LASKAj+ZVvt79uqxy7WD3C85oUzfoVM7XRfQJBAJF21NbRoH560hZw7wEyA0YXMiyckFMM/Scr79KBTAtc1NmNx9GZC+QBEwnwRNf4RZdFw1sEH3vKX3j1k51sOvE=
+   publickey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCVHNZSH0jwBr5xkofI1EKeEcmEkBEy+FodChOsimxX/OGuTzw/ODEHs7cNhqwM0QRDYby7kNogkp2pu6RkItB41CXZIZRkaYrdUSpRypyA9mwL/Cou6l+cmwwRHuaTcp+BRz/4GyY8UX2KgWbpeC3to1uY0dK1MH4bNPdNMAte7QIDAQAB
+   channelCode: Z
+   staffId: MS001
+   version: V1.0.0
+wxinfo:
+   appid: wxacab8bdcbe09a972
+   secret: 36e2345d75caec2f2acd41069d3d0759
+   openidurl: https://api.weixin.qq.com/sns/oauth2/access_token?appid={appid}&secret={secret}&code={code}&grant_type=authorization_code
+   mch_appid: wx89d745228580fc4a
+   mch_id: 1495127012
+   mch_secret: 5e4dc0b28cd3d8ea89114af683d5c2a2
+   company_pay_url: https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers
+   certPath: apiclient_cert.p12   
+   transfercheck: true
+spring:
+  activemq:
+    broker-url: tcp://192.168.129.238:61616
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.133.41:3306/sharingcard?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+    username: sharingcard
+    password: SharingCard4!
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #useGlobalDataSourceStat: true
+  redis:
+      host: 192.168.133.41
+      port: 6379
+      password:
+      # 连接超时时间（毫秒）
+      timeout: 10000
+      jedis:
+        pool:
+          # 连接池中的最大空闲连接
+          max-idle: 8
+          # 连接池中的最小空闲连接
+          min-idle: 10
+          # 连接池最大连接数（使用负值表示没有限制）
+          max-active: 100
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1 

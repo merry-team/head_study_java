@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.xinzhizhu.dao.CsOrderDao">
+
+	<select id="get" resultType="com.neteye.xinzhizhu.domain.CsOrderDO">
+		select a.`id`,a.`order_sn`,a.`user_id`,a.`order_status`,a.`shipping_status`,a.`pay_status`,a.`consignee`,a.`country`,a.`province`,a.`city`,a.`district`,a.`address`,a.`mobile`,a.`postscript`,a.`shipping_id`,a.`shipping_name`,a.`pay_id`,a.`pay_name`,a.`shipping_fee`,a.`actual_price`,a.`integral`,a.`integral_money`,a.`order_price`,a.`goods_price`,a.`add_time`,a.`confirm_time`,a.`pay_time`,a.`freight_price`,a.`coupon_id`,a.`parent_id`,a.`coupon_price`,a.`callback_status`,a.`shipping_no`,a.`full_cut_price`,a.`order_type`,b.nickname,b.mobile user_mobile from cs_order a,cs_user b where b.id=a.user_id and a.id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.xinzhizhu.domain.CsOrderDO">
+		select a.`id`,a.`order_sn`,a.`user_id`,a.`order_status`,a.`shipping_status`,a.`pay_status`,a.`consignee`,a.`country`,a.`province`,a.`city`,a.`district`,a.`address`,a.`mobile`,a.`postscript`,a.`shipping_id`,a.`shipping_name`,a.`pay_id`,a.`pay_name`,a.`shipping_fee`,a.`actual_price`,a.`integral`,a.`integral_money`,a.`order_price`,a.`goods_price`,a.`add_time`,a.`confirm_time`,a.`pay_time`,a.`freight_price`,a.`coupon_id`,a.`parent_id`,a.`coupon_price`,a.`callback_status`,a.`shipping_no`,a.`full_cut_price`,a.`order_type`,b.nickname,b.mobile user_mobile from cs_order a,cs_user b 
+        <where>  
+        				b.id=a.user_id
+		  		  <if test="id != null and id != ''"> and a.id = #{id} </if>
+		  		  <if test="orderSn != null and orderSn != ''"> and a.order_sn = #{orderSn} </if>
+		  		  <if test="userId != null and userId != ''"> and a.user_id = #{userId} </if>
+		  		  <if test="orderStatus != null and orderStatus != ''"> and a.order_status = #{orderStatus} </if>
+		  		  <if test="shippingStatus != null and shippingStatus != ''"> and a.shipping_status = #{shippingStatus} </if>
+		  		  <if test="payStatus != null and payStatus != ''"> and a.pay_status = #{payStatus} </if>
+		  		  <if test="consignee != null and consignee != ''"> and a.consignee = #{consignee} </if>
+		  		  <if test="country != null and country != ''"> and a.country = #{country} </if>
+		  		  <if test="province != null and province != ''"> and a.province = #{province} </if>
+		  		  <if test="city != null and city != ''"> and a.city = #{city} </if>
+		  		  <if test="district != null and district != ''"> and a.district = #{district} </if>
+		  		  <if test="address != null and address != ''"> and a.address = #{address} </if>
+		  		  <if test="mobile != null and mobile != ''"> and a.mobile = #{mobile} </if>
+		  		  <if test="postscript != null and postscript != ''"> and a.postscript = #{postscript} </if>
+		  		  <if test="shippingId != null and shippingId != ''"> and a.shipping_id = #{shippingId} </if>
+		  		  <if test="shippingName != null and shippingName != ''"> and a.shipping_name = #{shippingName} </if>
+		  		  <if test="payId != null and payId != ''"> and a.pay_id = #{payId} </if>
+		  		  <if test="payName != null and payName != ''"> and a.pay_name = #{payName} </if>
+		  		  <if test="shippingFee != null and shippingFee != ''"> and a.shipping_fee = #{shippingFee} </if>
+		  		  <if test="actualPrice != null and actualPrice != ''"> and a.actual_price = #{actualPrice} </if>
+		  		  <if test="integral != null and integral != ''"> and a.integral = #{integral} </if>
+		  		  <if test="integralMoney != null and integralMoney != ''"> and a.integral_money = #{integralMoney} </if>
+		  		  <if test="orderPrice != null and orderPrice != ''"> and a.order_price = #{orderPrice} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and a.goods_price = #{goodsPrice} </if>
+		  		  <if test="addTime != null and addTime != ''"> and a.add_time = #{addTime} </if>
+		  		  <if test="confirmTime != null and confirmTime != ''"> and a.confirm_time = #{confirmTime} </if>
+		  		  <if test="payTime != null and payTime != ''"> and a.pay_time = #{payTime} </if>
+		  		  <if test="freightPrice != null and freightPrice != ''"> and a.freight_price = #{freightPrice} </if>
+		  		  <if test="couponId != null and couponId != ''"> and a.coupon_id = #{couponId} </if>
+		  		  <if test="parentId != null and parentId != ''"> and a.parent_id = #{parentId} </if>
+		  		  <if test="couponPrice != null and couponPrice != ''"> and a.coupon_price = #{couponPrice} </if>
+		  		  <if test="callbackStatus != null and callbackStatus != ''"> and a.callback_status = #{callbackStatus} </if>
+		  		  <if test="shippingNo != null and shippingNo != ''"> and a.shipping_no = #{shippingNo} </if>
+		  		  <if test="fullCutPrice != null and fullCutPrice != ''"> and a.full_cut_price = #{fullCutPrice} </if>
+		  		  <if test="orderType != null and orderType != ''"> and a.order_type = #{orderType} </if>
+		  		  <if test="nickname != null and nickname != ''"> and b.nickname = #{nickname} </if>
+		  		  <if test="userMobile != null and userMobile != ''"> and b.mobile = #{userMobile} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by a.id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from cs_order
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="orderSn != null and orderSn != ''"> and order_sn = #{orderSn} </if>
+		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
+		  		  <if test="orderStatus != null and orderStatus != ''"> and order_status = #{orderStatus} </if>
+		  		  <if test="shippingStatus != null and shippingStatus != ''"> and shipping_status = #{shippingStatus} </if>
+		  		  <if test="payStatus != null and payStatus != ''"> and pay_status = #{payStatus} </if>
+		  		  <if test="consignee != null and consignee != ''"> and consignee = #{consignee} </if>
+		  		  <if test="country != null and country != ''"> and country = #{country} </if>
+		  		  <if test="province != null and province != ''"> and province = #{province} </if>
+		  		  <if test="city != null and city != ''"> and city = #{city} </if>
+		  		  <if test="district != null and district != ''"> and district = #{district} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="mobile != null and mobile != ''"> and mobile = #{mobile} </if>
+		  		  <if test="postscript != null and postscript != ''"> and postscript = #{postscript} </if>
+		  		  <if test="shippingId != null and shippingId != ''"> and shipping_id = #{shippingId} </if>
+		  		  <if test="shippingName != null and shippingName != ''"> and shipping_name = #{shippingName} </if>
+		  		  <if test="payId != null and payId != ''"> and pay_id = #{payId} </if>
+		  		  <if test="payName != null and payName != ''"> and pay_name = #{payName} </if>
+		  		  <if test="shippingFee != null and shippingFee != ''"> and shipping_fee = #{shippingFee} </if>
+		  		  <if test="actualPrice != null and actualPrice != ''"> and actual_price = #{actualPrice} </if>
+		  		  <if test="integral != null and integral != ''"> and integral = #{integral} </if>
+		  		  <if test="integralMoney != null and integralMoney != ''"> and integral_money = #{integralMoney} </if>
+		  		  <if test="orderPrice != null and orderPrice != ''"> and order_price = #{orderPrice} </if>
+		  		  <if test="goodsPrice != null and goodsPrice != ''"> and goods_price = #{goodsPrice} </if>
+		  		  <if test="addTime != null and addTime != ''"> and add_time = #{addTime} </if>
+		  		  <if test="confirmTime != null and confirmTime != ''"> and confirm_time = #{confirmTime} </if>
+		  		  <if test="payTime != null and payTime != ''"> and pay_time = #{payTime} </if>
+		  		  <if test="freightPrice != null and freightPrice != ''"> and freight_price = #{freightPrice} </if>
+		  		  <if test="couponId != null and couponId != ''"> and coupon_id = #{couponId} </if>
+		  		  <if test="parentId != null and parentId != ''"> and parent_id = #{parentId} </if>
+		  		  <if test="couponPrice != null and couponPrice != ''"> and coupon_price = #{couponPrice} </if>
+		  		  <if test="callbackStatus != null and callbackStatus != ''"> and callback_status = #{callbackStatus} </if>
+		  		  <if test="shippingNo != null and shippingNo != ''"> and shipping_no = #{shippingNo} </if>
+		  		  <if test="fullCutPrice != null and fullCutPrice != ''"> and full_cut_price = #{fullCutPrice} </if>
+		  		  <if test="orderType != null and orderType != ''"> and order_type = #{orderType} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.CsOrderDO" useGeneratedKeys="true" keyProperty="id">
+		insert into cs_order
+		(
+			`order_sn`, 
+			`user_id`, 
+			`order_status`, 
+			`shipping_status`, 
+			`pay_status`, 
+			`consignee`, 
+			`country`, 
+			`province`, 
+			`city`, 
+			`district`, 
+			`address`, 
+			`mobile`, 
+			`postscript`, 
+			`shipping_id`, 
+			`shipping_name`, 
+			`pay_id`, 
+			`pay_name`, 
+			`shipping_fee`, 
+			`actual_price`, 
+			`integral`, 
+			`integral_money`, 
+			`order_price`, 
+			`goods_price`, 
+			`add_time`, 
+			`confirm_time`, 
+			`pay_time`, 
+			`freight_price`, 
+			`coupon_id`, 
+			`parent_id`, 
+			`coupon_price`, 
+			`callback_status`, 
+			`shipping_no`, 
+			`full_cut_price`, 
+			`order_type`
+		)
+		values
+		(
+			#{orderSn}, 
+			#{userId}, 
+			#{orderStatus}, 
+			#{shippingStatus}, 
+			#{payStatus}, 
+			#{consignee}, 
+			#{country}, 
+			#{province}, 
+			#{city}, 
+			#{district}, 
+			#{address}, 
+			#{mobile}, 
+			#{postscript}, 
+			#{shippingId}, 
+			#{shippingName}, 
+			#{payId}, 
+			#{payName}, 
+			#{shippingFee}, 
+			#{actualPrice}, 
+			#{integral}, 
+			#{integralMoney}, 
+			#{orderPrice}, 
+			#{goodsPrice}, 
+			#{addTime}, 
+			#{confirmTime}, 
+			#{payTime}, 
+			#{freightPrice}, 
+			#{couponId}, 
+			#{parentId}, 
+			#{couponPrice}, 
+			#{callbackStatus}, 
+			#{shippingNo}, 
+			#{fullCutPrice}, 
+			#{orderType}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.xinzhizhu.domain.CsOrderDO">
+		update cs_order 
+		<set>
+			<if test="orderSn != null">`order_sn` = #{orderSn}, </if>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="orderStatus != null">`order_status` = #{orderStatus}, </if>
+			<if test="shippingStatus != null">`shipping_status` = #{shippingStatus}, </if>
+			<if test="payStatus != null">`pay_status` = #{payStatus}, </if>
+			<if test="consignee != null">`consignee` = #{consignee}, </if>
+			<if test="country != null">`country` = #{country}, </if>
+			<if test="province != null">`province` = #{province}, </if>
+			<if test="city != null">`city` = #{city}, </if>
+			<if test="district != null">`district` = #{district}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="mobile != null">`mobile` = #{mobile}, </if>
+			<if test="postscript != null">`postscript` = #{postscript}, </if>
+			<if test="shippingId != null">`shipping_id` = #{shippingId}, </if>
+			<if test="shippingName != null">`shipping_name` = #{shippingName}, </if>
+			<if test="payId != null">`pay_id` = #{payId}, </if>
+			<if test="payName != null">`pay_name` = #{payName}, </if>
+			<if test="shippingFee != null">`shipping_fee` = #{shippingFee}, </if>
+			<if test="actualPrice != null">`actual_price` = #{actualPrice}, </if>
+			<if test="integral != null">`integral` = #{integral}, </if>
+			<if test="integralMoney != null">`integral_money` = #{integralMoney}, </if>
+			<if test="orderPrice != null">`order_price` = #{orderPrice}, </if>
+			<if test="goodsPrice != null">`goods_price` = #{goodsPrice}, </if>
+			<if test="addTime != null">`add_time` = #{addTime}, </if>
+			<if test="confirmTime != null">`confirm_time` = #{confirmTime}, </if>
+			<if test="payTime != null">`pay_time` = #{payTime}, </if>
+			<if test="freightPrice != null">`freight_price` = #{freightPrice}, </if>
+			<if test="couponId != null">`coupon_id` = #{couponId}, </if>
+			<if test="parentId != null">`parent_id` = #{parentId}, </if>
+			<if test="couponPrice != null">`coupon_price` = #{couponPrice}, </if>
+			<if test="callbackStatus != null">`callback_status` = #{callbackStatus}, </if>
+			<if test="shippingNo != null">`shipping_no` = #{shippingNo}, </if>
+			<if test="fullCutPrice != null">`full_cut_price` = #{fullCutPrice}, </if>
+			<if test="orderType != null">`order_type` = #{orderType}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from cs_order where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from cs_order where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

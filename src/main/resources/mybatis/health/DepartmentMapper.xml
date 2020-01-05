@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.health.dao.DepartmentDao">
+
+	<select id="get" resultType="com.neteye.health.domain.DepartmentDO">
+		select `department_id`,`company_id`,`department_name`,`time_id`,`province_id`,`city_id`,`status`,`address`,`telephone`,`home_page`,`remarks`,`create_user`,`modified_user`,`create_time`,`modified_time` from sys_department where department_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.health.domain.DepartmentDO">
+		select `department_id`,`company_id`,
+		(select company_name from sys_company where sys_company.company_id = sys_department.company_id) as company_name,
+		`department_name`,`time_id`,
+		(select remark from sys_worktime where sys_worktime.work_id = sys_department.time_id) as time_remark,
+		`province_id`,
+		(select name from sys_region where sys_region.id = sys_department.province_id) as province_name,
+		`city_id`,
+		(select name from sys_region where sys_region.id = sys_department.city_id) as city_name,
+		`status`,`address`,`telephone`,`home_page`,`remarks`,`create_user`,`modified_user`,`create_time`,`modified_time` from sys_department
+        <where>  
+		  		  <if test="departmentId != null and departmentId != ''"> and department_id = #{departmentId} </if>
+		  		  <if test="companyId != null and companyId != ''"> and company_id = #{companyId} </if>
+		  		  <if test="departmentName != null and departmentName != ''"> and department_name = #{departmentName} </if>
+		  		  <if test="timeId != null and timeId != ''"> and time_id = #{timeId} </if>
+		  		  <if test="provinceId != null and provinceId != ''"> and province_id = #{provinceId} </if>
+		  		  <if test="cityId != null and cityId != ''"> and city_id = #{cityId} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="telephone != null and telephone != ''"> and telephone = #{telephone} </if>
+		  		  <if test="homePage != null and homePage != ''"> and home_page = #{homePage} </if>
+		  		  <if test="remarks != null and remarks != ''"> and remarks = #{remarks} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		  <if test="bookDate != null and bookDate != ''"> not exists (select 1 from sys_worktime a where DAYOFWEEK(#{bookDate})  in (a.work_time) and a.work_id = sys_department.time_id)  </if>
+		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by department_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_department
+		 <where>  
+		  		  <if test="departmentId != null and departmentId != ''"> and department_id = #{departmentId} </if>
+		  		  <if test="companyId != null and companyId != ''"> and company_id = #{companyId} </if>
+		  		  <if test="departmentName != null and departmentName != ''"> and department_name = #{departmentName} </if>
+		  		  <if test="timeId != null and timeId != ''"> and time_id = #{timeId} </if>
+		  		  <if test="provinceId != null and provinceId != ''"> and province_id = #{provinceId} </if>
+		  		  <if test="cityId != null and cityId != ''"> and city_id = #{cityId} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="address != null and address != ''"> and address = #{address} </if>
+		  		  <if test="telephone != null and telephone != ''"> and telephone = #{telephone} </if>
+		  		  <if test="homePage != null and homePage != ''"> and home_page = #{homePage} </if>
+		  		  <if test="remarks != null and remarks != ''"> and remarks = #{remarks} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.health.domain.DepartmentDO" useGeneratedKeys="true" keyProperty="departmentId">
+		insert into sys_department
+		(
+			`company_id`, 
+			`department_name`, 
+			`time_id`, 
+			`province_id`, 
+			`city_id`, 
+			`status`, 
+			`address`, 
+			`telephone`, 
+			`home_page`, 
+			`remarks`, 
+			`create_user`, 
+			`modified_user`, 
+			`create_time`, 
+			`modified_time`
+		)
+		values
+		(
+			#{companyId}, 
+			#{departmentName}, 
+			#{timeId}, 
+			#{provinceId}, 
+			#{cityId}, 
+			#{status}, 
+			#{address}, 
+			#{telephone}, 
+			#{homePage}, 
+			#{remarks}, 
+			#{createUser}, 
+			#{modifiedUser}, 
+			#{createTime}, 
+			#{modifiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.health.domain.DepartmentDO">
+		update sys_department 
+		<set>
+			<if test="companyId != null">`company_id` = #{companyId}, </if>
+			<if test="departmentName != null">`department_name` = #{departmentName}, </if>
+			<if test="timeId != null">`time_id` = #{timeId}, </if>
+			<if test="provinceId != null">`province_id` = #{provinceId}, </if>
+			<if test="cityId != null">`city_id` = #{cityId}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="address != null">`address` = #{address}, </if>
+			<if test="telephone != null">`telephone` = #{telephone}, </if>
+			<if test="homePage != null">`home_page` = #{homePage}, </if>
+			<if test="remarks != null">`remarks` = #{remarks}, </if>
+			<if test="createUser != null">`create_user` = #{createUser}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where department_id = #{departmentId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_department where department_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_department where department_id in 
+		<foreach item="departmentId" collection="array" open="(" separator="," close=")">
+			#{departmentId}
+		</foreach>
+	</delete>
+
+</mapper>

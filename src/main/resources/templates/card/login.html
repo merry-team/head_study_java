@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-type" name="viewport"
+	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<title>分享通信-赚卡登录</title>
+<link rel="shortcut icon" href="favicon.ico">
+<style>
+body, ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, table,
+	fieldset, th {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	color: #555;
+	line-height: 28px;
+	font-family: "微软雅黑";
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+em, i {
+	font-style: normal;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	font-family: "微软雅黑";
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+body, h1, h2, h3, h4, h5, h6, div, hr, p, blockquote, dl, dt, dd, ul, ol,
+	li, pre, form, fieldset, legend, button, input, textarea, t
+h, td {
+	margin: 0;
+	padding: 0
+}
+
+a {
+	text-decoration: none;
+	color: #555;
+	font-family: "微软雅黑";
+}
+
+body {
+	margin: 0 auto;
+	max-width: 1000px;
+	min-width: 320px;
+	position: relative;
+}
+
+.earningcard {
+	position: absolute;
+	bottom: 59%;
+	left: 2%;
+	text-align: center;
+	margin: 0 auto;
+	z-index: 9999;
+	width: 96%;
+	height: 5%;
+}
+
+.earningcard-nr {
+	text-align: center;
+}
+
+.lnputbox_frame {
+	margin: 0px 0px 0px 10px;
+	width: 93%;
+	color: #7D7D7D;
+	height: 45px;
+	border-radius: 4px;
+	line-height: 30px;
+	border: 0px solid #CFCFCF;
+	padding: 0px 5px;
+	font-size: 14px;
+}
+
+.earningcard-nr p {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+</style>
+	<!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+	<script>
+        if (window.top !== window.self) {
+            window.top.location = window.location;
+        }
+    </script>
+
+</head>
+
+<body>
+      <img src="/img/zkimg2.jpg" width="100%"/>
+	<div class="earningcard">
+		<div class="earningcard-nr">
+			<form id="signupForm">
+				<p>
+					<input id="" name="username" maxlength="11" placeholder="请输入手机号"
+						class="lnputbox_frame">
+				</p>
+				<p>
+					<input type="password" name="password" id="password"
+						class="lnputbox_frame" placeholder="请输入登录密码">
+				</p>
+				<a id="login"><img src="/img/al15.png" width="90%" /></a>
+			</form>
+		</div>
+	</div>
+	<script th:inline="javascript"> var ctx = [[@{/}]] ; </script>
+	<!-- 全局js -->
+	<script src="/js/jquery.min.js?v=2.1.4"
+		th:src="@{/js/jquery.min.js?v=2.1.4}"></script>
+	<script src="/js/bootstrap.min.js?v=3.3.6"
+		th:src="@{/js/bootstrap.min.js?v=3.3.6}"></script>
+
+	<!-- 自定义js -->
+	<script src="/js/content.js?v=1.0.0" th:src="@{/js/content.js?v=1.0.0}"></script>
+
+	<!-- jQuery Validation plugin javascript-->
+	<script src="/js/ajax-util.js"></script>
+	<script src="/js/plugins/validate/jquery.validate.min.js"
+		th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+	<script src="/js/plugins/validate/messages_zh.min.js"
+		th:src="@{/js/plugins/validate/messages_zh.min.js}"></script>
+	<script src="/js/plugins/layer/layer.min.js"
+		th:src="@{/js/plugins/layer/layer.min.js}"></script>
+	<script type="text/javascript">
+    $(document).ready(function () {
+        $("#login").on('click',function(){$("#signupForm").submit();});
+        validateRule();
+    });
+
+    $.validator.setDefaults({
+        submitHandler: function () {
+            login();
+        }
+    });
+
+    function login() {
+        $.ajax({
+            type: "POST",
+            url: ctx+"login",
+            data: $('#signupForm').serialize(),
+            success: function (r) {
+                 if (r.code == 0) {
+                    var index = layer.load(1, {
+                        shade: [0.1,'#fff'] //0.1透明度的白色背景
+                    });
+                    parent.location.href = '/wx';
+                } else {
+                	//alert(r.message);
+                    //layer.msg(r.message,{icon: 6, area:['300px', '200px']}); 
+                	layer.msg(r.message); 
+                }
+            },
+        });
+    }
+
+    function validateRule() {
+        var icon = "<i class='fa fa-times-circle'></i> ";
+        $("#signupForm").validate({
+            rules: {
+                username: {
+                    required: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages: {
+                username: {
+                    required: icon + "请输入您的用户名",
+                },
+                password: {
+                    required: icon + "请输入您的密码",
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

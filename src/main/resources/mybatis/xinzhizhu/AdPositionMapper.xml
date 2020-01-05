@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.xinzhizhu.dao.AdPositionDao">
+
+	<select id="get" resultType="com.neteye.xinzhizhu.domain.AdPositionDO">
+		select `id`,`name`,`width`,`height`,`content` from ad_position where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.xinzhizhu.domain.AdPositionDO">
+		select `id`,`name`,`width`,`height`,`content` from ad_position
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="width != null and width != ''"> and width = #{width} </if>
+		  		  <if test="height != null and height != ''"> and height = #{height} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from ad_position
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="name != null and name != ''"> and name = #{name} </if>
+		  		  <if test="width != null and width != ''"> and width = #{width} </if>
+		  		  <if test="height != null and height != ''"> and height = #{height} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.AdPositionDO" useGeneratedKeys="true" keyProperty="id">
+		insert into ad_position
+		(
+			`name`, 
+			`width`, 
+			`height`, 
+			`content`
+		)
+		values
+		(
+			#{name}, 
+			#{width}, 
+			#{height}, 
+			#{content}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.xinzhizhu.domain.AdPositionDO">
+		update ad_position 
+		<set>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="width != null">`width` = #{width}, </if>
+			<if test="height != null">`height` = #{height}, </if>
+			<if test="content != null">`content` = #{content}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from ad_position where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from ad_position where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

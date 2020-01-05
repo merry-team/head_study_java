@@ -1,0 +1,84 @@
+sharingcard:
+  uploadPath: /var/uploaded_files/
+  starttime: 6
+  endtime: 23
+logging:
+  level:
+    root: info
+    com.sharingcard: debug
+billing:
+   cdrpath: /app/smscdr
+   cdrbackpath: /app/smscdrbak
+   filepre: SORTING_FX_BILL
+airrecharge:
+   url: http://open.10039.cc/sarp/recharge
+   channelcode: FXZK0001
+   secretkey: VBhHPvsQuL
+sms:
+   url: http://message.10039.cc/smsp/sms/send
+   businessid: ZK001
+   secretkey: r7260f0d1e1244f8a6aa51574a68d9af
+microservice:
+   url: http://172.16.64.61/ServicePlatform/micro/invokeService
+   privatekey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOHxT0LHlO2kMhaFysUJLojO01OmPexwf/apuxbckvFZubeZu5vgatOJAvT/KmGJQPxMW2A/LRfrsZwgM4rRrVbznqBtNWsBXvPXAnRwavOrgIoUZ9g+L2/auXQhRRm6+181a3MJ0kxVLFLZJyg7mIYKF4ezDJ41UqjJSHgazakZAgMBAAECgYEAtreV+JQ8TP32/53NABDP0BUqc0BCXZ4Q7eIPCYrxTjrYZLDvNjyDR3RKruRXWq9LnX0GfEw65FhXtsGXzRCJ0v2N3RcJ65Iypti/KpisaWEKxxQtvl5Pp/PCBlmEwz4XqBd2ej1eGOPZDHYJ7KtL+OemQSJ9N6w06d75CXqwEG0CQQDwmGKtFIauXAtcQ8pDQMiC8BkJokT6ulFVdTX1Qp5iZHeYLj+G1r6Nev1BvsnuNtZKEJmc7Wh1tS8srQEsEvSfAkEA8GjAbK42mQyhmlR1sP4gNza1eQ2BUF0nqYwCuRjHkFEgKWbAsleGpCMnT+X7ME4Wz497qwEBZBuEGBCZ/LmPRwJAXynHDfKqetjJXYsqu4MqTDAvlxHp+sorVYPw/buF7iES9MyGMA1MfaWB+rk+Iczq4YzDVcDJqpUpvaAIcKhmvQJATF3aEivc6A0dIHsHz6tJ7IAScVua4j5VJQR2sPlwGyXKA5zCRWSMPoN0L2ssuZF0qYY4kH+HQ5eCBGrxn1gKbQJBANwVR/muM0OEBwtdcE297Nz3POk2Fc+ft+dcRaPPRyzW6nasVd40jqtSKF1OYVBlSZ8f3mpH/bZay6T+FEExrR4=
+   publickey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDh8U9Cx5TtpDIWhcrFCS6IztNTpj3scH/2qbsW3JLxWbm3mbub4GrTiQL0/yphiUD8TFtgPy0X67GcIDOK0a1W856gbTVrAV7z1wJ0cGrzq4CKFGfYPi9v2rl0IUUZuvtfNWtzCdJMVSxS2ScoO5iGCheHswyeNVKoyUh4Gs2pGQIDAQAB
+   channelCode: O
+   staffId: ZK001
+   version: V1.0.0
+wxinfo:
+   appid: wxacab8bdcbe09a972
+   secret: 36e2345d75caec2f2acd41069d3d0759
+   openidurl: https://api.weixin.qq.com/sns/oauth2/access_token?appid={appid}&secret={secret}&code={code}&grant_type=authorization_code
+   mch_appid: wx89d745228580fc4a
+   mch_id: 1495127012
+   mch_secret: 5e4dc0b28cd3d8ea89114af683d5c2a2
+   company_pay_url: https://api.mch.weixin.qq.com/mmpaymkttransfers/promotion/transfers
+   certPath: apiclient_cert.p12   
+   transfercheck: false
+spring:
+  activemq:
+    broker-url: tcp://172.16.131.51:61616
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.2.72:3306/sharingcard?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+    username: sharingcard
+    password: SharingCard4!
+    initialSize: 1
+    minIdle: 3
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    #useGlobalDataSourceStat: true
+  redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+      # 连接超时时间（毫秒）
+      timeout: 10000
+      jedis:
+        pool:
+          # 连接池中的最大空闲连接
+          max-idle: 8
+          # 连接池中的最小空闲连接
+          min-idle: 10
+          # 连接池最大连接数（使用负值表示没有限制）
+          max-active: 100
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1 

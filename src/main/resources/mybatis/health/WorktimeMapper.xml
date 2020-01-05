@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.health.dao.WorktimeDao">
+
+	<select id="get" resultType="com.neteye.health.domain.WorktimeDO">
+		select `work_id`,`work_time`,`remark`,`status`,`create_user`,`modified_user`,`create_time`,`modified_time` from sys_worktime where work_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.health.domain.WorktimeDO">
+		select `work_id`,`work_time`,`remark`,`status`,`create_user`,`modified_user`,`create_time`,`modified_time` from sys_worktime
+        <where>  
+		  		  <if test="workId != null and workId != ''"> and work_id = #{workId} </if>
+		  		  <if test="workTime != null and workTime != ''"> and work_time = #{workTime} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by work_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_worktime
+		 <where>  
+		  		  <if test="workId != null and workId != ''"> and work_id = #{workId} </if>
+		  		  <if test="workTime != null and workTime != ''"> and work_time = #{workTime} </if>
+		  		  <if test="remark != null and remark != ''"> and remark = #{remark} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="createUser != null and createUser != ''"> and create_user = #{createUser} </if>
+		  		  <if test="modifiedUser != null and modifiedUser != ''"> and modified_user = #{modifiedUser} </if>
+		  		  <if test="createTime != null and createTime != ''"> and create_time = #{createTime} </if>
+		  		  <if test="modifiedTime != null and modifiedTime != ''"> and modified_time = #{modifiedTime} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.health.domain.WorktimeDO" useGeneratedKeys="true" keyProperty="workId">
+		insert into sys_worktime
+		(
+			`work_time`, 
+			`remark`, 
+			`status`, 
+			`create_user`, 
+			`modified_user`, 
+			`create_time`, 
+			`modified_time`
+		)
+		values
+		(
+			#{workTime}, 
+			#{remark}, 
+			#{status}, 
+			#{createUser}, 
+			#{modifiedUser}, 
+			#{createTime}, 
+			#{modifiedTime}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.health.domain.WorktimeDO">
+		update sys_worktime 
+		<set>
+			<if test="workTime != null">`work_time` = #{workTime}, </if>
+			<if test="remark != null">`remark` = #{remark}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="createUser != null">`create_user` = #{createUser}, </if>
+			<if test="modifiedUser != null">`modified_user` = #{modifiedUser}, </if>
+			<if test="createTime != null">`create_time` = #{createTime}, </if>
+			<if test="modifiedTime != null">`modified_time` = #{modifiedTime}</if>
+		</set>
+		where work_id = #{workId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_worktime where work_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_worktime where work_id in 
+		<foreach item="workId" collection="array" open="(" separator="," close=")">
+			#{workId}
+		</foreach>
+	</delete>
+
+</mapper>

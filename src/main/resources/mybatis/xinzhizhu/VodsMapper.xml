@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neteye.xinzhizhu.dao.VodsDao">
+
+	<select id="get" resultType="com.neteye.xinzhizhu.domain.VodsDO">
+		select a.vod_id,a.vod_title,a.content,a.author,a.course_id,b.course_name,a.vod_time,a.file_url,a.`image_url`,a.read_count,a.collect_count,a.comment_count,a.creat_time,a.status,a.order_sort from sys_vods a,sys_course b where a.course_id = b.course_id and b.status=1 and a.vod_id = #{value}
+	</select>
+
+	<select id="list" resultType="com.neteye.xinzhizhu.domain.VodsDO">
+		select a.vod_id,a.vod_title,a.content,a.author,a.course_id,b.course_name,a.vod_time,a.file_url,a.`image_url`,a.read_count,a.collect_count,a.comment_count,a.creat_time,a.status,a.order_sort from sys_vods a,sys_course b
+        <where>  
+        a.course_id = b.course_id and b.status=1
+		  		  <if test="vodId != null and vodId != ''"> and a.vod_id = #{vodId} </if>
+		  		  <if test="vodTitle != null and vodTitle != ''"> and a.vod_title = #{vodTitle} </if>
+		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
+		  		  <if test="author != null and author != ''"> and a.author = #{author} </if>
+		  		  <if test="courseId != null and courseId != ''"> and a.course_id = #{courseId} </if>
+		  		  <if test="vodTime != null and vodTime != ''"> and a.vod_time = #{vodTime} </if>
+		  		  <if test="fileUrl != null and fileUrl != ''"> and a.file_url = #{fileUrl} </if>
+		  		  <if test="readCount != null and readCount != ''"> and a.read_count = #{readCount} </if>
+		  		  <if test="collectCount != null and collectCount != ''"> and a.collect_count = #{collectCount} </if>
+		  		  <if test="commentCount != null and commentCount != ''"> and a.comment_count = #{commentCount} </if>
+		  		  <if test="creatTime != null and creatTime != ''"> and a.creat_time = #{creatTime} </if>
+		  		  <if test="status != null and status != ''"> and a.status = #{status} </if>
+		  		  <if test="orderSort != null and orderSort != ''"> and a.order_sort = #{orderSort} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by a.order_sort desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+	
+	
+	<select id="listsingle" resultType="com.neteye.xinzhizhu.domain.VodsDO">
+		select a.vod_id,a.vod_title,a.content,a.author,a.course_id,b.course_name,a.vod_time,a.file_url,a.`image_url`,a.read_count,a.collect_count,a.comment_count,a.creat_time,a.status,a.order_sort from sys_vods a,sys_course b
+        <where>  
+        a.course_id = b.course_id and b.status=1 and b.type=1
+		  		  <if test="vodId != null and vodId != ''"> and a.vod_id = #{vodId} </if>
+		  		  <if test="vodTitle != null and vodTitle != ''"> and a.vod_title = #{vodTitle} </if>
+		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
+		  		  <if test="author != null and author != ''"> and a.author = #{author} </if>
+		  		  <if test="courseId != null and courseId != ''"> and a.course_id = #{courseId} </if>
+		  		  <if test="vodTime != null and vodTime != ''"> and a.vod_time = #{vodTime} </if>
+		  		  <if test="fileUrl != null and fileUrl != ''"> and a.file_url = #{fileUrl} </if>
+		  		  <if test="readCount != null and readCount != ''"> and a.read_count = #{readCount} </if>
+		  		  <if test="collectCount != null and collectCount != ''"> and a.collect_count = #{collectCount} </if>
+		  		  <if test="commentCount != null and commentCount != ''"> and a.comment_count = #{commentCount} </if>
+		  		  <if test="creatTime != null and creatTime != ''"> and a.creat_time = #{creatTime} </if>
+		  		  <if test="status != null and status != ''"> and a.status = #{status} </if>
+		  		  <if test="orderSort != null and orderSort != ''"> and a.order_sort = #{orderSort} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                 order by a.order_sort desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from sys_vods
+		 <where>  
+		  		  <if test="vodId != null and vodId != ''"> and vod_id = #{vodId} </if>
+		  		  <if test="vodTitle != null and vodTitle != ''"> and vod_title = #{vodTitle} </if>
+		  		  <if test="content != null and content != ''"> and content = #{content} </if>
+		  		  <if test="author != null and author != ''"> and author = #{author} </if>
+		  		  <if test="courseId != null and courseId != ''"> and course_id = #{courseId} </if>
+		  		  <if test="vodTime != null and vodTime != ''"> and vod_time = #{vodTime} </if>
+		  		  <if test="fileUrl != null and fileUrl != ''"> and file_url = #{fileUrl} </if>
+		  		  <if test="readCount != null and readCount != ''"> and read_count = #{readCount} </if>
+		  		  <if test="collectCount != null and collectCount != ''"> and collect_count = #{collectCount} </if>
+		  		  <if test="commentCount != null and commentCount != ''"> and comment_count = #{commentCount} </if>
+		  		  <if test="creatTime != null and creatTime != ''"> and creat_time = #{creatTime} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="orderSort != null and orderSort != ''"> and order_sort = #{orderSort} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.VodsDO" useGeneratedKeys="true" keyProperty="vodId">
+		insert into sys_vods
+		(
+			`vod_title`, 
+			`content`, 
+			`author`, 
+			`course_id`, 
+			`vod_time`, 
+			`file_url`, 
+			`image_url`,
+			`read_count`, 
+			`collect_count`, 
+			`comment_count`, 
+			`creat_time`, 
+			`status`,
+			`order_sort`
+		)
+		values
+		(
+			#{vodTitle}, 
+			#{content}, 
+			#{author}, 
+			#{courseId}, 
+			#{vodTime}, 
+			#{fileUrl}, 
+			#{imageUrl}, 
+			#{readCount}, 
+			#{collectCount}, 
+			#{commentCount}, 
+			#{creatTime}, 
+			#{status},
+			#{orderSort}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.neteye.xinzhizhu.domain.VodsDO">
+		update sys_vods 
+		<set>
+			<if test="vodTitle != null">`vod_title` = #{vodTitle}, </if>
+			<if test="content != null">`content` = #{content}, </if>
+			<if test="author != null">`author` = #{author}, </if>
+			<if test="courseId != null">`course_id` = #{courseId}, </if>
+			<if test="vodTime != null">`vod_time` = #{vodTime}, </if>
+			<if test="fileUrl != null">`file_url` = #{fileUrl}, </if>
+			<if test="fileUrl != null">`image_url` = #{imageUrl}, </if>
+			<if test="readCount != null">`read_count` = #{readCount}, </if>
+			<if test="collectCount != null">`collect_count` = #{collectCount}, </if>
+			<if test="commentCount != null">`comment_count` = #{commentCount}, </if>
+			<if test="creatTime != null">`creat_time` = #{creatTime}, </if>
+			<if test="status != null">`status` = #{status}</if>
+			<if test="orderSort != null">`order_sort` = #{orderSort}</if>
+		</set>
+		where vod_id = #{vodId}
+	</update>
+	
+	<delete id="remove">
+		delete from sys_vods where vod_id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from sys_vods where vod_id in 
+		<foreach item="vodId" collection="array" open="(" separator="," close=")">
+			#{vodId}
+		</foreach>
+	</delete>
+
+	<update id="updateplus" parameterType="com.neteye.xinzhizhu.domain.VodsDO">
+		update sys_vods 
+		<set>
+			<if test="readCount != null">`read_count` = `read_count` +  #{readCount}, </if>
+			<if test="collectCount != null">`collect_count` = `collect_count` + #{collectCount}, </if>
+			<if test="commentCount != null">`comment_count` = `comment_count` + #{commentCount}, </if>
+		</set>
+		where vod_id = #{vodId}
+	</update>
+</mapper>
