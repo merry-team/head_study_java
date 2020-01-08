@@ -73,7 +73,6 @@ public class ApiCollectController extends ApiBaseAction {
     public Object list(Integer typeId, Integer valueId, Integer showType,
             @RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size,
             String sort, String order) {
-
         Map param = new HashMap();
         param.put("collecttId", typeId);
         param.put("objectId", valueId);
