@@ -3,8 +3,8 @@ server:
   #    tomcat:
   #        max-threads: 1000
   #        min-spare-threads: 30
-#  address: localhost
-#  port: 9090
+  address: localhost
+  port: 8080
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -35,8 +35,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
-    #    url: jdbc:mysql://127.0.0.1:3306/card?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false
-    url: jdbc:mysql://db:3306/card?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&AllowPublicKeyRetrieval=True
+    url: jdbc:mysql://localhost:3306/card?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&useSSL=false&AllowPublicKeyRetrieval=True
     username: root
     #    password: xinzhizhu
     password: my-secret-pw
@@ -64,7 +63,7 @@ spring:
     #useGlobalDataSourceStat: true
   redis:
     database: 0
-    host: redis
+    host: localhost
     port: 6379
     password:
     # 连接超时时间（毫秒）

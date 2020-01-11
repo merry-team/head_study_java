@@ -42,6 +42,8 @@ public class CourseDO implements Serializable {
 	//类型 0：多课：1：单课
 	private Integer type;
 
+	private Integer orderSort;
+
 	/**
 	 * 设置：课程id
 	 */
@@ -185,5 +187,13 @@ public class CourseDO implements Serializable {
 	}
 	public void setType(Integer type) {
 		this.type = type;
-	}	
+	}
+
+	public Integer getOrderSort() {
+		return orderSort;
+	}
+
+	public void setOrderSort(Integer orderSort) {
+		this.orderSort = orderSort;
+	}
 }

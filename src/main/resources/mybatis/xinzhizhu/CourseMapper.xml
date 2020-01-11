@@ -8,11 +8,11 @@
 	</select>
 
 	<select id="list" resultType="com.neteye.xinzhizhu.domain.CourseDO">
-		select a.course_id,a.course_name,a.category_id,b.category_name,a.content,a.image_url,a.course_price,a.read_count,a.collect_count,a.buy_count,a.createtime,a.status,a.type   from sys_course a ,sys_category b
+		select a.course_id,a.course_name,a.category_id,b.category_name,a.content,a.image_url,a.course_price,a.read_count,a.collect_count,a.buy_count,a.createtime,a.status,a.type,a.order_sort   from sys_course a ,sys_category b
         <where>  
         		a.category_id = b.category_id and b.category_type = 1  and b.status=1
 		  		  <if test="courseId != null and courseId != ''"> and a.course_id = #{courseId} </if>
-		  		  <if test="courseName != null and courseName != ''"> and a.course_name = #{courseName} </if>
+		  		  <if test="courseName != null and courseName != ''"> and CONCAT(`course_name`,`category_name`) like '%${courseName}%'</if>
 		  		  <if test="categoryId != null and categoryId != ''"> and a.category_id = #{categoryId} </if>
 		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
 		  		  <if test="imageUrl != null and imageUrl != ''"> and a.image_url = #{imageUrl} </if>
@@ -23,13 +23,14 @@
 		  		  <if test="createtime != null and createtime != ''"> and a.createtime = #{createtime} </if>
 		  		  <if test="status != null and status != ''"> and a.status = #{status} </if>
 		  		  <if test="type != null and type != ''"> and a.type = #{type} </if>
+			      <if test="orderSort != null and orderSort != ''"> and a.order_sort = #{orderSort} </if>
 		  		</where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
                 order by ${sort} ${order}
             </when>
 			<otherwise>
-                order by a.course_id desc
+                order by a.order_sort desc
 			</otherwise>
         </choose>
 		<if test="offset != null and limit != null">
@@ -68,7 +69,8 @@
 			`buy_count`, 
 			`createtime`, 
 			`status`,
-			`type`
+			`type`,
+			`order_sort`
 		)
 		values
 		(
@@ -82,7 +84,8 @@
 			#{buyCount}, 
 			#{createtime}, 
 			#{status},
-			#{type}
+			#{type},
+			#{orderSort}
 		)
 	</insert>
 	 
@@ -100,6 +103,7 @@
 			<if test="createtime != null">`createtime` = #{createtime}, </if>
 			<if test="status != null">`status` = #{status},</if>
 			<if test="type != null">`type` = #{type}</if>
+			<if test="orderSort != null">`order_sort` = #{orderSort}</if>
 		</set>
 		where course_id = #{courseId}
 	</update>

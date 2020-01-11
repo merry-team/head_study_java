@@ -15,7 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2019-07-17 22:33:25
  */
 @Mapper
-public interface VodsDao {
+public interface VodsDao  {
 
 	VodsDO get(Integer vodId);
 	

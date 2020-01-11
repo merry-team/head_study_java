@@ -59,7 +59,8 @@ public class VodsController extends BaseController{
 	@RequiresPermissions("xinzhizhu:vods:vods")
 	public PageUtils list(@RequestParam Map<String, Object> params){
 		//查询列表数据
-        Query query = new Query(params);
+		System.out.println(params);
+		Query query = new Query(params);
 		List<VodsDO> vodsList = vodsService.list(query);
 		int total = vodsService.count(query);
 		PageUtils pageUtils = new PageUtils(vodsList, total);

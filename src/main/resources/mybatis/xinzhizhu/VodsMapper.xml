@@ -9,7 +9,7 @@
 
 	<select id="list" resultType="com.neteye.xinzhizhu.domain.VodsDO">
 		select a.vod_id,a.vod_title,a.content,a.author,a.course_id,b.course_name,a.vod_time,a.file_url,a.`image_url`,a.read_count,a.collect_count,a.comment_count,a.creat_time,a.status,a.order_sort from sys_vods a,sys_course b
-        <where>  
+        <where>
         a.course_id = b.course_id and b.status=1
 		  		  <if test="vodId != null and vodId != ''"> and a.vod_id = #{vodId} </if>
 		  		  <if test="vodTitle != null and vodTitle != ''"> and a.vod_title = #{vodTitle} </if>
@@ -37,12 +37,12 @@
 			limit #{offset}, #{limit}
 		</if>
 	</select>
-	
-	
-	
+
+
+
 	<select id="listsingle" resultType="com.neteye.xinzhizhu.domain.VodsDO">
 		select a.vod_id,a.vod_title,a.content,a.author,a.course_id,b.course_name,a.vod_time,a.file_url,a.`image_url`,a.read_count,a.collect_count,a.comment_count,a.creat_time,a.status,a.order_sort from sys_vods a,sys_course b
-        <where>  
+        <where>
         a.course_id = b.course_id and b.status=1 and b.type=1
 		  		  <if test="vodId != null and vodId != ''"> and a.vod_id = #{vodId} </if>
 		  		  <if test="vodTitle != null and vodTitle != ''"> and a.vod_title = #{vodTitle} </if>
@@ -70,10 +70,10 @@
 			limit #{offset}, #{limit}
 		</if>
 	</select>
-	
+
  	<select id="count" resultType="int">
 		select count(*) from sys_vods
-		 <where>  
+		 <where>
 		  		  <if test="vodId != null and vodId != ''"> and vod_id = #{vodId} </if>
 		  		  <if test="vodTitle != null and vodTitle != ''"> and vod_title = #{vodTitle} </if>
 		  		  <if test="content != null and content != ''"> and content = #{content} </if>
@@ -89,44 +89,44 @@
 		  		  <if test="orderSort != null and orderSort != ''"> and order_sort = #{orderSort} </if>
 		  		</where>
 	</select>
-	 
+
 	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.VodsDO" useGeneratedKeys="true" keyProperty="vodId">
 		insert into sys_vods
 		(
-			`vod_title`, 
-			`content`, 
-			`author`, 
-			`course_id`, 
-			`vod_time`, 
-			`file_url`, 
+			`vod_title`,
+			`content`,
+			`author`,
+			`course_id`,
+			`vod_time`,
+			`file_url`,
 			`image_url`,
-			`read_count`, 
-			`collect_count`, 
-			`comment_count`, 
-			`creat_time`, 
+			`read_count`,
+			`collect_count`,
+			`comment_count`,
+			`creat_time`,
 			`status`,
 			`order_sort`
 		)
 		values
 		(
-			#{vodTitle}, 
-			#{content}, 
-			#{author}, 
-			#{courseId}, 
-			#{vodTime}, 
-			#{fileUrl}, 
-			#{imageUrl}, 
-			#{readCount}, 
-			#{collectCount}, 
-			#{commentCount}, 
-			#{creatTime}, 
+			#{vodTitle},
+			#{content},
+			#{author},
+			#{courseId},
+			#{vodTime},
+			#{fileUrl},
+			#{imageUrl},
+			#{readCount},
+			#{collectCount},
+			#{commentCount},
+			#{creatTime},
 			#{status},
 			#{orderSort}
 		)
 	</insert>
-	 
+
 	<update id="update" parameterType="com.neteye.xinzhizhu.domain.VodsDO">
-		update sys_vods 
+		update sys_vods
 		<set>
 			<if test="vodTitle != null">`vod_title` = #{vodTitle}, </if>
 			<if test="content != null">`content` = #{content}, </if>
@@ -144,20 +144,20 @@
 		</set>
 		where vod_id = #{vodId}
 	</update>
-	
+
 	<delete id="remove">
 		delete from sys_vods where vod_id = #{value}
 	</delete>
-	
+
 	<delete id="batchRemove">
-		delete from sys_vods where vod_id in 
+		delete from sys_vods where vod_id in
 		<foreach item="vodId" collection="array" open="(" separator="," close=")">
 			#{vodId}
 		</foreach>
 	</delete>
 
 	<update id="updateplus" parameterType="com.neteye.xinzhizhu.domain.VodsDO">
-		update sys_vods 
+		update sys_vods
 		<set>
 			<if test="readCount != null">`read_count` = `read_count` +  #{readCount}, </if>
 			<if test="collectCount != null">`collect_count` = `collect_count` + #{collectCount}, </if>
