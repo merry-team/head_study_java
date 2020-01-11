@@ -12,7 +12,7 @@
         <where>  
         	a.category_id = b.category_id and b.category_type = 3 and a.status=1
 		  		  <if test="articleId != null and articleId != ''"> and a.article_id = #{articleId} </if>
-		  		  <if test="articleTitle != null and articleTitle != ''"> and a.article_title = #{articleTitle} </if>
+		  		  <if test="articleTitle != null and articleTitle != ''"> and a.article_title like '%${articleTitle}%' </if>
 		  		  <if test="categoryId != null and categoryId != ''"> and a.category_id = #{categoryId} </if>
 		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
 		  		  <if test="author != null and author != ''"> and a.author = #{author} </if>
