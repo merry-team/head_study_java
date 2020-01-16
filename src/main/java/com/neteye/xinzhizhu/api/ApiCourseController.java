@@ -46,7 +46,7 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * Category
- * 
+ *
  * @author yinxj
  * @email net_eye@sohu.com
  * @date 2019-07-17 22:39:35
@@ -57,32 +57,26 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api/course")
 public class ApiCourseController extends ApiBaseAction {
-	@Autowired
-	private CourseService courseService;
-	@Autowired
-	private SharingCardConfig sharingCardConfig;
+    @Autowired
+    private CourseService courseService;
+    @Autowired
+    private SharingCardConfig sharingCardConfig;
 
-	@ApiOperation(value = "获取courses列表")
+    @ApiOperation(value = "获取courses列表")
     @IgnoreAuth
     @PostMapping("list")
     public Object list(@RequestParam Map<String, Object> params) {
-		Map<String, Object> resultObj = new HashMap();
-		List<CourseDO> courselist = new ArrayList();
-        if (StringUtils.isNullOrEmpty(params.get("page"))) {
-        	params.put("page", 1);
-         }
-        if (StringUtils.isNullOrEmpty(params.get("size"))) {
-        	params.put("size", 10);
-         }
-        params.put("limit", params.get("size"));
-		// 查询列表数据
-		Query query = new Query(params);
-		courselist = courseService.list(query);
-		int total = courseService.count(query);
-		ApiPageUtils pageUtil = new ApiPageUtils(courselist, total, query.getLimit(), query.getPage());
+        List<CourseDO> courselist = new ArrayList();
+        params.put("page", StringUtils.isNullOrEmpty(params.get("page")) ? 1 : params.get("page"));
+        params.put("limit", StringUtils.isNullOrEmpty(params.get("size")) ? 10 : params.get("size"));
+        // 查询列表数据
+        Query query = new Query(params);
+        courselist = courseService.list(query);
+        int total = courseService.count(query);
+        ApiPageUtils pageUtil = new ApiPageUtils(courselist, total, query.getLimit(), query.getPage());
 
-		return toResponsSuccess(pageUtil);
-	}
+        return toResponsSuccess(pageUtil);
+    }
 
     /**
      * 获取课程详情
@@ -94,15 +88,15 @@ public class ApiCourseController extends ApiBaseAction {
         Map resultObj = new HashMap();
         //
         CourseDO course = courseService.get(id);
-        if (null == course || !course.getStatus().equals(1) ) {
+        if (null == course || !course.getStatus().equals(1)) {
             return toResponsObject(400, "课程不存在", "");
-        }else {
-        	course.setCollectCount(null);
-        	course.setBuyCount(null);
-        	Integer ReadCount =  course.getReadCount();
-        	course.setReadCount(1);
-        	courseService.updateplus(course);
-        	course.setReadCount(ReadCount);
+        } else {
+            course.setCollectCount(null);
+            course.setBuyCount(null);
+            Integer ReadCount = course.getReadCount();
+            course.setReadCount(1);
+            courseService.updateplus(course);
+            course.setReadCount(ReadCount);
         }
         resultObj.put("course", course);
         return toResponsSuccess(resultObj);

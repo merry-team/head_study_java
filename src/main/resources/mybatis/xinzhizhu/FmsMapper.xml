@@ -12,7 +12,7 @@
         <where>  
        		 a.course_id = b.category_id and b.category_type = 2 and a.status=1
 		  		  <if test="fmId != null and fmId != ''"> and a.fm_id = #{fmId} </if>
-		  		  <if test="fmTitle != null and fmTitle != ''"> and a.fm_title like '%${fmTitle}%' </if>
+		  		  <if test="fmTitle != null and fmTitle != ''">and CONCAT(`fm_title`,`category_name`) like '%${fmTitle}%'</if>
 		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
 		  		  <if test="author != null and author != ''"> and a.author = #{author} </if>
 		  		  <if test="courseId != null and courseId != ''"> and a.course_id = #{courseId} </if>
@@ -41,7 +41,7 @@
 		select count(*) from sys_fms
 		 <where>  
 		  		  <if test="fmId != null and fmId != ''"> and fm_id = #{fmId} </if>
-		  		  <if test="fmTitle != null and fmTitle != ''"> and fm_title = #{fmTitle} </if>
+		  		  <if test="fmTitle != null and fmTitle != ''"> and fm_title like '%${fmTitle}%' </if>
 		  		  <if test="content != null and content != ''"> and content = #{content} </if>
 		  		  <if test="author != null and author != ''"> and author = #{author} </if>
 		  		  <if test="courseId != null and courseId != ''"> and course_id = #{courseId} </if>

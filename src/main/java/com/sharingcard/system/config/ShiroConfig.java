@@ -36,6 +36,7 @@ import java.util.LinkedHashMap;
  */
 @Configuration
 public class ShiroConfig {
+
     @Value("${spring.redis.host}")
     private String host;
     @Value("${spring.redis.password}")
@@ -90,6 +91,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/v2/**", "anon");
         filterChainDefinitionMap.put("/blog", "anon");
         filterChainDefinitionMap.put("/api/**", "anon");
+        filterChainDefinitionMap.put("/h5/**", "anon");
         filterChainDefinitionMap.put("/healthlogin/**", "anon");
         filterChainDefinitionMap.put("/blog/open/**", "anon");
         filterChainDefinitionMap.put("/**", "authc");

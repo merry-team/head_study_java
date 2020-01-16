@@ -71,16 +71,9 @@ public class ApiVodsController extends ApiBaseAction {
     @IgnoreAuth
     @PostMapping("list")
     public Object list(@RequestParam Map<String, Object> params) {
-		Map<String, Object> resultObj = new HashMap();
 		List<VodsDO> vodslist = new ArrayList();
-        if (StringUtils.isNullOrEmpty(params.get("page"))) {
-        	params.put("page", 1);
-         }
-        if (StringUtils.isNullOrEmpty(params.get("size"))) {
-        	params.put("size", 10);
-        	params.put("limit", 10);
-         }
-        params.put("limit", params.get("size"));
+        params.put("page", StringUtils.isNullOrEmpty(params.get("page")) ? 1 : params.get("page"));
+        params.put("limit", StringUtils.isNullOrEmpty(params.get("size")) ? 10 : params.get("size"));
 		// 查询列表数据
 		Query query = new Query(params);
 		vodslist = vodsService.list(query);

@@ -28,22 +28,29 @@ import javax.servlet.http.HttpServletResponse;
  * @email 939961241@qq.com
  * @date 2017-03-23 15:38
  */
+// 请求拦截器
 @Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     @Autowired
     private TokenService tokenService;
     @Autowired
     private ApiUserService apiUserService;
-	@Autowired
-	protected RedisUtil redisUtil;
-	
+    @Autowired
+    protected RedisUtil redisUtil;
+
     public static final String LOGIN_USER_KEY = "LOGIN_USER_KEY";
     public static final String LOGIN_TOKEN_KEY = "X-Neteye-Token";
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    // 在方法被调用前执行,true为拦截，调用下一个拦截器
+    /*
+    request：在该参数中可以获取到和请求相关的信息。比如是否为get请求等。
+    response：在该参数中可以获取对象的响应信息。
+    handler：该参数中包含了对应方法的信息。比如：方法中的参数类型、参数的注解、方法的注解等信息。
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    	logger.info("请求路径：{}", request.getRequestURI());
+        logger.info("请求路径：{}", request.getRequestURI());
         //支持跨域请求
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
@@ -57,7 +64,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         } else {
             return true;
         }
-        
+
         //如果有@IgnoreAuth注解，则不验证token
         if (annotation != null) {
             return true;
@@ -77,21 +84,21 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
         //查询token信息
         redisUtil.get(token);
-        
-        TokenEntity tokenEntity =(TokenEntity) redisUtil.get(token);
-        if(tokenEntity == null )  
-        	tokenEntity = tokenService.queryByToken(token);
+
+        TokenEntity tokenEntity = (TokenEntity) redisUtil.get(token);
+        if (tokenEntity == null)
+            tokenEntity = tokenService.queryByToken(token);
         if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()) {
             throw new ApiRRException("token失效，请重新登录", 401);
-            
-    		//ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();   		
-        }else {
-    		//数据插入测试：
-            UserVo user = (UserVo)apiUserService.queryObject(tokenEntity.getUserId());
+
+            //ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
+        } else {
+            //数据插入测试：
+            UserVo user = (UserVo) apiUserService.queryObject(tokenEntity.getUserId());
             redisUtil.set(token, tokenEntity);
-            redisUtil.set(token+user.getUserId(), user );
+            redisUtil.set(token + user.getUserId(), user);
         }
-        
+
 
         //设置userId到request里，后续根据userId，获取用户信息
         request.setAttribute(LOGIN_USER_KEY, tokenEntity.getUserId());

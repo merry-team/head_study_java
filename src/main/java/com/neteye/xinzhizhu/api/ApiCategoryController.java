@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -43,7 +44,7 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * Category
- * 
+ *
  * @author yinxj
  * @email net_eye@sohu.com
  * @date 2019-07-17 22:39:35
@@ -54,35 +55,31 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api/category")
 public class ApiCategoryController extends ApiBaseAction {
-	@Autowired
-	private CategoryService categoryService;
-	@Autowired
-	private SharingCardConfig sharingCardConfig;
+    @Autowired
+    private CategoryService categoryService;
+    @Autowired
+    private SharingCardConfig sharingCardConfig;
 
-	@ApiOperation(value = "获取articles列表")
+    @ApiOperation(value = "获取分类列表")
     @IgnoreAuth
     @PostMapping("list")
-    public Object list(@RequestParam Map<String, Object> params) {
-		Map<String, Object> resultObj = new HashMap();
-		List<CategoryDO> categorylist = new ArrayList();
-        if (StringUtils.isNullOrEmpty(params.get("page"))) {
-        	params.put("page", 1);
-         }
-        if (StringUtils.isNullOrEmpty(params.get("size"))) {
-        	params.put("size", 10);
-         }
-        params.put("status", 1);
-        params.put("limit", params.get("size"));
-		// 查询列表数据
-		Query query = new Query(params);
-		categorylist = categoryService.list(query);
-		int total = categoryService.count(query);
-		ApiPageUtils pageUtil = new ApiPageUtils(categorylist, total, query.getLimit(), query.getPage());
 
-		return toResponsSuccess(pageUtil);
-	}
+    public Object list(@RequestParam Map<String, Object> params) {
+        List<CategoryDO> categorylist = new ArrayList();
+        params.put("page", StringUtils.isNullOrEmpty(params.get("page")) ? 1 : params.get("page"));
+        params.put("limit", StringUtils.isNullOrEmpty(params.get("size")) ? 10 : params.get("size"));
+        params.put("status", 1);
+        Query query = new Query(params);
+        // 查询列表数据
+        categorylist = categoryService.list(query);
+        int total = categoryService.count(query);
+        ApiPageUtils pageUtil = new ApiPageUtils(categorylist, total, query.getLimit(), query.getPage());
+
+        return toResponsSuccess(pageUtil);
+    }
 
     /**
+     *
      */
     @ApiOperation(value = "分类数量")
     @PostMapping("count")
@@ -95,7 +92,7 @@ public class ApiCategoryController extends ApiBaseAction {
         resultObj.put("allCount", allCount);
         return toResponsSuccess(resultObj);
     }
-    
+
     /**
      * 获取分类详情
      */
@@ -106,7 +103,7 @@ public class ApiCategoryController extends ApiBaseAction {
         Map resultObj = new HashMap();
         //
         CategoryDO category = categoryService.get(id);
-        if (null == category || !category.getStatus().equals(1) ) {
+        if (null == category || !category.getStatus().equals(1)) {
             return toResponsObject(400, "分类不存在", "");
         }
         resultObj.put("category", category);

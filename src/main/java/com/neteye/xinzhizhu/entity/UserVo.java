@@ -1,5 +1,7 @@
 package com.neteye.xinzhizhu.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,6 +19,7 @@ public class UserVo implements Serializable {
     //会员名称
     private String username;
     //会员密码
+    @JsonIgnore
     private String password;
     //性别
     private Integer gender;

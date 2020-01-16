@@ -1,0 +1,1393 @@
+2020-01-12 10:47:50 -Starting SharingCradApplication on 192.168.0.113 with PID 5561 (/Users/zhengzhiheng/Desktop/xinzhizhu/target/classes started by zhengzhiheng in /Users/zhengzhiheng/Desktop/xinzhizhu)
+2020-01-12 10:47:50 -The following profiles are active: pro
+2020-01-12 10:47:50 -Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@183ec003: startup date [Sun Jan 12 10:47:50 CST 2020]; root of context hierarchy
+2020-01-12 10:47:51 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-01-12 10:47:55 -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2020-01-12 10:47:56 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4e6b3f0f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'shiroConfig' of type [com.sharingcard.system.config.ShiroConfig$$EnhancerBySpringCGLIB$$4b3b740b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'userRealm' of type [com.sharingcard.system.shiro.UserRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'redisManager' of type [com.sharingcard.common.redis.shiro.RedisManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'redisSessionDAO' of type [com.sharingcard.common.redis.shiro.RedisSessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'sessionDAO' of type [com.sharingcard.common.redis.shiro.RedisSessionDAO] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-01-12 10:47:56 -Tomcat initialized with port(s): 8080 (http)
+2020-01-12 10:47:56 -Initializing ProtocolHandler ["http-nio-127.0.0.1-8080"]
+2020-01-12 10:47:56 -Starting service [Tomcat]
+2020-01-12 10:47:56 -Starting Servlet Engine: Apache Tomcat/8.5.31
+2020-01-12 10:47:56 -The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/zhengzhiheng/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2020-01-12 10:47:56 -Initializing Spring embedded WebApplicationContext
+2020-01-12 10:47:56 -Root WebApplicationContext: initialization completed in 6167 ms
+2020-01-12 10:47:56 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-01-12 10:47:56 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-01-12 10:47:56 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-01-12 10:47:56 -Mapping filter: 'requestContextFilter' to: [/*]
+2020-01-12 10:47:56 -Filter xssFilter was not registered (disabled)
+2020-01-12 10:47:56 -Mapping filter: 'webStatFilter' to urls: [/*]
+2020-01-12 10:47:56 -Mapping filter: 'shiroFilterFactoryBean' to: [/*]
+2020-01-12 10:47:56 -Servlet statViewServlet mapped to [/druid/*]
+2020-01-12 10:47:56 -Servlet dispatcherServlet mapped to [/]
+2020-01-12 10:47:59 -ProcessEngine default created
+2020-01-12 10:47:59 -Using default implementation for ThreadExecutor
+2020-01-12 10:47:59 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2020-01-12 10:47:59 -Quartz Scheduler v.2.2.1 created.
+2020-01-12 10:47:59 -RAMJobStore initialized.
+2020-01-12 10:47:59 -Scheduler meta-data: Quartz Scheduler (v2.2.1) 'schedulerFactoryBean' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2020-01-12 10:47:59 -Quartz scheduler 'schedulerFactoryBean' initialized from an externally provided properties instance.
+2020-01-12 10:47:59 -Quartz scheduler version: 2.2.1
+2020-01-12 10:47:59 -JobFactory set to: com.sharingcard.common.quartz.factory.JobFactory@5ebdbb21
+2020-01-12 10:47:59 -Initializing ExecutorService  'clientInboundChannelExecutor'
+2020-01-12 10:48:00 -Initializing ExecutorService  'clientOutboundChannelExecutor'
+2020-01-12 10:48:00 -Mapped "{[/api/health/listgood],methods=[POST]}" onto public java.lang.Object com.neteye.health.api.ApiHealth.listgood(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/health/listdepart],methods=[POST]}" onto public java.lang.Object com.neteye.health.api.ApiHealth.listdepart(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/health/listcompany],methods=[POST]}" onto public java.lang.Object com.neteye.health.api.ApiHealth.listcompany(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/health/login],methods=[POST]}" onto public java.lang.Object com.neteye.health.api.ApiHealth.login(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/company/add],methods=[GET]}" onto java.lang.String com.neteye.health.controller.CompanyController.add()
+2020-01-12 10:48:00 -Mapped "{[/health/company/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.CompanyController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/company/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.CompanyController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/health/company/update]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.CompanyController.update(com.neteye.health.domain.CompanyDO)
+2020-01-12 10:48:00 -Mapped "{[/health/company/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.health.controller.CompanyController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/company/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.CompanyController.save(com.neteye.health.domain.CompanyDO)
+2020-01-12 10:48:00 -Mapped "{[/health/company],methods=[GET]}" onto java.lang.String com.neteye.health.controller.CompanyController.Company()
+2020-01-12 10:48:00 -Mapped "{[/health/company/edit/{companyId}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.CompanyController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/department/add],methods=[GET]}" onto java.lang.String com.neteye.health.controller.DepartmentController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/department/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.DepartmentController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/department/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.DepartmentController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/health/department/update]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.DepartmentController.update(com.neteye.health.domain.DepartmentDO)
+2020-01-12 10:48:00 -Mapped "{[/health/department/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.health.controller.DepartmentController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/department/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.DepartmentController.save(com.neteye.health.domain.DepartmentDO)
+2020-01-12 10:48:00 -Mapped "{[/health/department/edit/{departmentId}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.DepartmentController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/department],methods=[GET]}" onto java.lang.String com.neteye.health.controller.DepartmentController.Department()
+2020-01-12 10:48:00 -Mapped "{[/health/good/add],methods=[GET]}" onto java.lang.String com.neteye.health.controller.GoodController.add()
+2020-01-12 10:48:00 -Mapped "{[/health/good/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.GoodController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/good/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.GoodController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/health/good/update]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.GoodController.update(com.neteye.health.domain.GoodDO)
+2020-01-12 10:48:00 -Mapped "{[/health/good/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.health.controller.GoodController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/good/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.GoodController.save(com.neteye.health.domain.GoodDO)
+2020-01-12 10:48:00 -Mapped "{[/health/good/edit/{id}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.GoodController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/good],methods=[GET]}" onto java.lang.String com.neteye.health.controller.GoodController.Good()
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/{id}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.HealthLoginController.index(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/savebooking]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.HealthLoginController.update(com.neteye.health.domain.OrdersDO)
+2020-01-12 10:48:00 -Mapped "{[/healthlogin],methods=[GET]}" onto java.lang.String com.neteye.health.controller.HealthLoginController.i()
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/reg],methods=[GET]}" onto java.lang.String com.neteye.health.controller.HealthLoginController.reg(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/regsave]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.HealthLoginController.regsave(com.neteye.health.domain.UsersDO)
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/booking],methods=[GET]}" onto java.lang.String com.neteye.health.controller.HealthLoginController.booking(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/listordering],methods=[GET]}" onto java.lang.String com.neteye.health.controller.HealthLoginController.listordering(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/ordering/{id}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.HealthLoginController.ordering(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/healthlogin/p/{id}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.HealthLoginController.p(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/orders/add],methods=[GET]}" onto java.lang.String com.neteye.health.controller.OrdersController.add()
+2020-01-12 10:48:00 -Mapped "{[/health/orders/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.OrdersController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/orders/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.OrdersController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/health/orders/update]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.OrdersController.update(com.neteye.health.domain.OrdersDO)
+2020-01-12 10:48:00 -Mapped "{[/health/orders/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.health.controller.OrdersController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/orders/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.OrdersController.save(com.neteye.health.domain.OrdersDO)
+2020-01-12 10:48:00 -Mapped "{[/health/orders/edit/{id}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.OrdersController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/orders/booking],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.OrdersController.booking(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/orders/batchBooking],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.OrdersController.booking(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/health/orders],methods=[GET]}" onto java.lang.String com.neteye.health.controller.OrdersController.Orders()
+2020-01-12 10:48:00 -Mapped "{[/health/orders/export],methods=[GET]}" onto public void com.neteye.health.controller.OrdersController.export(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/users/add],methods=[GET]}" onto java.lang.String com.neteye.health.controller.UsersController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/users/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.UsersController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/users/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.UsersController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/health/users/update]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.UsersController.update(com.neteye.health.domain.UsersDO)
+2020-01-12 10:48:00 -Mapped "{[/health/users/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.health.controller.UsersController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/users/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.UsersController.save(com.neteye.health.domain.UsersDO,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/users],methods=[GET]}" onto java.lang.String com.neteye.health.controller.UsersController.Users()
+2020-01-12 10:48:00 -Mapped "{[/health/users/edit/{id}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.UsersController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/worktime/add],methods=[GET]}" onto java.lang.String com.neteye.health.controller.WorktimeController.add()
+2020-01-12 10:48:00 -Mapped "{[/health/worktime/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.WorktimeController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/health/worktime/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.WorktimeController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/health/worktime/update]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.WorktimeController.update(com.neteye.health.domain.WorktimeDO)
+2020-01-12 10:48:00 -Mapped "{[/health/worktime/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.health.controller.WorktimeController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/health/worktime/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.health.controller.WorktimeController.save(com.neteye.health.domain.WorktimeDO)
+2020-01-12 10:48:00 -Mapped "{[/health/worktime/edit/{workId}],methods=[GET]}" onto java.lang.String com.neteye.health.controller.WorktimeController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/health/worktime],methods=[GET]}" onto java.lang.String com.neteye.health.controller.WorktimeController.Worktime()
+2020-01-12 10:48:00 -Mapped "{[/api/address/delete],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiAddressController.delete(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/address/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiAddressController.list(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/address/save],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiAddressController.save(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/address/detail],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiAddressController.detail(java.lang.Integer,com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/articles/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiArticlesController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/articles/detail],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiArticlesController.detail(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/auth/login],methods=[POST]}" onto public com.neteye.xinzhizhu.utils.R com.neteye.xinzhizhu.api.ApiAuthController.login(java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/api/auth/login_by_weixin],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiAuthController.loginByWeixin()
+2020-01-12 10:48:00 -Mapped "{[/api/auth/login_by_ali],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiAuthController.login_by_ali()
+2020-01-12 10:48:00 -Mapped "{[/api/category/count],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCategoryController.count(java.lang.Integer,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/category/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCategoryController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/category/detail],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCategoryController.detail(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/collect/count],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCollectController.count(java.lang.Integer,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/collect/read],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCollectController.read(java.lang.Integer,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/collect/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCollectController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/api/collect/listuser],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCollectController.listuser(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/collect/addordelete],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCollectController.addordelete(com.neteye.xinzhizhu.entity.UserVo,java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/comment/count],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCommentController.count(java.lang.Integer,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/comment/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCommentController.list(java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.Integer,java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/api/comment/post],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCommentController.post(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/coupon/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCouponController.list(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/coupon/newuser],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCouponController.newuser(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/coupon/transActivit],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCouponController.transActivit(com.neteye.xinzhizhu.entity.UserVo,java.lang.String,java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/api/coupon/exchange],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCouponController.exchange(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/course/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCourseController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/course/detail],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiCourseController.detail(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/feedback/save],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiFeedbackController.save(com.neteye.xinzhizhu.entity.UserVo,java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/fms/get],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiFmsController.get(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/fms/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiFmsController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/fms/detail],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiFmsController.detail(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/footprint/delete],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiFootprintController.delete(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/footprint/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiFootprintController.list(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/footprint/sharelist],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiFootprintController.sharelist(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/helpissue/typeList]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiHelpIssueController.typeList()
+2020-01-12 10:48:00 -Mapped "{[/api/helpissue/issueList]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiHelpIssueController.issueList(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/api/index/index],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiIndexController.index()
+2020-01-12 10:48:00 -Mapped "{[/api/index/test],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiIndexController.test()
+2020-01-12 10:48:00 -Mapped "{[/api/index/ad],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiIndexController.ad(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/order/index],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiOrderController.index()
+2020-01-12 10:48:00 -Mapped "{[/api/order/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiOrderController.list(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/order/updateSuccess],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiOrderController.updateSuccess(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/order/cancelOrder],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiOrderController.cancelOrder(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/order/confirmOrder],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiOrderController.confirmOrder(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/order/submit],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiOrderController.submit(com.neteye.xinzhizhu.entity.UserVo)
+2020-01-12 10:48:00 -Mapped "{[/api/order/detail],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiOrderController.detail(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/pay/index],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiPayController.index()
+2020-01-12 10:48:00 -Mapped "{[/api/pay/notify],methods=[POST],produces=[text/html;charset=UTF-8]}" onto public void com.neteye.xinzhizhu.api.ApiPayController.notify(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-12 10:48:00 -Mapped "{[/api/pay/prepay],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiPayController.payPrepay(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/pay/query],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiPayController.orderQuery(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/pay/refund],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiPayController.refund(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/region/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiRegionController.list(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/region/cityList],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiRegionController.provinceList(java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/api/region/provinceList],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiRegionController.provinceList()
+2020-01-12 10:48:00 -Mapped "{[/api/region/distinctList],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiRegionController.distinctList(java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/api/region/regionIdsByNames],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiRegionController.regionIdsByNames(java.lang.String,java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/api/region/info],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiRegionController.info(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/api/vods/list],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiVodsController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/api/vods/detail],methods=[POST]}" onto public java.lang.Object com.neteye.xinzhizhu.api.ApiVodsController.detail(com.neteye.xinzhizhu.entity.UserVo,java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.AdInfoController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdInfoController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdInfoController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdInfoController.update(com.neteye.xinzhizhu.domain.AdInfoDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.AdInfoController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdInfoController.save(com.neteye.xinzhizhu.domain.AdInfoDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo/edit/{id}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.AdInfoController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adInfo],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.AdInfoController.AdInfo()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.AdPositionController.add()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdPositionController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdPositionController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdPositionController.update(com.neteye.xinzhizhu.domain.AdPositionDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.AdPositionController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.AdPositionController.save(com.neteye.xinzhizhu.domain.AdPositionDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition/edit/{id}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.AdPositionController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/adPosition],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.AdPositionController.AdPosition()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.ArticlesController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.ArticlesController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.ArticlesController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.ArticlesController.update(com.neteye.xinzhizhu.domain.ArticlesDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.ArticlesController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.ArticlesController.save(com.neteye.xinzhizhu.domain.ArticlesDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles/edit/{articleId}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.ArticlesController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/articles],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.ArticlesController.Articles()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CategoryController.add()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CategoryController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CategoryController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CategoryController.update(com.neteye.xinzhizhu.domain.CategoryDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.CategoryController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CategoryController.save(com.neteye.xinzhizhu.domain.CategoryDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CategoryController.Category()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/category/edit/{categoryId}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CategoryController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CollectController.add()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CollectController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CollectController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CollectController.update(com.neteye.xinzhizhu.domain.CollectDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.CollectController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CollectController.save(com.neteye.xinzhizhu.domain.CollectDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect/edit/{collecttId}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CollectController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/collect],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CollectController.Collect()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CommentController.add()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CommentController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CommentController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CommentController.update(com.neteye.xinzhizhu.domain.CommentDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.CommentController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CommentController.save(com.neteye.xinzhizhu.domain.CommentDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment/edit/{commentId}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CommentController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/comment],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CommentController.Comment()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CourseController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CourseController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CourseController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CourseController.update(com.neteye.xinzhizhu.domain.CourseDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.CourseController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CourseController.save(com.neteye.xinzhizhu.domain.CourseDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course/edit/{courseId}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CourseController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/course],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CourseController.Course()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CsOrderController.add()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CsOrderController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CsOrderController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CsOrderController.update(com.neteye.xinzhizhu.domain.CsOrderDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.CsOrderController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.CsOrderController.save(com.neteye.xinzhizhu.domain.CsOrderDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/edit/{id}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CsOrderController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.CsOrderController.CsOrder()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/csOrder/export],methods=[GET]}" onto public void com.neteye.xinzhizhu.controller.CsOrderController.export(java.util.Map<java.lang.String, java.lang.Object>,javax.servlet.http.HttpServletResponse)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.FmsController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.FmsController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.FmsController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.FmsController.update(com.neteye.xinzhizhu.domain.FmsDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.FmsController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.FmsController.save(com.neteye.xinzhizhu.domain.FmsDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms/edit/{fmId}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.FmsController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/fms],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.FmsController.Fms()
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods/add],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.VodsController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.VodsController.remove(java.lang.Integer)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.VodsController.remove(java.lang.Integer[])
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods/update]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.VodsController.update(com.neteye.xinzhizhu.domain.VodsDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.neteye.xinzhizhu.controller.VodsController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.neteye.xinzhizhu.controller.VodsController.save(com.neteye.xinzhizhu.domain.VodsDO)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods/edit/{vodId}],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.VodsController.edit(java.lang.Integer,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/xinzhizhu/vods],methods=[GET]}" onto java.lang.String com.neteye.xinzhizhu.controller.VodsController.Vods()
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/{id}],methods=[DELETE]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.ModelController.remove(java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/list],methods=[GET]}" onto com.sharingcard.common.utils.PageUtils com.sharingcard.activiti.controller.ModelController.list(int,int)
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.ModelController.batchRemove(java.lang.String[])
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/edit/{id}],methods=[GET]}" onto public void com.sharingcard.activiti.controller.ModelController.edit(javax.servlet.http.HttpServletResponse,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/add]}" onto public void com.sharingcard.activiti.controller.ModelController.newModel(javax.servlet.http.HttpServletResponse) throws java.io.UnsupportedEncodingException
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/{modelId}/json],methods=[GET]}" onto public com.fasterxml.jackson.databind.node.ObjectNode com.sharingcard.activiti.controller.ModelController.getEditorJson(java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/activiti/editor/stencilset],methods=[GET],produces=[application/json;charset=utf-8]}" onto public java.lang.String com.sharingcard.activiti.controller.ModelController.getStencilset()
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/deploy/{id}],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.ModelController.deploy(java.lang.String) throws java.lang.Exception
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/{modelId}/save],methods=[PUT]}" onto public void com.sharingcard.activiti.controller.ModelController.saveModel(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/activiti/model/export/{id}],methods=[GET]}" onto public void com.sharingcard.activiti.controller.ModelController.exportToXml(java.lang.String,javax.servlet.http.HttpServletResponse)
+2020-01-12 10:48:00 -Mapped "{[/activiti/model],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.sharingcard.activiti.controller.ModelController.model()
+2020-01-12 10:48:00 -Mapped "{[/activiti/process/add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sharingcard.activiti.controller.ProcessController.add()
+2020-01-12 10:48:00 -Mapped "{[/activiti/process/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.ProcessController.remove(java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/activiti/process/list],methods=[GET]}" onto com.sharingcard.common.utils.PageUtils com.sharingcard.activiti.controller.ProcessController.list(int,int)
+2020-01-12 10:48:00 -Mapped "{[/activiti/process/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.ProcessController.batchRemove(java.lang.String[])
+2020-01-12 10:48:00 -Mapped "{[/activiti/process/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.ProcessController.deploy(java.lang.String,java.lang.String,org.springframework.web.multipart.MultipartFile)
+2020-01-12 10:48:00 -Mapped "{[/activiti/process/convertToModel/{procDefId}]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.ProcessController.convertToModel(java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes) throws java.io.UnsupportedEncodingException,javax.xml.stream.XMLStreamException
+2020-01-12 10:48:00 -Mapped "{[/activiti/process/resource/read/{xml}/{id}]}" onto public void com.sharingcard.activiti.controller.ProcessController.resourceRead(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2020-01-12 10:48:00 -Mapped "{[/activiti/process],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.sharingcard.activiti.controller.ProcessController.process()
+2020-01-12 10:48:00 -Mapped "{[/act/salary/form],methods=[GET]}" onto java.lang.String com.sharingcard.activiti.controller.SalaryController.add()
+2020-01-12 10:48:00 -Mapped "{[/act/salary/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.SalaryController.remove(java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/act/salary/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.SalaryController.remove(java.lang.String[])
+2020-01-12 10:48:00 -Mapped "{[/act/salary/update]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.SalaryController.update(com.sharingcard.activiti.domain.SalaryDO)
+2020-01-12 10:48:00 -Mapped "{[/act/salary/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.sharingcard.activiti.controller.SalaryController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/act/salary/form/{taskId}],methods=[GET]}" onto java.lang.String com.sharingcard.activiti.controller.SalaryController.edit(java.lang.String,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/act/salary],methods=[GET]}" onto java.lang.String com.sharingcard.activiti.controller.SalaryController.Salary()
+2020-01-12 10:48:00 -Mapped "{[/act/salary/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.activiti.controller.SalaryController.saveOrUpdate(com.sharingcard.activiti.domain.SalaryDO)
+2020-01-12 10:48:00 -Mapped "{[/activiti/task/form/{procDefId}/{taskId}],methods=[GET]}" onto public void com.sharingcard.activiti.controller.TaskController.form(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2020-01-12 10:48:00 -Mapped "{[/activiti/task/gotoList],methods=[GET]}" onto com.sharingcard.common.utils.PageUtils com.sharingcard.activiti.controller.TaskController.list(int,int)
+2020-01-12 10:48:00 -Mapped "{[/activiti/task/goto],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.sharingcard.activiti.controller.TaskController.gotoTask()
+2020-01-12 10:48:00 -Mapped "{[/activiti/task/form/{procDefId}],methods=[GET]}" onto public void com.sharingcard.activiti.controller.TaskController.startForm(java.lang.String,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2020-01-12 10:48:00 -Mapped "{[/activiti/task/todo],methods=[GET]}" onto org.springframework.web.servlet.ModelAndView com.sharingcard.activiti.controller.TaskController.todo()
+2020-01-12 10:48:00 -Mapped "{[/activiti/task/todoList],methods=[GET]}" onto java.util.List<com.sharingcard.activiti.vo.TaskVO> com.sharingcard.activiti.controller.TaskController.todoList()
+2020-01-12 10:48:00 -Mapped "{[/activiti/task/trace/photo/{procDefId}/{execId}]}" onto public void com.sharingcard.activiti.controller.TaskController.tracePhoto(java.lang.String,java.lang.String,javax.servlet.http.HttpServletResponse) throws java.lang.Exception
+2020-01-12 10:48:00 -Mapped "{[/blog/open/page/{categories}],methods=[GET]}" onto java.lang.String com.sharingcard.blog.controller.BlogController.about(java.lang.String,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/blog],methods=[GET]}" onto java.lang.String com.sharingcard.blog.controller.BlogController.blog()
+2020-01-12 10:48:00 -Mapped "{[/blog/open/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.sharingcard.blog.controller.BlogController.opentList(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/blog/open/post/{cid}],methods=[GET]}" onto java.lang.String com.sharingcard.blog.controller.BlogController.post(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent/add],methods=[GET]}" onto java.lang.String com.sharingcard.blog.controller.ContentController.add()
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.blog.controller.ContentController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.blog.controller.ContentController.remove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent/update]}" onto public com.sharingcard.common.utils.R com.sharingcard.blog.controller.ContentController.update(com.sharingcard.blog.domain.ContentDO)
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.sharingcard.blog.controller.ContentController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.blog.controller.ContentController.save(com.sharingcard.blog.domain.ContentDO)
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent/edit/{cid}],methods=[GET]}" onto java.lang.String com.sharingcard.blog.controller.ContentController.edit(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/blog/bContent],methods=[GET]}" onto java.lang.String com.sharingcard.blog.controller.ContentController.bContent()
+2020-01-12 10:48:00 -Mapped "{[/common/dict/add],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.DictController.add()
+2020-01-12 10:48:00 -Mapped "{[/common/dict/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.DictController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/common/dict/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.DictController.remove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/common/dict/update]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.DictController.update(com.sharingcard.common.domain.DictDO)
+2020-01-12 10:48:00 -Mapped "{[/common/dict/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.sharingcard.common.controller.DictController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/common/dict/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.DictController.save(com.sharingcard.common.domain.DictDO)
+2020-01-12 10:48:00 -Mapped "{[/common/dict/edit/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.DictController.edit(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/common/dict],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.DictController.dict()
+2020-01-12 10:48:00 -Mapped "{[/common/dict/add/{type}/{description}],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.DictController.addD(org.springframework.ui.Model,java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/common/dict/list/{type}],methods=[GET]}" onto public java.util.List<com.sharingcard.common.domain.DictDO> com.sharingcard.common.controller.DictController.listByType(java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/common/dict/type],methods=[GET]}" onto public java.util.List<com.sharingcard.common.domain.DictDO> com.sharingcard.common.controller.DictController.listType()
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/add],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.FileController.add()
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.FileController.remove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.FileController.remove(java.lang.Long,javax.servlet.http.HttpServletRequest)
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/update]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.FileController.update(com.sharingcard.common.domain.FileDO)
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.sharingcard.common.controller.FileController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.FileController.save(com.sharingcard.common.domain.FileDO)
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/edit],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.FileController.edit(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.FileController.sysFile(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/upload],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.common.controller.FileController.upload(org.springframework.web.multipart.MultipartFile,javax.servlet.http.HttpServletRequest)
+2020-01-12 10:48:00 -Mapped "{[/common/sysFile/info/{id}]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.FileController.info(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/common/generator/update],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.common.controller.GeneratorController.update(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/common/generator/list],methods=[GET]}" onto java.util.List<java.util.Map<java.lang.String, java.lang.Object>> com.sharingcard.common.controller.GeneratorController.list()
+2020-01-12 10:48:00 -Mapped "{[/common/generator],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.GeneratorController.generator()
+2020-01-12 10:48:00 -Mapped "{[/common/generator/edit],methods=[GET]}" onto public java.lang.String com.sharingcard.common.controller.GeneratorController.edit(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/common/generator/batchCode]}" onto public void com.sharingcard.common.controller.GeneratorController.batchCode(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2020-01-12 10:48:00 -Mapped "{[/common/generator/code/{tableName}]}" onto public void com.sharingcard.common.controller.GeneratorController.code(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.String) throws java.io.IOException
+2020-01-12 10:48:00 -Mapped "{[/common/job/add],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.JobController.add()
+2020-01-12 10:48:00 -Mapped "{[/common/job/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.JobController.remove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/common/job/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.JobController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/common/job/update],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.JobController.update(com.sharingcard.common.domain.TaskDO)
+2020-01-12 10:48:00 -Mapped "{[/common/job/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.sharingcard.common.controller.JobController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/common/job/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.JobController.save(com.sharingcard.common.domain.TaskDO)
+2020-01-12 10:48:00 -Mapped "{[/common/job/edit/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.JobController.edit(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/common/job],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.JobController.taskScheduleJob()
+2020-01-12 10:48:00 -Mapped "{[/common/job/changeJobStatus],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.JobController.changeJobStatus(java.lang.Long,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/common/job/info/{id}]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.controller.JobController.info(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/common/log/remove],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.common.controller.LogController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/common/log],methods=[GET]}" onto java.lang.String com.sharingcard.common.controller.LogController.log()
+2020-01-12 10:48:00 -Mapped "{[/common/log/list],methods=[GET]}" onto com.sharingcard.common.domain.PageDO<com.sharingcard.common.domain.LogDO> com.sharingcard.common.controller.LogController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/common/log/batchRemove],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.common.controller.LogController.batchRemove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView com.sharingcard.common.exception.MainsiteErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-12 10:48:00 -Mapped "{[/error]}" onto public com.sharingcard.common.utils.R com.sharingcard.common.exception.MainsiteErrorController.handleError(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/add],methods=[GET]}" onto java.lang.String com.sharingcard.oa.controller.NotifyController.add()
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.oa.controller.NotifyController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.oa.controller.NotifyController.remove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/update]}" onto public com.sharingcard.common.utils.R com.sharingcard.oa.controller.NotifyController.update(com.sharingcard.oa.domain.NotifyDO)
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/read/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.oa.controller.NotifyController.read(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/list],methods=[GET]}" onto public com.sharingcard.common.utils.PageUtils com.sharingcard.oa.controller.NotifyController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.oa.controller.NotifyController.save(com.sharingcard.oa.domain.NotifyDO)
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/message],methods=[GET]}" onto com.sharingcard.common.utils.PageUtils com.sharingcard.oa.controller.NotifyController.message()
+2020-01-12 10:48:00 -Mapped "{[/oa/notify],methods=[GET]}" onto java.lang.String com.sharingcard.oa.controller.NotifyController.oaNotify()
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/selfNotify],methods=[GET]}" onto java.lang.String com.sharingcard.oa.controller.NotifyController.selefNotify()
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/selfList],methods=[GET]}" onto com.sharingcard.common.utils.PageUtils com.sharingcard.oa.controller.NotifyController.selfList(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/oa/notify/edit/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.oa.controller.NotifyController.edit(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/add/{pId}],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.DeptController.add(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/remove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.system.controller.DeptController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/batchRemove],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.system.controller.DeptController.remove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/update]}" onto public com.sharingcard.common.utils.R com.sharingcard.system.controller.DeptController.update(com.sharingcard.system.domain.DeptDO)
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/list],methods=[GET]}" onto public java.util.List<com.sharingcard.system.domain.DeptDO> com.sharingcard.system.controller.DeptController.list()
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/save],methods=[POST]}" onto public com.sharingcard.common.utils.R com.sharingcard.system.controller.DeptController.save(com.sharingcard.system.domain.DeptDO)
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/tree],methods=[GET]}" onto public com.sharingcard.common.domain.Tree<com.sharingcard.system.domain.DeptDO> com.sharingcard.system.controller.DeptController.tree()
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.DeptController.dept()
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/treeView],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.DeptController.treeView()
+2020-01-12 10:48:00 -Mapped "{[/system/sysDept/edit/{deptId}],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.DeptController.edit(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/index],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.LoginController.index(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/main],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.LoginController.main()
+2020-01-12 10:48:00 -Mapped "{[/logout],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.LoginController.logout()
+2020-01-12 10:48:00 -Mapped "{[/ || ],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.LoginController.welcome(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/login],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.LoginController.ajaxLogin(java.lang.String,java.lang.String)
+2020-01-12 10:48:00 -Mapped "{[/login],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.LoginController.login()
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/add/{pId}],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.MenuController.add(org.springframework.ui.Model,java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/remove],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.MenuController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/update],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.MenuController.update(com.sharingcard.system.domain.MenuDO)
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/list]}" onto java.util.List<com.sharingcard.system.domain.MenuDO> com.sharingcard.system.controller.MenuController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/save],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.MenuController.save(com.sharingcard.system.domain.MenuDO)
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/tree/{roleId}],methods=[GET]}" onto com.sharingcard.common.domain.Tree<com.sharingcard.system.domain.MenuDO> com.sharingcard.system.controller.MenuController.tree(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/tree],methods=[GET]}" onto com.sharingcard.common.domain.Tree<com.sharingcard.system.domain.MenuDO> com.sharingcard.system.controller.MenuController.tree()
+2020-01-12 10:48:00 -Mapped "{[/sys/menu],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.MenuController.menu(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/sys/menu/edit/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.MenuController.edit(org.springframework.ui.Model,java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/sys/role/add],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.RoleController.add()
+2020-01-12 10:48:00 -Mapped "{[/sys/role/update],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.RoleController.update(com.sharingcard.system.domain.RoleDO)
+2020-01-12 10:48:00 -Mapped "{[/sys/role/list],methods=[GET]}" onto java.util.List<com.sharingcard.system.domain.RoleDO> com.sharingcard.system.controller.RoleController.list()
+2020-01-12 10:48:00 -Mapped "{[/sys/role/remove],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.RoleController.save(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/sys/role/save],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.RoleController.save(com.sharingcard.system.domain.RoleDO)
+2020-01-12 10:48:00 -Mapped "{[/sys/role/batchRemove],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.RoleController.batchRemove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/sys/role],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.RoleController.role()
+2020-01-12 10:48:00 -Mapped "{[/sys/role/edit/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.RoleController.edit(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/sys/online/list]}" onto public java.util.List<com.sharingcard.system.domain.UserOnline> com.sharingcard.system.controller.SessionController.list()
+2020-01-12 10:48:00 -Mapped "{[/sys/online/forceLogout/{sessionId}]}" onto public com.sharingcard.common.utils.R com.sharingcard.system.controller.SessionController.forceLogout(java.lang.String,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-01-12 10:48:00 -Mapped "{[/sys/online],methods=[GET]}" onto public java.lang.String com.sharingcard.system.controller.SessionController.online()
+2020-01-12 10:48:00 -Mapped "{[/sys/online/sessionList]}" onto public java.util.Collection<org.apache.shiro.session.Session> com.sharingcard.system.controller.SessionController.sessionList()
+2020-01-12 10:48:00 -Mapped "{[/sys/user/exit],methods=[POST]}" onto boolean com.sharingcard.system.controller.UserController.exit(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/add],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.UserController.add(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/remove],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.remove(java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/update],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.update(com.sharingcard.system.domain.UserDO)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/list],methods=[GET]}" onto com.sharingcard.common.utils.PageUtils com.sharingcard.system.controller.UserController.list(java.util.Map<java.lang.String, java.lang.Object>)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/save],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.save(com.sharingcard.system.domain.UserDO)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/batchRemove],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.batchRemove(java.lang.Long[])
+2020-01-12 10:48:00 -Mapped "{[/sys/user/tree],methods=[GET]}" onto public com.sharingcard.common.domain.Tree<com.sharingcard.system.domain.DeptDO> com.sharingcard.system.controller.UserController.tree()
+2020-01-12 10:48:00 -Mapped "{[/sys/user/treeView],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.UserController.treeView()
+2020-01-12 10:48:00 -Mapped "{[/sys/user/resetPwd],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.resetPwd(com.sharingcard.system.vo.UserVO)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/resetPwd/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.UserController.resetPwd(java.lang.Long,org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/updatePeronal],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.updatePeronal(com.sharingcard.system.domain.UserDO)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/adminResetPwd],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.adminResetPwd(com.sharingcard.system.vo.UserVO)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/personal],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.UserController.personal(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/uploadImg],methods=[POST]}" onto com.sharingcard.common.utils.R com.sharingcard.system.controller.UserController.uploadImg(org.springframework.web.multipart.MultipartFile,java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-01-12 10:48:00 -Mapped "{[/sys/user],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.UserController.user(org.springframework.ui.Model)
+2020-01-12 10:48:00 -Mapped "{[/sys/user/edit/{id}],methods=[GET]}" onto java.lang.String com.sharingcard.system.controller.UserController.edit(org.springframework.ui.Model,java.lang.Long)
+2020-01-12 10:48:00 -Mapped "{[/wx/MP_verify_2FsOzpChwhTxq7nQ.txt],methods=[GET]}" onto public void com.sharingcard.wxpay.controller.WxController.saveOrUpdate(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException
+2020-01-12 10:48:00 -Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2020-01-12 10:48:00 -Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2020-01-12 10:48:00 -Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2020-01-12 10:48:00 -Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2020-01-12 10:48:01 -Initializing ExecutorService  'messageBrokerTaskScheduler'
+2020-01-12 10:48:01 -Mapped URL path [/endpointChat/**] onto handler of type [class org.springframework.web.socket.sockjs.support.SockJsHttpRequestHandler]
+2020-01-12 10:48:01 -Initializing ExecutorService  'brokerChannelExecutor'
+2020-01-12 10:48:01 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-12 10:48:01 -Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@183ec003: startup date [Sun Jan 12 10:47:50 CST 2020]; root of context hierarchy
+2020-01-12 10:48:01 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-12 10:48:01 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-12 10:48:01 -Mapped URL path [/files/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-01-12 10:48:01 -Detected @ExceptionHandler methods in RRExceptionHandler
+2020-01-12 10:48:01 -Detected @ExceptionHandler methods in BDExceptionHandler
+2020-01-12 10:48:01 -Detected @ExceptionHandler methods in globalExceptionHandler
+2020-01-12 10:48:01 -[THYMELEAF][main] Template Mode 'LEGACYHTML5' is deprecated. Using Template Mode 'HTML' instead.
+2020-01-12 10:48:02 -Registering beans for JMX exposure on startup
+2020-01-12 10:48:02 -Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-01-12 10:48:02 -Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-01-12 10:48:02 -Starting beans in phase 2147483647
+2020-01-12 10:48:02 -Context refreshed
+2020-01-12 10:48:02 -Found 1 custom documentation plugin(s)
+2020-01-12 10:48:02 -Scanning for api listing references
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: addUsingGET_1
+2020-01-12 10:48:02 -Generating unique operation named: editUsingGET_1
+2020-01-12 10:48:02 -Generating unique operation named: listUsingGET_1
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_2
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_3
+2020-01-12 10:48:02 -Generating unique operation named: saveUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingGET_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingHEAD_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPUT_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPATCH_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingDELETE_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingOPTIONS_1
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingTRACE_1
+2020-01-12 10:48:02 -Generating unique operation named: saveUsingPOST_2
+2020-01-12 10:48:02 -Generating unique operation named: detailUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: detailUsingPOST_2
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_2
+2020-01-12 10:48:02 -Generating unique operation named: countUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_3
+2020-01-12 10:48:02 -Generating unique operation named: countUsingPOST_2
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_4
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_5
+2020-01-12 10:48:02 -Generating unique operation named: detailUsingPOST_3
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_6
+2020-01-12 10:48:02 -Generating unique operation named: saveUsingPOST_3
+2020-01-12 10:48:02 -Generating unique operation named: detailUsingPOST_4
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_7
+2020-01-12 10:48:02 -Generating unique operation named: deleteUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_8
+2020-01-12 10:48:02 -Generating unique operation named: loginUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: detailUsingPOST_5
+2020-01-12 10:48:02 -Generating unique operation named: indexUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_9
+2020-01-12 10:48:02 -Generating unique operation named: indexUsingPOST_2
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_10
+2020-01-12 10:48:02 -Generating unique operation named: provinceListUsingPOST_1
+2020-01-12 10:48:02 -Generating unique operation named: detailUsingPOST_6
+2020-01-12 10:48:02 -Generating unique operation named: listUsingPOST_11
+2020-01-12 10:48:02 -Generating unique operation named: addUsingGET_2
+2020-01-12 10:48:02 -Generating unique operation named: editUsingGET_2
+2020-01-12 10:48:02 -Generating unique operation named: listUsingGET_2
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_4
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_5
+2020-01-12 10:48:02 -Generating unique operation named: saveUsingPOST_4
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingGET_2
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingHEAD_2
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPOST_2
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPUT_2
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPATCH_2
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingDELETE_2
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingOPTIONS_2
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingTRACE_2
+2020-01-12 10:48:02 -Generating unique operation named: addUsingGET_3
+2020-01-12 10:48:02 -Generating unique operation named: editUsingGET_3
+2020-01-12 10:48:02 -Generating unique operation named: listUsingGET_3
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_6
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_7
+2020-01-12 10:48:02 -Generating unique operation named: saveUsingPOST_5
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingGET_3
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingHEAD_3
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPOST_3
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPUT_3
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPATCH_3
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingDELETE_3
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingOPTIONS_3
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingTRACE_3
+2020-01-12 10:48:02 -Generating unique operation named: addUsingGET_4
+2020-01-12 10:48:02 -Generating unique operation named: editUsingGET_4
+2020-01-12 10:48:02 -Generating unique operation named: listUsingGET_4
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_8
+2020-01-12 10:48:02 -Generating unique operation named: removeUsingPOST_9
+2020-01-12 10:48:02 -Generating unique operation named: saveUsingPOST_6
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingGET_4
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingHEAD_4
+2020-01-12 10:48:02 -Generating unique operation named: updateUsingPOST_4
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_4
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_4
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_4
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_4
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_4
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_5
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_5
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_5
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_10
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_11
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_5
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_5
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_5
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_5
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_5
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_5
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_5
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_5
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_6
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_6
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_6
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_12
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_13
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_6
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_6
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_6
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_6
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_6
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_6
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_6
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_6
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_7
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_7
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_7
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_14
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_15
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_7
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_7
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_8
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_8
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_8
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_16
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_17
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_8
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_8
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_9
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_9
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_9
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_18
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_19
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_9
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_9
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_10
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_10
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_10
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_20
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_21
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_10
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_10
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_11
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_11
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_11
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_22
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_23
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_11
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_11
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_12
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_12
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_12
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_24
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_25
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_12
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_12
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_13
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_13
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingPOST_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_13
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_26
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_27
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_13
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_13
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_14
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_14
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_14
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_28
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_29
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_14
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_14
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_15
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_15
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_15
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_16
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_16
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_30
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_31
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_15
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_16
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_16
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_16
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_17
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingGET_1
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingHEAD_1
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingPOST_2
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingPUT_1
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingPATCH_1
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingDELETE_1
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingOPTIONS_1
+2020-01-12 10:48:03 -Generating unique operation named: infoUsingTRACE_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_17
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_32
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_33
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_18
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_18
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_18
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_34
+2020-01-12 10:48:03 -Generating unique operation named: indexUsingGET_1
+2020-01-12 10:48:03 -Generating unique operation named: welcomeUsingGET_1
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_17
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_18
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_19
+2020-01-12 10:48:03 -Generating unique operation named: listUsingPOST_12
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_35
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_19
+2020-01-12 10:48:03 -Generating unique operation named: treeUsingGET_1
+2020-01-12 10:48:03 -Generating unique operation named: treeUsingGET_2
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_19
+2020-01-12 10:48:03 -Generating unique operation named: batchRemoveUsingPOST_1
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_19
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_20
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_18
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_20
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_21
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_36
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_37
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_17
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_17
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_19
+2020-01-12 10:48:03 -Generating unique operation named: bookingUsingPOST_1
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_21
+2020-01-12 10:48:03 -Generating unique operation named: exportUsingGET_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_22
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_38
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_39
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_18
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_18
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_18
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_18
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_18
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_18
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_18
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_20
+2020-01-12 10:48:03 -Generating unique operation named: batchRemoveUsingPOST_2
+2020-01-12 10:48:03 -Generating unique operation named: deployUsingPOST_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_23
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_40
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_21
+2020-01-12 10:48:03 -Generating unique operation named: batchRemoveUsingPOST_3
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_22
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_24
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_22
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_23
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_22
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_22
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_23
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_25
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_41
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_42
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_19
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_19
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_23
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_19
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_19
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_19
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_19
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_19
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_26
+2020-01-12 10:48:03 -Generating unique operation named: listUsingHEAD_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingPOST_13
+2020-01-12 10:48:03 -Generating unique operation named: listUsingPUT_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingPATCH_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingDELETE_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingOPTIONS_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingTRACE_1
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_27
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_23
+2020-01-12 10:48:03 -Generating unique operation named: batchRemoveUsingPOST_4
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_24
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_28
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_43
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_24
+2020-01-12 10:48:03 -Generating unique operation named: treeUsingGET_3
+2020-01-12 10:48:03 -Generating unique operation named: treeViewUsingGET_1
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_24
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_24
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_25
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_29
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_44
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_45
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_25
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_25
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_20
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_20
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_25
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_26
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_30
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_46
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_47
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_26
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_26
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_21
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_21
+2020-01-12 10:48:03 -Generating unique operation named: addUsingGET_26
+2020-01-12 10:48:03 -Generating unique operation named: editUsingGET_27
+2020-01-12 10:48:03 -Generating unique operation named: listUsingGET_31
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_48
+2020-01-12 10:48:03 -Generating unique operation named: removeUsingPOST_49
+2020-01-12 10:48:03 -Generating unique operation named: saveUsingPOST_27
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingGET_22
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingHEAD_22
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPOST_27
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPUT_22
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingPATCH_22
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingDELETE_22
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingOPTIONS_22
+2020-01-12 10:48:03 -Generating unique operation named: updateUsingTRACE_22
+2020-01-12 10:48:03 -Starting Quartz Scheduler now
+2020-01-12 10:48:03 -Scheduler schedulerFactoryBean_$_NON_CLUSTERED started.
+2020-01-12 10:48:03 -Starting...
+2020-01-12 10:48:03 -BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [DefaultSubscriptionRegistry[cache[0 destination(s)], registry[0 sessions]]]]
+2020-01-12 10:48:03 -Started.
+2020-01-12 10:48:03 -Starting ProtocolHandler ["http-nio-127.0.0.1-8080"]
+2020-01-12 10:48:03 -Using a shared selector for servlet write/read
+2020-01-12 10:48:03 -Tomcat started on port(s): 8080 (http) with context path ''
+2020-01-12 10:48:03 -Started SharingCradApplication in 14.244 seconds (JVM running for 14.926)
+2020-01-12 10:48:21 -Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-01-12 10:48:21 -FrameworkServlet 'dispatcherServlet': initialization started
+2020-01-12 10:48:21 -FrameworkServlet 'dispatcherServlet': initialization completed in 25 ms
+2020-01-12 10:48:21 -Enabling session validation scheduler...
+2020-01-12 10:48:21 -请求地址 : http://localhost:8080/login;JSESSIONID=79f051fa-2777-4176-a00e-3ab6ffa29a5d
+2020-01-12 10:48:21 -HTTP METHOD : GET
+2020-01-12 10:48:21 -IP : 127.0.0.1
+2020-01-12 10:48:21 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.login
+2020-01-12 10:48:21 -参数 : []
+2020-01-12 10:48:21 -耗时 : 28
+2020-01-12 10:48:30 -请求地址 : http://localhost:8080/login
+2020-01-12 10:48:30 -HTTP METHOD : POST
+2020-01-12 10:48:30 -IP : 127.0.0.1
+2020-01-12 10:48:30 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.ajaxLogin
+2020-01-12 10:48:30 -参数 : ["zzh","test"]
+2020-01-12 10:48:31 -耗时 : 29
+2020-01-12 10:48:31 -More than one TaskExecutor bean found within the context, and none is named 'taskExecutor'. Mark one of them as primary or name it 'taskExecutor' (possibly as an alias) in order to use it for async processing: [clientInboundChannelExecutor, clientOutboundChannelExecutor, brokerChannelExecutor, messageBrokerTaskScheduler]
+2020-01-12 10:48:31 -请求地址 : http://localhost:8080/index
+2020-01-12 10:48:31 -HTTP METHOD : GET
+2020-01-12 10:48:31 -IP : 127.0.0.1
+2020-01-12 10:48:31 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.index
+2020-01-12 10:48:31 -参数 : [{}]
+2020-01-12 10:48:31 -耗时 : 34
+2020-01-12 10:48:31 -请求地址 : http://localhost:8080/main
+2020-01-12 10:48:31 -HTTP METHOD : GET
+2020-01-12 10:48:31 -IP : 127.0.0.1
+2020-01-12 10:48:31 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 10:48:31 -参数 : []
+2020-01-12 10:48:31 -耗时 : 0
+2020-01-12 10:48:31 -请求地址 : http://localhost:8080/oa/notify/message
+2020-01-12 10:48:31 -HTTP METHOD : GET
+2020-01-12 10:48:31 -IP : 127.0.0.1
+2020-01-12 10:48:31 -CLASS_METHOD : com.sharingcard.oa.controller.NotifyController.message
+2020-01-12 10:48:31 -参数 : []
+2020-01-12 10:48:31 -耗时 : 13
+2020-01-12 10:48:31 -请求地址 : http://localhost:8080/main
+2020-01-12 10:48:31 -HTTP METHOD : GET
+2020-01-12 10:48:31 -IP : 127.0.0.1
+2020-01-12 10:48:31 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 10:48:31 -参数 : []
+2020-01-12 10:48:31 -耗时 : 0
+2020-01-12 10:48:34 -请求地址 : http://localhost:8080/xinzhizhu/csOrder
+2020-01-12 10:48:34 -HTTP METHOD : GET
+2020-01-12 10:48:34 -IP : 127.0.0.1
+2020-01-12 10:48:34 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CsOrderController.CsOrder
+2020-01-12 10:48:34 -参数 : []
+2020-01-12 10:48:34 -耗时 : 1
+2020-01-12 10:48:34 -请求地址 : http://localhost:8080/xinzhizhu/csOrder/list
+2020-01-12 10:48:34 -HTTP METHOD : GET
+2020-01-12 10:48:34 -IP : 127.0.0.1
+2020-01-12 10:48:34 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CsOrderController.list
+2020-01-12 10:48:34 -参数 : [{"limit":"10","offset":"0","nickname":"","payStatus":""}]
+2020-01-12 10:48:34 -耗时 : 24
+2020-01-12 10:49:01 -WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], outboundChannelpool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1], sockJsScheduler[pool size = 11, active threads = 1, queued tasks = 2, completed tasks = 7]
+2020-01-12 10:50:49 -请求地址 : http://localhost:8080/xinzhizhu/course
+2020-01-12 10:50:49 -HTTP METHOD : GET
+2020-01-12 10:50:49 -IP : 127.0.0.1
+2020-01-12 10:50:49 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CourseController.Course
+2020-01-12 10:50:49 -参数 : []
+2020-01-12 10:50:49 -耗时 : 0
+2020-01-12 10:50:49 -请求地址 : http://localhost:8080/xinzhizhu/course/list
+2020-01-12 10:50:49 -HTTP METHOD : GET
+2020-01-12 10:50:49 -IP : 127.0.0.1
+2020-01-12 10:50:49 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CourseController.list
+2020-01-12 10:50:49 -参数 : [{"limit":"10","offset":"0","courseName":""}]
+2020-01-12 10:50:49 -耗时 : 20
+2020-01-12 10:50:51 -请求地址 : http://localhost:8080/xinzhizhu/course/add
+2020-01-12 10:50:51 -HTTP METHOD : GET
+2020-01-12 10:50:51 -IP : 127.0.0.1
+2020-01-12 10:50:51 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CourseController.add
+2020-01-12 10:50:51 -参数 : [{}]
+2020-01-12 10:50:51 -耗时 : 4
+2020-01-12 10:51:25 -请求地址 : http://localhost:8080/common/sysFile/upload
+2020-01-12 10:51:25 -HTTP METHOD : POST
+2020-01-12 10:51:25 -IP : 127.0.0.1
+2020-01-12 10:51:25 -CLASS_METHOD : com.sharingcard.common.controller.FileController.upload
+2020-01-12 10:51:25 -参数 : [Ljava.lang.Object;@dc78768
+2020-01-12 10:51:25 -耗时 : 16
+2020-01-12 10:51:41 -请求地址 : http://localhost:8080/common/sysFile/upload
+2020-01-12 10:51:41 -HTTP METHOD : POST
+2020-01-12 10:51:41 -IP : 127.0.0.1
+2020-01-12 10:51:41 -CLASS_METHOD : com.sharingcard.common.controller.FileController.upload
+2020-01-12 10:51:41 -参数 : [Ljava.lang.Object;@baa4f72
+2020-01-12 10:51:41 -耗时 : 3
+2020-01-12 10:53:04 -请求地址 : http://localhost:8080/common/sysFile/upload
+2020-01-12 10:53:04 -HTTP METHOD : POST
+2020-01-12 10:53:04 -IP : 127.0.0.1
+2020-01-12 10:53:04 -CLASS_METHOD : com.sharingcard.common.controller.FileController.upload
+2020-01-12 10:53:04 -参数 : [Ljava.lang.Object;@2967555b
+2020-01-12 10:53:04 -耗时 : 3
+2020-01-12 11:02:18 -请求地址 : http://localhost:8080/xinzhizhu/csOrder/list
+2020-01-12 11:02:18 -HTTP METHOD : GET
+2020-01-12 11:02:18 -IP : 127.0.0.1
+2020-01-12 11:02:18 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CsOrderController.list
+2020-01-12 11:02:18 -参数 : [{"limit":"10","offset":"0","nickname":"","payStatus":"0"}]
+2020-01-12 11:02:18 -耗时 : 8
+2020-01-12 11:02:24 -请求地址 : http://localhost:8080/xinzhizhu/csOrder/list
+2020-01-12 11:02:24 -HTTP METHOD : GET
+2020-01-12 11:02:24 -IP : 127.0.0.1
+2020-01-12 11:02:24 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CsOrderController.list
+2020-01-12 11:02:24 -参数 : [{"limit":"10","offset":"0","nickname":"","payStatus":""}]
+2020-01-12 11:02:24 -耗时 : 9
+2020-01-12 11:02:27 -请求地址 : http://localhost:8080/xinzhizhu/adPosition
+2020-01-12 11:02:27 -HTTP METHOD : GET
+2020-01-12 11:02:27 -IP : 127.0.0.1
+2020-01-12 11:02:27 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdPositionController.AdPosition
+2020-01-12 11:02:27 -参数 : []
+2020-01-12 11:02:27 -耗时 : 0
+2020-01-12 11:02:27 -请求地址 : http://localhost:8080/xinzhizhu/adPosition/list
+2020-01-12 11:02:27 -HTTP METHOD : GET
+2020-01-12 11:02:27 -IP : 127.0.0.1
+2020-01-12 11:02:27 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdPositionController.list
+2020-01-12 11:02:27 -参数 : [{"limit":"10","offset":"0","name":""}]
+2020-01-12 11:02:27 -耗时 : 9
+2020-01-12 11:02:30 -请求地址 : http://localhost:8080/xinzhizhu/adInfo
+2020-01-12 11:02:30 -HTTP METHOD : GET
+2020-01-12 11:02:30 -IP : 127.0.0.1
+2020-01-12 11:02:30 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdInfoController.AdInfo
+2020-01-12 11:02:30 -参数 : []
+2020-01-12 11:02:30 -耗时 : 0
+2020-01-12 11:02:30 -请求地址 : http://localhost:8080/xinzhizhu/adInfo/list
+2020-01-12 11:02:30 -HTTP METHOD : GET
+2020-01-12 11:02:30 -IP : 127.0.0.1
+2020-01-12 11:02:30 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdInfoController.list
+2020-01-12 11:02:30 -参数 : [{"limit":"10","offset":"0","name":""}]
+2020-01-12 11:02:30 -耗时 : 14
+2020-01-12 11:02:43 -请求地址 : http://localhost:8080/xinzhizhu/vods
+2020-01-12 11:02:43 -HTTP METHOD : GET
+2020-01-12 11:02:43 -IP : 127.0.0.1
+2020-01-12 11:02:43 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.Vods
+2020-01-12 11:02:43 -参数 : []
+2020-01-12 11:02:43 -耗时 : 0
+2020-01-12 11:02:43 -请求地址 : http://localhost:8080/xinzhizhu/vods/list
+2020-01-12 11:02:43 -HTTP METHOD : GET
+2020-01-12 11:02:43 -IP : 127.0.0.1
+2020-01-12 11:02:43 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.list
+2020-01-12 11:02:43 -参数 : [{"limit":"10","offset":"0","vodTitle":""}]
+2020-01-12 11:02:43 -耗时 : 12
+2020-01-12 11:03:03 -请求地址 : http://localhost:8080/xinzhizhu/vods
+2020-01-12 11:03:03 -HTTP METHOD : GET
+2020-01-12 11:03:03 -IP : 127.0.0.1
+2020-01-12 11:03:03 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.Vods
+2020-01-12 11:03:03 -参数 : []
+2020-01-12 11:03:03 -耗时 : 0
+2020-01-12 11:03:03 -请求地址 : http://localhost:8080/xinzhizhu/vods/list
+2020-01-12 11:03:03 -HTTP METHOD : GET
+2020-01-12 11:03:03 -IP : 127.0.0.1
+2020-01-12 11:03:03 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.list
+2020-01-12 11:03:03 -参数 : [{"limit":"10","offset":"0","vodTitle":""}]
+2020-01-12 11:03:03 -耗时 : 9
+2020-01-12 11:04:31 -请求地址 : http://localhost:8080/xinzhizhu/vods
+2020-01-12 11:04:31 -HTTP METHOD : GET
+2020-01-12 11:04:31 -IP : 127.0.0.1
+2020-01-12 11:04:31 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.Vods
+2020-01-12 11:04:31 -参数 : []
+2020-01-12 11:04:31 -耗时 : 0
+2020-01-12 11:04:32 -请求地址 : http://localhost:8080/xinzhizhu/vods/list
+2020-01-12 11:04:32 -HTTP METHOD : GET
+2020-01-12 11:04:32 -IP : 127.0.0.1
+2020-01-12 11:04:32 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.list
+2020-01-12 11:04:32 -参数 : [{"limit":"10","offset":"0","vodTitle":""}]
+2020-01-12 11:04:32 -耗时 : 7
+2020-01-12 11:06:45 -请求地址 : http://localhost:8080/
+2020-01-12 11:06:45 -HTTP METHOD : GET
+2020-01-12 11:06:45 -IP : 127.0.0.1
+2020-01-12 11:06:45 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.welcome
+2020-01-12 11:06:45 -参数 : [Ljava.lang.Object;@df294ad
+2020-01-12 11:06:45 -耗时 : 8
+2020-01-12 11:06:45 -请求地址 : http://localhost:8080/login
+2020-01-12 11:06:45 -HTTP METHOD : GET
+2020-01-12 11:06:45 -IP : 127.0.0.1
+2020-01-12 11:06:45 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.login
+2020-01-12 11:06:45 -参数 : []
+2020-01-12 11:06:45 -耗时 : 0
+2020-01-12 11:07:06 -请求地址 : http://localhost:8080/login
+2020-01-12 11:07:06 -HTTP METHOD : POST
+2020-01-12 11:07:06 -IP : 127.0.0.1
+2020-01-12 11:07:06 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.ajaxLogin
+2020-01-12 11:07:06 -参数 : ["zzh","test"]
+2020-01-12 11:07:06 -耗时 : 11
+2020-01-12 11:07:06 -请求地址 : http://localhost:8080/index
+2020-01-12 11:07:06 -HTTP METHOD : GET
+2020-01-12 11:07:06 -IP : 127.0.0.1
+2020-01-12 11:07:06 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.index
+2020-01-12 11:07:06 -参数 : [{}]
+2020-01-12 11:07:06 -耗时 : 19
+2020-01-12 11:07:06 -请求地址 : http://localhost:8080/main
+2020-01-12 11:07:06 -HTTP METHOD : GET
+2020-01-12 11:07:06 -IP : 127.0.0.1
+2020-01-12 11:07:06 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 11:07:06 -参数 : []
+2020-01-12 11:07:06 -耗时 : 0
+2020-01-12 11:07:06 -请求地址 : http://localhost:8080/oa/notify/message
+2020-01-12 11:07:06 -HTTP METHOD : GET
+2020-01-12 11:07:06 -IP : 127.0.0.1
+2020-01-12 11:07:06 -CLASS_METHOD : com.sharingcard.oa.controller.NotifyController.message
+2020-01-12 11:07:06 -参数 : []
+2020-01-12 11:07:06 -耗时 : 5
+2020-01-12 11:07:06 -请求地址 : http://localhost:8080/main
+2020-01-12 11:07:06 -HTTP METHOD : GET
+2020-01-12 11:07:06 -IP : 127.0.0.1
+2020-01-12 11:07:06 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 11:07:06 -参数 : []
+2020-01-12 11:07:06 -耗时 : 0
+2020-01-12 11:07:19 -请求地址 : http://localhost:8080/common/sysFile
+2020-01-12 11:07:19 -HTTP METHOD : GET
+2020-01-12 11:07:19 -IP : 127.0.0.1
+2020-01-12 11:07:19 -CLASS_METHOD : com.sharingcard.common.controller.FileController.sysFile
+2020-01-12 11:07:19 -参数 : [{}]
+2020-01-12 11:07:19 -耗时 : 0
+2020-01-12 11:07:19 -请求地址 : http://localhost:8080/common/sysFile/list
+2020-01-12 11:07:19 -HTTP METHOD : GET
+2020-01-12 11:07:19 -IP : 127.0.0.1
+2020-01-12 11:07:19 -CLASS_METHOD : com.sharingcard.common.controller.FileController.list
+2020-01-12 11:07:19 -参数 : [{"limit":"12","offset":"0","type":""}]
+2020-01-12 11:07:19 -耗时 : 11
+2020-01-12 11:07:27 -请求地址 : http://localhost:8080/sys/role
+2020-01-12 11:07:27 -HTTP METHOD : GET
+2020-01-12 11:07:27 -IP : 127.0.0.1
+2020-01-12 11:07:27 -CLASS_METHOD : com.sharingcard.system.controller.RoleController.role
+2020-01-12 11:07:27 -参数 : []
+2020-01-12 11:07:27 -耗时 : 1
+2020-01-12 11:07:27 -请求地址 : http://localhost:8080/sys/role/list
+2020-01-12 11:07:27 -HTTP METHOD : GET
+2020-01-12 11:07:27 -IP : 127.0.0.1
+2020-01-12 11:07:27 -CLASS_METHOD : com.sharingcard.system.controller.RoleController.list
+2020-01-12 11:07:27 -参数 : []
+2020-01-12 11:07:27 -耗时 : 12
+2020-01-12 11:07:29 -请求地址 : http://localhost:8080/sys/menu/
+2020-01-12 11:07:29 -HTTP METHOD : GET
+2020-01-12 11:07:29 -IP : 127.0.0.1
+2020-01-12 11:07:29 -CLASS_METHOD : com.sharingcard.system.controller.MenuController.menu
+2020-01-12 11:07:29 -参数 : [{}]
+2020-01-12 11:07:29 -耗时 : 1
+2020-01-12 11:07:29 -请求地址 : http://localhost:8080/sys/menu/list
+2020-01-12 11:07:29 -HTTP METHOD : GET
+2020-01-12 11:07:29 -IP : 127.0.0.1
+2020-01-12 11:07:29 -CLASS_METHOD : com.sharingcard.system.controller.MenuController.list
+2020-01-12 11:07:29 -参数 : [{"sort":"order_num"}]
+2020-01-12 11:07:29 -耗时 : 18
+2020-01-12 11:07:32 -请求地址 : http://localhost:8080/system/sysDept
+2020-01-12 11:07:32 -HTTP METHOD : GET
+2020-01-12 11:07:32 -IP : 127.0.0.1
+2020-01-12 11:07:32 -CLASS_METHOD : com.sharingcard.system.controller.DeptController.dept
+2020-01-12 11:07:32 -参数 : []
+2020-01-12 11:07:32 -耗时 : 0
+2020-01-12 11:07:32 -请求地址 : http://localhost:8080/system/sysDept/list
+2020-01-12 11:07:32 -HTTP METHOD : GET
+2020-01-12 11:07:32 -IP : 127.0.0.1
+2020-01-12 11:07:32 -CLASS_METHOD : com.sharingcard.system.controller.DeptController.list
+2020-01-12 11:07:32 -参数 : []
+2020-01-12 11:07:32 -耗时 : 11
+2020-01-12 11:07:39 -请求地址 : http://localhost:8080/xinzhizhu/course
+2020-01-12 11:07:39 -HTTP METHOD : GET
+2020-01-12 11:07:39 -IP : 127.0.0.1
+2020-01-12 11:07:39 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CourseController.Course
+2020-01-12 11:07:39 -参数 : []
+2020-01-12 11:07:39 -耗时 : 1
+2020-01-12 11:07:39 -请求地址 : http://localhost:8080/xinzhizhu/course/list
+2020-01-12 11:07:39 -HTTP METHOD : GET
+2020-01-12 11:07:39 -IP : 127.0.0.1
+2020-01-12 11:07:39 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CourseController.list
+2020-01-12 11:07:39 -参数 : [{"limit":"10","offset":"0","courseName":""}]
+2020-01-12 11:07:39 -耗时 : 8
+2020-01-12 11:19:01 -WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 18], outboundChannelpool size = 0, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 3, completed tasks = 468]
+2020-01-12 11:19:53 -请求地址 : http://localhost:8080/index
+2020-01-12 11:19:53 -HTTP METHOD : GET
+2020-01-12 11:19:53 -IP : 127.0.0.1
+2020-01-12 11:19:53 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.index
+2020-01-12 11:19:53 -参数 : [{}]
+2020-01-12 11:19:53 -耗时 : 19
+2020-01-12 11:19:53 -请求地址 : http://localhost:8080/main
+2020-01-12 11:19:53 -HTTP METHOD : GET
+2020-01-12 11:19:53 -IP : 127.0.0.1
+2020-01-12 11:19:53 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 11:19:53 -参数 : []
+2020-01-12 11:19:53 -耗时 : 0
+2020-01-12 11:19:53 -请求地址 : http://localhost:8080/oa/notify/message
+2020-01-12 11:19:53 -HTTP METHOD : GET
+2020-01-12 11:19:53 -IP : 127.0.0.1
+2020-01-12 11:19:53 -CLASS_METHOD : com.sharingcard.oa.controller.NotifyController.message
+2020-01-12 11:19:53 -参数 : []
+2020-01-12 11:19:53 -耗时 : 9
+2020-01-12 11:19:53 -请求地址 : http://localhost:8080/main
+2020-01-12 11:19:53 -HTTP METHOD : GET
+2020-01-12 11:19:53 -IP : 127.0.0.1
+2020-01-12 11:19:53 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 11:19:53 -参数 : []
+2020-01-12 11:19:53 -耗时 : 1
+2020-01-12 11:24:15 -请求路径：/api/index
+2020-01-12 11:24:23 -Request method 'GET' not supported
+org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:197)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:376)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:316)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:62)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:350)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1188)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-01-12 11:24:28 -请求地址 : http://localhost:8080/
+2020-01-12 11:24:28 -HTTP METHOD : GET
+2020-01-12 11:24:28 -IP : 127.0.0.1
+2020-01-12 11:24:28 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.welcome
+2020-01-12 11:24:28 -参数 : [Ljava.lang.Object;@da9e288
+2020-01-12 11:24:28 -耗时 : 1
+2020-01-12 11:24:28 -请求地址 : http://localhost:8080/login
+2020-01-12 11:24:28 -HTTP METHOD : GET
+2020-01-12 11:24:28 -IP : 127.0.0.1
+2020-01-12 11:24:28 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.login
+2020-01-12 11:24:28 -参数 : []
+2020-01-12 11:24:28 -耗时 : 1
+2020-01-12 11:25:45 -请求路径：/api/index
+2020-01-12 11:26:19 -请求路径：/api/vods
+2020-01-12 11:27:22 -Request method 'GET' not supported
+org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:197)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:376)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:316)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:62)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:350)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1188)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:964)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:925)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:866)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:851)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:449)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:383)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-01-12 11:27:29 -请求路径：/api/vods/list
+2020-01-12 11:27:29 -请求地址 : http://localhost:8080/api/vods/list
+2020-01-12 11:27:29 -HTTP METHOD : POST
+2020-01-12 11:27:29 -IP : 127.0.0.1
+2020-01-12 11:27:29 -CLASS_METHOD : com.neteye.xinzhizhu.api.ApiVodsController.list
+2020-01-12 11:27:29 -参数 : [{}]
+2020-01-12 11:27:29 -耗时 : 17
+2020-01-12 11:28:26 -请求路径：/api/index/test
+2020-01-12 11:28:26 -请求地址 : http://localhost:8080/api/index/test
+2020-01-12 11:28:26 -HTTP METHOD : POST
+2020-01-12 11:28:26 -IP : 127.0.0.1
+2020-01-12 11:28:26 -CLASS_METHOD : com.neteye.xinzhizhu.api.ApiIndexController.test
+2020-01-12 11:28:26 -参数 : []
+2020-01-12 11:28:26 -耗时 : 3
+2020-01-12 11:28:39 -请求路径：/api/index/index
+2020-01-12 11:28:39 -请求地址 : http://localhost:8080/api/index/index
+2020-01-12 11:28:39 -HTTP METHOD : POST
+2020-01-12 11:28:39 -IP : 127.0.0.1
+2020-01-12 11:28:39 -CLASS_METHOD : com.neteye.xinzhizhu.api.ApiIndexController.index
+2020-01-12 11:28:39 -参数 : []
+2020-01-12 11:28:39 -耗时 : 27
+2020-01-12 22:11:54 -请求地址 : http://localhost:8080/login;JSESSIONID=a232db20-5934-4a85-8a06-3e0dfe6718c6
+2020-01-12 22:11:54 -HTTP METHOD : GET
+2020-01-12 22:11:54 -IP : 127.0.0.1
+2020-01-12 22:11:54 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.login
+2020-01-12 22:11:54 -参数 : []
+2020-01-12 22:11:54 -耗时 : 0
+2020-01-12 22:12:02 -请求地址 : http://localhost:8080/login
+2020-01-12 22:12:02 -HTTP METHOD : GET
+2020-01-12 22:12:02 -IP : 127.0.0.1
+2020-01-12 22:12:02 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.login
+2020-01-12 22:12:02 -参数 : []
+2020-01-12 22:12:02 -耗时 : 1
+2020-01-12 22:12:02 -请求地址 : http://localhost:8080/login
+2020-01-12 22:12:02 -HTTP METHOD : GET
+2020-01-12 22:12:02 -IP : 127.0.0.1
+2020-01-12 22:12:02 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.login
+2020-01-12 22:12:02 -参数 : []
+2020-01-12 22:12:02 -耗时 : 1
+2020-01-12 22:12:22 -请求地址 : http://localhost:8080/login
+2020-01-12 22:12:22 -HTTP METHOD : POST
+2020-01-12 22:12:22 -IP : 127.0.0.1
+2020-01-12 22:12:22 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.ajaxLogin
+2020-01-12 22:12:22 -参数 : ["zzh","test"]
+2020-01-12 22:12:22 -耗时 : 43
+2020-01-12 22:12:22 -请求地址 : http://localhost:8080/index
+2020-01-12 22:12:22 -HTTP METHOD : GET
+2020-01-12 22:12:22 -IP : 127.0.0.1
+2020-01-12 22:12:22 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.index
+2020-01-12 22:12:22 -参数 : [{}]
+2020-01-12 22:12:22 -耗时 : 26
+2020-01-12 22:12:22 -请求地址 : http://localhost:8080/main
+2020-01-12 22:12:22 -HTTP METHOD : GET
+2020-01-12 22:12:22 -IP : 127.0.0.1
+2020-01-12 22:12:22 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 22:12:22 -参数 : []
+2020-01-12 22:12:22 -耗时 : 0
+2020-01-12 22:12:22 -请求地址 : http://localhost:8080/oa/notify/message
+2020-01-12 22:12:22 -HTTP METHOD : GET
+2020-01-12 22:12:22 -IP : 127.0.0.1
+2020-01-12 22:12:22 -CLASS_METHOD : com.sharingcard.oa.controller.NotifyController.message
+2020-01-12 22:12:22 -参数 : []
+2020-01-12 22:12:22 -耗时 : 11
+2020-01-12 22:12:22 -请求地址 : http://localhost:8080/main
+2020-01-12 22:12:22 -HTTP METHOD : GET
+2020-01-12 22:12:22 -IP : 127.0.0.1
+2020-01-12 22:12:22 -CLASS_METHOD : com.sharingcard.system.controller.LoginController.main
+2020-01-12 22:12:22 -参数 : []
+2020-01-12 22:12:22 -耗时 : 0
+2020-01-12 22:12:29 -请求地址 : http://localhost:8080/xinzhizhu/csOrder
+2020-01-12 22:12:29 -HTTP METHOD : GET
+2020-01-12 22:12:29 -IP : 127.0.0.1
+2020-01-12 22:12:29 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CsOrderController.CsOrder
+2020-01-12 22:12:29 -参数 : []
+2020-01-12 22:12:29 -耗时 : 0
+2020-01-12 22:12:30 -请求地址 : http://localhost:8080/xinzhizhu/csOrder/list
+2020-01-12 22:12:30 -HTTP METHOD : GET
+2020-01-12 22:12:30 -IP : 127.0.0.1
+2020-01-12 22:12:30 -CLASS_METHOD : com.neteye.xinzhizhu.controller.CsOrderController.list
+2020-01-12 22:12:30 -参数 : [{"limit":"10","offset":"0","nickname":"","payStatus":""}]
+2020-01-12 22:12:30 -耗时 : 11
+2020-01-12 22:13:41 -请求地址 : http://localhost:8080/xinzhizhu/adInfo
+2020-01-12 22:13:41 -HTTP METHOD : GET
+2020-01-12 22:13:41 -IP : 127.0.0.1
+2020-01-12 22:13:41 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdInfoController.AdInfo
+2020-01-12 22:13:41 -参数 : []
+2020-01-12 22:13:41 -耗时 : 0
+2020-01-12 22:13:42 -请求地址 : http://localhost:8080/xinzhizhu/adInfo/list
+2020-01-12 22:13:42 -HTTP METHOD : GET
+2020-01-12 22:13:42 -IP : 127.0.0.1
+2020-01-12 22:13:42 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdInfoController.list
+2020-01-12 22:13:42 -参数 : [{"limit":"10","offset":"0","name":""}]
+2020-01-12 22:13:42 -耗时 : 10
+2020-01-12 22:13:48 -请求地址 : http://localhost:8080/xinzhizhu/adPosition
+2020-01-12 22:13:48 -HTTP METHOD : GET
+2020-01-12 22:13:48 -IP : 127.0.0.1
+2020-01-12 22:13:48 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdPositionController.AdPosition
+2020-01-12 22:13:48 -参数 : []
+2020-01-12 22:13:48 -耗时 : 0
+2020-01-12 22:13:48 -请求地址 : http://localhost:8080/xinzhizhu/adPosition/list
+2020-01-12 22:13:48 -HTTP METHOD : GET
+2020-01-12 22:13:48 -IP : 127.0.0.1
+2020-01-12 22:13:48 -CLASS_METHOD : com.neteye.xinzhizhu.controller.AdPositionController.list
+2020-01-12 22:13:48 -参数 : [{"limit":"10","offset":"0","name":""}]
+2020-01-12 22:13:48 -耗时 : 5
+2020-01-12 22:13:50 -请求地址 : http://localhost:8080/xinzhizhu/vods
+2020-01-12 22:13:50 -HTTP METHOD : GET
+2020-01-12 22:13:50 -IP : 127.0.0.1
+2020-01-12 22:13:50 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.Vods
+2020-01-12 22:13:50 -参数 : []
+2020-01-12 22:13:50 -耗时 : 1
+2020-01-12 22:13:50 -请求地址 : http://localhost:8080/xinzhizhu/vods/list
+2020-01-12 22:13:50 -HTTP METHOD : GET
+2020-01-12 22:13:50 -IP : 127.0.0.1
+2020-01-12 22:13:51 -CLASS_METHOD : com.neteye.xinzhizhu.controller.VodsController.list
+2020-01-12 22:13:51 -参数 : [{"limit":"10","offset":"0","vodTitle":""}]
+2020-01-12 22:13:51 -耗时 : 9

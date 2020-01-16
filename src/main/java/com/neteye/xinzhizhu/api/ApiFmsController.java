@@ -40,7 +40,7 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * fm
- * 
+ *
  * @author yinxj
  * @email net_eye@sohu.com
  * @date 2019-07-17 22:39:35
@@ -61,15 +61,9 @@ public class ApiFmsController extends ApiBaseAction {
 	@IgnoreAuth
 	@PostMapping("list")
 	public Object list(@RequestParam Map<String, Object> params) {
-		Map<String, Object> resultObj = new HashMap();
 		List<FmsDO> fmsList = new ArrayList();
-        if (StringUtils.isNullOrEmpty(params.get("page"))) {
-        	params.put("page", 1);
-         }
-        if (StringUtils.isNullOrEmpty(params.get("size"))) {
-        	params.put("limit", 10);
-         }
-        params.put("limit", params.get("size"));
+		params.put("page", StringUtils.isNullOrEmpty(params.get("page")) ? 1 : params.get("page"));
+		params.put("limit", StringUtils.isNullOrEmpty(params.get("size")) ? 10 : params.get("size"));
 		// 查询列表数据
 		Query query = new Query(params);
 		fmsList = fmsService.list(query);
@@ -83,15 +77,9 @@ public class ApiFmsController extends ApiBaseAction {
 	@IgnoreAuth
 	@PostMapping("get")
 	public Object get(@RequestParam Map<String, Object> params) {
-		Map<String, Object> resultObj = new HashMap();
 		List<FmsDO> fmsList = new ArrayList();
-        if (StringUtils.isNullOrEmpty(params.get("page"))) {
-        	params.put("page", 1);
-         }
-        if (StringUtils.isNullOrEmpty(params.get("size"))) {
-        	params.put("limit", 10);
-         }
-        params.put("limit", params.get("size"));
+		params.put("page", StringUtils.isNullOrEmpty(params.get("page")) ? 1 : params.get("page"));
+		params.put("limit", StringUtils.isNullOrEmpty(params.get("size")) ? 10 : params.get("size"));
 		// 查询列表数据
 		Query query = new Query(params);
 		fmsList = fmsService.list(query);
@@ -100,7 +88,7 @@ public class ApiFmsController extends ApiBaseAction {
 
 		return toResponsSuccess(pageUtil);
 	}
-	
+
     /**
      * 获取FM详情
      */
@@ -124,7 +112,7 @@ public class ApiFmsController extends ApiBaseAction {
         resultObj.put("fms", fms);
         return toResponsSuccess(resultObj);
     }
-	
+
 //	@ResponseBody
 //	@GetMapping("/list")
 //	public PageUtils list(@RequestParam Map<String, Object> params){

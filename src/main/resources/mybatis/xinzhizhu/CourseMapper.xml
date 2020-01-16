@@ -42,7 +42,7 @@
 		select count(*) from sys_course
 		 <where>  
 		  		  <if test="courseId != null and courseId != ''"> and course_id = #{courseId} </if>
-		  		  <if test="courseName != null and courseName != ''"> and course_name = #{courseName} </if>
+		  		  <if test="courseName != null and courseName != ''"> and course_name like '%${courseName}%' </if>
 		  		  <if test="categoryId != null and categoryId != ''"> and category_id = #{categoryId} </if>
 		  		  <if test="content != null and content != ''"> and content = #{content} </if>
 		  		  <if test="imageUrl != null and imageUrl != ''"> and image_url = #{imageUrl} </if>

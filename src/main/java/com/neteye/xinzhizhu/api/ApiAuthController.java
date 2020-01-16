@@ -27,9 +27,8 @@ import io.swagger.annotations.ApiOperation;
 import org.apache.commons.collections.MapUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -52,10 +51,16 @@ public class ApiAuthController extends ApiBaseAction {
     @Autowired
     private TokenService tokenService;
 
+    @Value("${oauth.wx.APPID}")
+    private String APPID;
+
+    @Value("${oauth.wx.APPSECRET}")
+    private String APPSECRET;
+
     /**
      * 登录
      */
-    @IgnoreAuth
+//    @IgnoreAuth
     @PostMapping("login")
     @ApiOperation(value = "登录接口")
     public R login(String mobile, String password) {
@@ -142,6 +147,7 @@ public class ApiAuthController extends ApiBaseAction {
         resultObj.put("userId", userVo.getUserId());
         return toResponsSuccess(resultObj);
     }
+
 
     /**
      * 支付宝登录
