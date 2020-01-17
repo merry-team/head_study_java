@@ -12,7 +12,7 @@
         <where>
         a.course_id = b.course_id and b.status=1
 		  		  <if test="vodId != null and vodId != ''"> and a.vod_id = #{vodId} </if>
-		  		  <if test="vodTitle != null and vodTitle != ''"> and a.vod_title like '%${vodTitle}%' </if>
+			      <if test="vodTitle != null and vodTitle != ''"> and CONCAT(`vod_title`,`course_name`) like '%${vodTitle}%'</if>
 		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
 		  		  <if test="author != null and author != ''"> and a.author = #{author} </if>
 		  		  <if test="courseId != null and courseId != ''"> and a.course_id = #{courseId} </if>

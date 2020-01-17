@@ -12,7 +12,7 @@
         <where>  
         		a.category_id = b.category_id and b.category_type = 1  and b.status=1
 		  		  <if test="courseId != null and courseId != ''"> and a.course_id = #{courseId} </if>
-		  		  <if test="courseName != null and courseName != ''"> and CONCAT(`course_name`,`category_name`) like '%${courseName}%'</if>
+		  		  <if test="courseName != null and courseName != ''"> and CONCAT(a.course_name,b.category_name,a.content) like '%${courseName}%'</if>
 		  		  <if test="categoryId != null and categoryId != ''"> and a.category_id = #{categoryId} </if>
 		  		  <if test="content != null and content != ''"> and a.content = #{content} </if>
 		  		  <if test="imageUrl != null and imageUrl != ''"> and a.image_url = #{imageUrl} </if>

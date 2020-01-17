@@ -15,7 +15,7 @@
 		  		  <if test="orderId != null and orderId != ''"> and order_id = #{orderId} </if>
 		  		  <if test="commentType != null and commentType != ''"> and comment_type = #{commentType} </if>
 		  		  <if test="objectId != null and objectId != ''"> and object_id = #{objectId} </if>
-		  		  <if test="comment != null and comment != ''"> and comment = #{comment} </if>
+		  		  <if test="comment != null and comment != ''"> and comment like '%${comment}%' </if>
 		  		  <if test="creatTime != null and creatTime != ''"> and creat_time = #{creatTime} </if>
 		  		  <if test="status != null and status != ''"> and status = #{status} </if>
 		  		</where>

@@ -2,7 +2,9 @@ package com.neteye.xinzhizhu.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import com.neteye.xinzhizhu.utils.Base64;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ import com.sharingcard.common.utils.PageUtils;
 import com.sharingcard.common.utils.Query;
 import com.sharingcard.common.utils.R;
 
+import static com.neteye.xinzhizhu.utils.Base64.*;
+
 /**
  * 用户评论
  * 
@@ -34,7 +38,7 @@ import com.sharingcard.common.utils.R;
 public class CommentController {
 	@Autowired
 	private CommentService commentService;
-	
+
 	@GetMapping()
 	@RequiresPermissions("xinzhizhu:comment:comment")
 	String Comment(){
@@ -49,7 +53,11 @@ public class CommentController {
         Query query = new Query(params);
 		List<CommentDO> commentList = commentService.list(query);
 		int total = commentService.count(query);
-		PageUtils pageUtils = new PageUtils(commentList, total);
+		List<CommentDO> result = commentList.stream().map(commentDO -> {
+			commentDO.setComment(decode(commentDO.getComment()));
+			return commentDO;
+		}).collect(Collectors.toList());
+		PageUtils pageUtils = new PageUtils(result, total);
 		return pageUtils;
 	}
 	

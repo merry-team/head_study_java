@@ -11,7 +11,7 @@
 		select `category_id`,`category_name`,`category_type`,`content`,`image_url`,`createtime`,`status` from sys_category
         <where>  
 		  		  <if test="categoryId != null and categoryId != ''"> and category_id = #{categoryId} </if>
-		  		  <if test="categoryName != null and categoryName != ''"> and category_name = #{categoryName} </if>
+		  		  <if test="categoryName != null and categoryName != ''"> and CONCAT(`category_name`,`content`) like '%${categoryName}%' </if>
 		  		  <if test="categoryType != null and categoryType != ''"> and category_type = #{categoryType} </if>
 		  		  <if test="content != null and content != ''"> and content = #{content} </if>
 		  		  <if test="imageUrl != null and imageUrl != ''"> and image_url = #{imageUrl} </if>

@@ -1,5 +1,7 @@
 package com.neteye.xinzhizhu.domain;
 
+import com.neteye.xinzhizhu.utils.Base64;
+
 import java.io.Serializable;
 import java.util.Date;
 
