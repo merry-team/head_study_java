@@ -2,13 +2,10 @@ package com.neteye.xinzhizhu.h5;
 
 import com.alibaba.fastjson.JSONObject;
 import com.neteye.xinzhizhu.annotation.IgnoreAuth;
-import com.neteye.xinzhizhu.annotation.LoginUser;
-import com.neteye.xinzhizhu.entity.TokenEntity;
 import com.neteye.xinzhizhu.entity.UserVo;
 import com.neteye.xinzhizhu.service.ApiUserService;
 import com.neteye.xinzhizhu.service.TokenService;
 import com.neteye.xinzhizhu.utils.ApiBaseAction;
-import com.neteye.xinzhizhu.utils.ApiRRException;
 import com.neteye.xinzhizhu.utils.CharUtil;
 import com.neteye.xinzhizhu.utils.CommonUtil;
 import com.qiniu.util.StringUtils;
@@ -21,11 +18,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * API登录授权

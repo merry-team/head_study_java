@@ -5,6 +5,7 @@ import com.neteye.xinzhizhu.domain.CollectDO;
 import java.util.List;
 import java.util.Map;
 
+import com.neteye.xinzhizhu.domain.UserCollectDO;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -29,4 +30,10 @@ public interface CollectDao {
 	int remove(Integer collectt_id);
 	
 	int batchRemove(Integer[] collecttIds);
+
+	List<UserCollectDO> getCollectsByUserId(Map<String, Object> map);
+
+	int countByUserId(Map<String, Object> map);
+
+	CollectDO getCollectByUniqueId(Map<String, Object> map);
 }

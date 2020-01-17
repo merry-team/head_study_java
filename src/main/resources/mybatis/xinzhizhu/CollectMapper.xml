@@ -3,46 +3,46 @@
 
 <mapper namespace="com.neteye.xinzhizhu.dao.CollectDao">
 
-	<select id="get" resultType="com.neteye.xinzhizhu.domain.CollectDO">
+    <select id="get" resultType="com.neteye.xinzhizhu.domain.CollectDO">
 		select `collectt_id`,`user_id`,`collect_type`,`object_id`,`creat_time`,`status` from usr_collect where collectt_id = #{value}
 	</select>
 
-	<select id="list" resultType="com.neteye.xinzhizhu.domain.CollectDO">
-		select `collectt_id`,`user_id`,`collect_type`,`object_id`,`creat_time`,`status` from usr_collect
-        <where>  
-		  		  <if test="collecttId != null and collecttId != ''"> and collectt_id = #{collecttId} </if>
-		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
-		  		  <if test="collectType != null and collectType != ''"> and collect_type = #{collectType} </if>
-		  		  <if test="objectId != null and objectId != ''"> and object_id = #{objectId} </if>
-		  		  <if test="creatTime != null and creatTime != ''"> and creat_time = #{creatTime} </if>
-		  		  <if test="status != null and status != ''"> and status = #{status} </if>
-		  		</where>
+    <select id="list" resultType="com.neteye.xinzhizhu.domain.CollectDO">
+        select `collectt_id`,`user_id`,`collect_type`,`object_id`,`creat_time`,`status` from usr_collect
+        <where>
+            <if test="collecttId != null and collecttId != ''">and collectt_id = #{collecttId}</if>
+            <if test="userId != null and userId != ''">and user_id = #{userId}</if>
+            <if test="collectType != null and collectType != ''">and collect_type = #{collectType}</if>
+            <if test="objectId != null and objectId != ''">and object_id = #{objectId}</if>
+            <if test="creatTime != null and creatTime != ''">and creat_time = #{creatTime}</if>
+            <if test="status != null and status != ''">and status = #{status}</if>
+        </where>
         <choose>
             <when test="sort != null and sort.trim() != ''">
                 order by ${sort} ${order}
             </when>
-			<otherwise>
+            <otherwise>
                 order by collectt_id desc
-			</otherwise>
+            </otherwise>
         </choose>
-		<if test="offset != null and limit != null">
-			limit #{offset}, #{limit}
-		</if>
-	</select>
-	
- 	<select id="count" resultType="int">
-		select count(*) from usr_collect
-		 <where>  
-		  		  <if test="collecttId != null and collecttId != ''"> and collectt_id = #{collecttId} </if>
-		  		  <if test="userId != null and userId != ''"> and user_id = #{userId} </if>
-		  		  <if test="collectType != null and collectType != ''"> and collect_type = #{collectType} </if>
-		  		  <if test="objectId != null and objectId != ''"> and object_id = #{objectId} </if>
-		  		  <if test="creatTime != null and creatTime != ''"> and creat_time = #{creatTime} </if>
-		  		  <if test="status != null and status != ''"> and status = #{status} </if>
-		  		</where>
-	</select>
-	 
-	<insert id="save" parameterType="com.neteye.xinzhizhu.domain.CollectDO">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from usr_collect
+        <where>
+            <if test="collecttId != null and collecttId != ''">and collectt_id = #{collecttId}</if>
+            <if test="userId != null and userId != ''">and user_id = #{userId}</if>
+            <if test="collectType != null and collectType != ''">and collect_type = #{collectType}</if>
+            <if test="objectId != null and objectId != ''">and object_id = #{objectId}</if>
+            <if test="creatTime != null and creatTime != ''">and creat_time = #{creatTime}</if>
+            <if test="status != null and status != ''">and status = #{status}</if>
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.neteye.xinzhizhu.domain.CollectDO">
 		insert into usr_collect
 		(
 			`collectt_id`, 
@@ -62,28 +62,156 @@
 			#{status}
 		)
 	</insert>
-	 
-	<update id="update" parameterType="com.neteye.xinzhizhu.domain.CollectDO">
-		update usr_collect 
-		<set>
-			<if test="userId != null">`user_id` = #{userId}, </if>
-			<if test="collectType != null">`collect_type` = #{collectType}, </if>
-			<if test="objectId != null">`object_id` = #{objectId}, </if>
-			<if test="creatTime != null">`creat_time` = #{creatTime}, </if>
-			<if test="status != null">`status` = #{status}</if>
-		</set>
-		where collectt_id = #{collecttId}
-	</update>
-	
-	<delete id="remove">
+
+    <update id="update" parameterType="com.neteye.xinzhizhu.domain.CollectDO">
+        update usr_collect
+        <set>
+            <if test="userId != null">`user_id` = #{userId},</if>
+            <if test="collectType != null">`collect_type` = #{collectType},</if>
+            <if test="objectId != null">`object_id` = #{objectId},</if>
+            <if test="creatTime != null">`creat_time` = #{creatTime},</if>
+            <if test="status != null">`status` = #{status}</if>
+        </set>
+        where collectt_id = #{collecttId}
+    </update>
+
+    <delete id="remove">
 		delete from usr_collect where collectt_id = #{value}
 	</delete>
-	
-	<delete id="batchRemove">
-		delete from usr_collect where collectt_id in 
-		<foreach item="collecttId" collection="array" open="(" separator="," close=")">
-			#{collecttId}
-		</foreach>
-	</delete>
 
+    <delete id="batchRemove">
+        delete from usr_collect where collectt_id in
+        <foreach item="collecttId" collection="array" open="(" separator="," close=")">
+            #{collecttId}
+        </foreach>
+    </delete>
+
+    <select id="getCollectsByUserId" resultType="com.neteye.xinzhizhu.domain.UserCollectDO">
+        select * from (
+        <if test="collectType == 0 or collectType == 1 ">
+            select a.user_id as user_id, a.collectt_id as collect_id, 1 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sa.article_title as title,sa.category_id as category_id,sa.content as content,sa.image_url as
+            image_url,sa.author as author,
+            sa.read_count as read_count,sa.collect_count as collect_count,sa.comment_count as comment_count,
+            null as file_url,null as vod_time
+            from usr_collect a
+            join sys_articles sa on a.collect_type = 1 and a.object_id = sa.article_id and sa.status = 1
+            where a.status = 1
+            union all
+        </if>
+        <if test="collectType == 0 or collectType == 2 ">
+            select a.user_id as user_id, a.collectt_id as collect_id, 2 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sc.course_name as title,sc.category_id as category_id,sc.content as content,sc.image_url as image_url,null
+            as
+            author,
+            sc.read_count as read_count,sc.collect_count as collect_count,null as comment_count,
+            null as file_url,null as vod_time
+            from usr_collect a
+            join sys_course sc on a.collect_type = 2 and a.object_id = sc.course_id and sc.status = 1
+            where a.status = 1
+            union all
+        </if>
+        <if test="collectType == 0 or collectType == 3 ">
+            select a.user_id as user_id, a.collectt_id as collect_id, 3 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sf.fm_title as title,null as category_id,sf.content as content,sf.image_url as image_url,sf.author as
+            author,
+            sf.read_count as read_count,sf.collect_count as collect_count,sf.comment_count as comment_count,
+            sf.file_url as file_url,null as vod_time
+            from usr_collect a
+            join sys_fms sf on a.collect_type = 3 and a.object_id = sf.fm_id and sf.status = 1
+            where a.status = 1
+            union all
+        </if>
+        <if test="collectType == 0 or collectType == 4 ">
+            select a.user_id as user_id,a.collectt_id as collect_id, 4 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sv.vod_title as title,null as category_id,sv.content as content,sv.image_url as image_url,sv.author as
+            author,
+            sv.read_count as read_count,sv.collect_count as collect_count,sv.comment_count as comment_count,
+            sv.file_url as file_url,sv.vod_time as vod_time
+            from usr_collect a
+            join sys_vods sv on a.collect_type = 4 and a.object_id = sv.vod_id and sv.status = 1
+            where a.status = 1
+            union all
+        </if>
+        select * from cs_user where id = null
+        ) as collect_list where user_id = #{userId}
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by collect_id desc
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="countByUserId" resultType="int">
+        select count(*) from (
+        <if test="collectType == 0 or collectType == 1 ">
+            select a.user_id as user_id, a.collectt_id as collect_id, 1 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sa.article_title as title,sa.category_id as category_id,sa.content as content,sa.image_url as
+            image_url,sa.author as author,
+            sa.read_count as read_count,sa.collect_count as collect_count,sa.comment_count as comment_count,
+            null as file_url,null as vod_time
+            from usr_collect a
+            join sys_articles sa on a.collect_type = 1 and a.object_id = sa.article_id and sa.status = 1
+            where a.status = 1
+            union all
+        </if>
+        <if test="collectType == 0 or collectType == 2 ">
+            select a.user_id as user_id, a.collectt_id as collect_id, 2 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sc.course_name as title,sc.category_id as category_id,sc.content as content,sc.image_url as image_url,null
+            as author,
+            sc.read_count as read_count,sc.collect_count as collect_count,null as comment_count,
+            null as file_url,null as vod_time
+            from usr_collect a
+            join sys_course sc on a.collect_type = 2 and a.object_id = sc.course_id and sc.status = 1
+            where a.status = 1
+            union all
+        </if>
+        <if test="collectType == 0 or collectType == 3 ">
+            select a.user_id as user_id, a.collectt_id as collect_id, 3 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sf.fm_title as title,null as category_id,sf.content as content,sf.image_url as image_url,sf.author as
+            author,
+            sf.read_count as read_count,sf.collect_count as collect_count,sf.comment_count as comment_count,
+            sf.file_url as file_url,null as vod_time
+            from usr_collect a
+            join sys_fms sf on a.collect_type = 3 and a.object_id = sf.fm_id and sf.status = 1
+            where a.status = 1
+            union all
+        </if>
+        <if test="collectType == 0 or collectType == 4 ">
+            select a.user_id as user_id,a.collectt_id as collect_id, 4 as collect_type,a.object_id as object_id,
+            a.creat_time as collect_create_time,
+            sv.vod_title as title,null as category_id,sv.content as content,sv.image_url as image_url,sv.author as
+            author,
+            sv.read_count as read_count,sv.collect_count as collect_count,sv.comment_count as comment_count,
+            sv.file_url as file_url,sv.vod_time as vod_time
+            from usr_collect a
+            join sys_vods sv on a.collect_type = 4 and a.object_id = sv.vod_id and sv.status = 1
+            where a.status = 1
+            union all
+        </if>
+        select * from cs_user where id = null
+        ) as collect_list where user_id = #{userId};
+    </select>
+    <select id="getCollectByUniqueId" resultType="com.neteye.xinzhizhu.domain.CollectDO">
+        select `collectt_id`,`user_id`,`collect_type`,`object_id`,`creat_time`,`status` from usr_collect
+        <where>
+            <if test="userId != null and userId != ''">and user_id = #{userId}</if>
+            <if test="collectType != null and collectType != ''">and collect_type = #{collectType}</if>
+            <if test="objectId != null and objectId != ''">and object_id = #{objectId}</if>
+            <if test="status != null and status != ''">and status = #{status}</if>
+        </where>
+    </select>
 </mapper>

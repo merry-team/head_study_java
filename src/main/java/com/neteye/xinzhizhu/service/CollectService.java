@@ -1,6 +1,7 @@
 package com.neteye.xinzhizhu.service;
 
 import com.neteye.xinzhizhu.domain.CollectDO;
+import com.neteye.xinzhizhu.domain.UserCollectDO;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ public interface CollectService {
 	List<CollectDO> list(Map<String, Object> map);
 	
 	int count(Map<String, Object> map);
-	
+
 	int save(CollectDO collect);
 	
 	int update(CollectDO collect);
@@ -29,4 +30,10 @@ public interface CollectService {
 	int batchRemove(Integer[] collecttIds);
 	
 	int read(CollectDO collect);
+
+	List<UserCollectDO> getCollectsByUserId(Map<String, Object> map);
+
+	int countByUserId(Map<String, Object> map);
+
+	CollectDO getCollectByUniqueId(Map<String, Object> map);
 }

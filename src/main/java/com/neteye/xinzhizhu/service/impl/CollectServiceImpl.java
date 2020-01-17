@@ -1,5 +1,6 @@
 package com.neteye.xinzhizhu.service.impl;
 
+import com.neteye.xinzhizhu.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +12,6 @@ import com.neteye.xinzhizhu.dao.CollectDao;
 import com.neteye.xinzhizhu.dao.CourseDao;
 import com.neteye.xinzhizhu.dao.FmsDao;
 import com.neteye.xinzhizhu.dao.VodsDao;
-import com.neteye.xinzhizhu.domain.ArticlesDO;
-import com.neteye.xinzhizhu.domain.CollectDO;
-import com.neteye.xinzhizhu.domain.CourseDO;
-import com.neteye.xinzhizhu.domain.FmsDO;
-import com.neteye.xinzhizhu.domain.VodsDO;
 import com.neteye.xinzhizhu.service.CollectService;
 
 
@@ -47,7 +43,7 @@ public class CollectServiceImpl implements CollectService {
 	public int count(Map<String, Object> map){
 		return collectDao.count(map);
 	}
-	
+
 	@Override
 	public int save(CollectDO collect){
 		if(collect.getCollectType().equals(1)) {
@@ -76,28 +72,30 @@ public class CollectServiceImpl implements CollectService {
 	
 	@Override
 	public int update(CollectDO collect){
+		int status = 1;
 		if(collect.getStatus().equals(-1)) {
-			if(collect.getCollectType().equals(1)) {
-				ArticlesDO articles = new ArticlesDO();
-				articles.setArticleId(collect.getObjectId());
-				articles.setCollectCount(-1);
-				articlesDao.updateplus(articles);
-			}else if(collect.getCollectType().equals(2)) {
-				CourseDO course = new CourseDO();
-				course.setCollectCount(-1);
-				course.setCourseId(collect.getObjectId());
-				courseDao.updateplus(course);
-			}else if(collect.getCollectType().equals(3)) {
-				FmsDO fms = new FmsDO();
-				fms.setCollectCount(-1);
-				fms.setFmId(collect.getObjectId());
-				fmsDao.updateplus(fms);
-			}else if(collect.getCollectType().equals(4)) {
-				VodsDO vods = new VodsDO();
-				vods.setCollectCount(-1);
-				vods.setVodId(collect.getObjectId());
-				vodsDao.updateplus(vods);
-			}
+			status = -1;
+		}
+		if(collect.getCollectType().equals(1)) {
+			ArticlesDO articles = new ArticlesDO();
+			articles.setArticleId(collect.getObjectId());
+			articles.setCollectCount(status);
+			articlesDao.updateplus(articles);
+		}else if(collect.getCollectType().equals(2)) {
+			CourseDO course = new CourseDO();
+			course.setCollectCount(status);
+			course.setCourseId(collect.getObjectId());
+			courseDao.updateplus(course);
+		}else if(collect.getCollectType().equals(3)) {
+			FmsDO fms = new FmsDO();
+			fms.setCollectCount(status);
+			fms.setFmId(collect.getObjectId());
+			fmsDao.updateplus(fms);
+		}else if(collect.getCollectType().equals(4)) {
+			VodsDO vods = new VodsDO();
+			vods.setCollectCount(status);
+			vods.setVodId(collect.getObjectId());
+			vodsDao.updateplus(vods);
 		}
 		return collectDao.update(collect);
 	}
@@ -138,5 +136,20 @@ public class CollectServiceImpl implements CollectService {
 			courseDao.updateplus(course);
 		}
 		return 1;
+	}
+
+	@Override
+	public List<UserCollectDO> getCollectsByUserId(Map<String, Object> map) {
+		return collectDao.getCollectsByUserId(map);
+	}
+
+	@Override
+	public int countByUserId(Map<String, Object> map) {
+		return collectDao.countByUserId(map);
+	}
+
+	@Override
+	public CollectDO getCollectByUniqueId(Map<String, Object> map) {
+		return collectDao.getCollectByUniqueId(map);
 	}
 }
