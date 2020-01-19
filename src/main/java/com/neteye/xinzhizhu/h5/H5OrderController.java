@@ -9,6 +9,7 @@ import com.neteye.xinzhizhu.service.ApiOrderGoodsService;
 import com.neteye.xinzhizhu.service.ApiOrderService;
 import com.neteye.xinzhizhu.utils.ApiBaseAction;
 import com.neteye.xinzhizhu.utils.ApiPageUtils;
+import com.neteye.xinzhizhu.utils.ApiRRException;
 import com.neteye.xinzhizhu.utils.Query;
 import com.neteye.xinzhizhu.utils.wechat.WechatRefundApiResult;
 import com.neteye.xinzhizhu.utils.wechat.WechatUtil;
@@ -41,15 +42,6 @@ public class H5OrderController extends ApiBaseAction {
     @Autowired
     private ApiOrderGoodsService orderGoodsService;
 
-    /**
-     */
-    @ApiOperation(value = "订单首页")
-    @IgnoreAuth
-    @PostMapping("index")
-    public Object index() {
-        //
-        return toResponsSuccess("");
-    }
 
     /**
      * 获取订单列表
@@ -59,8 +51,11 @@ public class H5OrderController extends ApiBaseAction {
     public Object list(@LoginUser UserVo loginUser,
                        @RequestParam(value = "page", defaultValue = "1") Integer page,
                        @RequestParam(value = "size", defaultValue = "10") Integer size) {
-        //
-    	loginUser = getUser();
+        try {
+            loginUser = getUser();
+        } catch (ApiRRException e) {
+            return toResponsObject(401, "请先登录", "");
+        }
         Map params = new HashMap();
         params.put("user_id", loginUser.getUserId());
         params.put("page", page);
